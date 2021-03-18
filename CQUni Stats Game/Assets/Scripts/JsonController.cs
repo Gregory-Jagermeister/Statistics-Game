@@ -1,13 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Video;
+using UnityEngine.Networking;
 using System.IO;
 
 
 public class JsonController : MonoBehaviour
 {
-
-
+    public Text heading;
+    public Text content;
+    public VideoPlayer player;
+    public RawImage image;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -20,18 +26,47 @@ public class JsonController : MonoBehaviour
         JsonData loadedData = JsonUtility.FromJson<JsonData>(json);
 
         // use that object to display some output to console. if all is going to plan this should display the values in the json file.
-        Debug.Log("name: " + loadedData.name);
         Debug.Log("Image: " + loadedData.imagePath);
         Debug.Log("Video: " + loadedData.videoUrl);
-        Debug.Log("text: " + loadedData.text);
+        Debug.Log("heading: " + loadedData.heading);
+        Debug.Log("content:" + loadedData.content);
+
+        //Set the JSON information to the correct elements.
+        heading.text = loadedData.heading;
+        content.text = loadedData.content;
+
+        if (!(loadedData.videoUrl.ToLower() == "none"))
+        {
+            player.url = loadedData.videoUrl;
+        }
+
+        if (!(loadedData.imagePath.ToLower() == "none"))
+        {
+            StartCoroutine(DownloadImage(loadedData.imagePath));
+        }
+
+    }
+
+    public IEnumerator DownloadImage(string URL){
+        UnityWebRequest request = UnityWebRequestTexture.GetTexture(URL);
+        
+        yield return request.SendWebRequest();
+        if(request.isNetworkError || request.isHttpError)
+        {
+            Debug.Log(request.error);
+        }
+        else
+        {
+            image.texture = ((DownloadHandlerTexture) request.downloadHandler).texture;
+        }
     }
 
     private class JsonData 
     {
-        public string name;
         public string imagePath;
         public string videoUrl;
-        public string text;
+        public string heading;
+        public string content;
     }
 
 }
