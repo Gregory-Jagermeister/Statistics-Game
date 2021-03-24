@@ -7,13 +7,14 @@ using UnityEngine.Networking;
 using System.IO;
 
 
+
 public class JsonController : MonoBehaviour
 {
     public Text heading;
     public Text content;
-    public VideoPlayer player;
+    public VideoController player;
     public RawImage image;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,31 +38,52 @@ public class JsonController : MonoBehaviour
 
         if (!(loadedData.videoUrl.ToLower() == "none"))
         {
-            player.url = loadedData.videoUrl;
+            player.VIDEO_LINK = loadedData.videoUrl;
         }
 
         if (!(loadedData.imagePath.ToLower() == "none"))
         {
             StartCoroutine(DownloadImage(loadedData.imagePath));
+            //CanvasExtentions.SizeToParent(image, 100);
         }
 
     }
 
-    public IEnumerator DownloadImage(string URL){
+    public IEnumerator DownloadImage(string URL)
+    {
         UnityWebRequest request = UnityWebRequestTexture.GetTexture(URL);
-        
+
         yield return request.SendWebRequest();
-        if(request.isNetworkError || request.isHttpError)
+        if (request.isNetworkError || request.isHttpError)
         {
             Debug.Log(request.error);
         }
         else
         {
-            image.texture = ((DownloadHandlerTexture) request.downloadHandler).texture;
+            image.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
+            image.SetNativeSize();
+            ResizeImage(image);
+
         }
     }
 
-    private class JsonData 
+    public void ResizeImage(RawImage i)
+    {
+        if (i.rectTransform.sizeDelta.x > 256 && i.rectTransform.sizeDelta.y > 256)
+        {
+            i.rectTransform.sizeDelta = new Vector2(i.rectTransform.sizeDelta.x / 2, i.rectTransform.sizeDelta.y / 2);
+            ResizeImage(i);
+        }
+        else
+        {
+            return;
+        }
+
+    }
+
+
+
+    private class JsonData
     {
         public string imagePath;
         public string videoUrl;
