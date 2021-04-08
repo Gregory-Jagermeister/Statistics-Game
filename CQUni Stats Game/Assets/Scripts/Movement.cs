@@ -27,7 +27,7 @@ public class Movement : MonoBehaviour
         //transform.Translate( velocity * Time.deltaTime);
 
         //Daniels Edit
-        player.MovePosition(transform.position + velocity * Time.deltaTime * speed);
+        player.MovePosition(transform.position + velocity * Time.fixedDeltaTime * speed);
 
     }
 }
