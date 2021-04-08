@@ -21,13 +21,11 @@ public class Movement : MonoBehaviour
         //Finally use this vector to translate the transform of this gameObject
 
         velocity = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
-        //velocity.Normalize();
-        //velocity.x = velocity.x * speed;
-        //velocity.y = velocity.y * speed;
-        //transform.Translate( velocity * Time.deltaTime);
-
+        
         //Daniels Edit
-        player.MovePosition(transform.position + velocity * Time.fixedDeltaTime * speed);
+        player.MovePosition(transform.position + velocity * Time.fixedDeltaTime *speed);
 
     }
+
+    
 }
