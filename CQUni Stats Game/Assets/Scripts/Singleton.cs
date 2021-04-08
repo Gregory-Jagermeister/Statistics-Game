@@ -1,23 +1,25 @@
 using UnityEngine;
 
-public abstract class Singleton : MonoBehaviour
+public abstract class Singleton<T> : MonoBehaviour where T : class
 {
-
-    private static readonly Singleton instance = new Singleton();
-    // Explicit static constructor to tell C# compiler  
-    // not to mark type as beforefieldinit  
-    static Singleton()
-    {
-    }
-    private Singleton()
-    {
-    }
-    public static Singleton Instance
+    /// <summary>
+    /// SingletoneBase instance back field
+    /// </summary>
+    private static T instance = null;
+    /// <summary>
+    /// SingletoneBase instance
+    /// </summary>
+    public static T Instance
     {
         get
         {
+            if (instance == null)
+            {
+                instance = GameObject.FindObjectOfType(typeof(T)) as T;
+                if (instance == null)
+                    Debug.LogError("SingletoneBase<T>: Could not found GameObject of type " + typeof(T).Name);
+            }
             return instance;
         }
     }
-
 }
