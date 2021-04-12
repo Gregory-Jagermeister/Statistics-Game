@@ -9,6 +9,7 @@ public class ArtifactMenu : MonoBehaviour
     public Text Heading;
     public Text Content;
     public GameObject Media;
+    public JsonController json;
     
 
     public bool artifactMenuOpen = false;
@@ -35,15 +36,14 @@ public class ArtifactMenu : MonoBehaviour
 
     public void OpenMenu(string ID)
     {
-        Debug.Log("YO");
+        json.getExhibit(ID);
+
         Background.gameObject.SetActive(true);
         Heading.gameObject.SetActive(true);
         Content.gameObject.SetActive(true);
         Media.gameObject.SetActive(true);
 
-        artifactMenuOpen = true;
-        Debug.Log(artifactMenuOpen);
-
+        artifactMenuOpen = true;      
         Time.timeScale = 0;
 
     }
@@ -57,6 +57,11 @@ public class ArtifactMenu : MonoBehaviour
         artifactMenuOpen =false;
         Time.timeScale = 1;
 
+
+    }
+
+    public void UpdateMenu()
+    {
 
     }
 

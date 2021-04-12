@@ -14,6 +14,8 @@ public class JsonController : MonoBehaviour
     public Text content;
     public VideoController player;
     public RawImage image;
+   
+    private List<JsonData> exhibits = new List<JsonData>();
 
 
     // Start is called before the first frame update
@@ -25,8 +27,15 @@ public class JsonController : MonoBehaviour
 
         //load the read file into an object
         AllJsonData loadedData = JsonUtility.FromJson<AllJsonData>(json);
+        
+        foreach (JsonData item in loadedData.art)
+        {
+           exhibits.Add(item);         
+        }
 
-        Debug.Log(loadedData.art[1].artifactId);
+
+        //Debug.Log(loadedData.art[0].artifactId);
+        //Debug.Log(loadedData.art[1].artifactId);
 
         // use that object to display some output to console. if all is going to plan this should display the values in the json file.
         // Debug.Log("Image: " + loadedData.imagePath);
@@ -80,6 +89,41 @@ public class JsonController : MonoBehaviour
         {
             return;
         }
+
+    }
+
+    public void getExhibit(string ID)
+    {
+        bool matchFound =false;
+
+        foreach (JsonData item in exhibits)
+        {
+           if (ID == item.artifactId)
+            {
+                matchFound = true; 
+
+                //Set the JSON information to the correct elements.
+                heading.text = item.heading;
+                content.text = item.content;
+
+                if (!(item.videoUrl.ToLower() == "none"))
+                {
+                    player.VIDEO_LINK = item.videoUrl;
+                }
+
+                if (!(item.imagePath.ToLower() == "none"))
+                {
+                    StartCoroutine(DownloadImage(item.imagePath));
+                    CanvasExtentions.SizeToParent(image, 100);
+                }
+            }
+        }
+
+        if(!matchFound)
+        {
+            Debug.Log("artifact ID not found");
+        }
+        
 
     }
 
