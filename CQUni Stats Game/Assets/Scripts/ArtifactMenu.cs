@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 public class ArtifactMenu : MonoBehaviour
 {
-    public GameObject Background;
-    public Text Heading;
-    public Text Content;
-    public GameObject Media;
+    public GameObject background;
+    public Text heading;
+    public Text content;
+    public GameObject media;
+
+    public VideoController player;
+    public RawImage image;
+
     public JsonController json;
     
 
@@ -36,12 +40,28 @@ public class ArtifactMenu : MonoBehaviour
 
     public void OpenMenu(string ID)
     {
-        json.getExhibit(ID);
+        string[] exhibits = new string[5];
+        exhibits= json.getExhibit(ID);
+        Debug.Log(exhibits[0]);
+//Set the JSON information to the correct elements.
+        heading.text = exhibits[3];
+        content.text = exhibits[4];
 
-        Background.gameObject.SetActive(true);
-        Heading.gameObject.SetActive(true);
-        Content.gameObject.SetActive(true);
-        Media.gameObject.SetActive(true);
+            if (!(exhibits[2].ToLower() == "none"))
+            {
+                player.VIDEO_LINK = exhibits[2];
+            }
+
+            if (!(exhibits[1].ToLower() == "none"))
+            {
+                json.DLImage(exhibits[1],image);
+            }
+        
+
+        background.gameObject.SetActive(true);
+        heading.gameObject.SetActive(true);
+        content.gameObject.SetActive(true);
+        media.gameObject.SetActive(true);
 
         artifactMenuOpen = true;      
         Time.timeScale = 0;
@@ -50,10 +70,10 @@ public class ArtifactMenu : MonoBehaviour
     
     public void CloseMenu()
     {
-        Background.gameObject.SetActive(false);
-        Heading.gameObject.SetActive(false);
-        Content.gameObject.SetActive(false);
-        Media.gameObject.SetActive(false);
+        background.gameObject.SetActive(false);
+        heading.gameObject.SetActive(false);
+        content.gameObject.SetActive(false);
+        media.gameObject.SetActive(false);
         artifactMenuOpen =false;
         Time.timeScale = 1;
 

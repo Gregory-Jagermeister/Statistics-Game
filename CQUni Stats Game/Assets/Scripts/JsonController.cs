@@ -8,14 +8,15 @@ using System.IO;
 
 
 
-public class JsonController : MonoBehaviour
+public class JsonController :MonoBehaviour
 {
     public Text heading;
     public Text content;
     public VideoController player;
     public RawImage image;
    
-    private List<JsonData> exhibits = new List<JsonData>();
+    AllJsonData loadedData;
+    
 
 
     // Start is called before the first frame update
@@ -26,14 +27,9 @@ public class JsonController : MonoBehaviour
         string json = File.ReadAllText(Application.dataPath + "/Information.json");
 
         //load the read file into an object
-        AllJsonData loadedData = JsonUtility.FromJson<AllJsonData>(json);
+        loadedData = JsonUtility.FromJson<AllJsonData>(json);
         
-        foreach (JsonData item in loadedData.art)
-        {
-           exhibits.Add(item);         
-        }
-
-
+      
         //Debug.Log(loadedData.art[0].artifactId);
         //Debug.Log(loadedData.art[1].artifactId);
 
@@ -60,7 +56,7 @@ public class JsonController : MonoBehaviour
 
     }
 
-    public IEnumerator DownloadImage(string URL)
+    private IEnumerator DownloadImage(string URL)
     {
         UnityWebRequest request = UnityWebRequestTexture.GetTexture(URL);
 
@@ -78,6 +74,13 @@ public class JsonController : MonoBehaviour
         }
     }
 
+    public void DLImage(string imagePath,RawImage imgTexture)
+    {
+        StartCoroutine(DownloadImage(imagePath));
+        CanvasExtentions.SizeToParent(imgTexture, 100);
+
+    }
+    
     public void ResizeImage(RawImage i)
     {
         if (i.rectTransform.sizeDelta.x > 256 && i.rectTransform.sizeDelta.y > 256)
@@ -92,11 +95,34 @@ public class JsonController : MonoBehaviour
 
     }
 
-    public void getExhibit(string ID)
+
+    public string[] getExhibit(string ID)
     {
+        bool matchFound = false;
+        string[] exhibits = new string[5];
+        foreach (JsonData item in loadedData.art)
+        {
+           if (ID == item.artifactId)
+            {
+                matchFound = true; 
+                
+                exhibits[0]= item.artifactId;
+                exhibits[1]=item.imagePath;
+                exhibits[2]=item.videoUrl;
+                exhibits[3]=item.heading;
+                exhibits[4]=item.content;
+            }
+        }
+        
+        if(!matchFound)
+        {
+            Debug.Log("artifact ID not found");
+        }
+        return exhibits;
+        /*moved in a refactor to a UI manager
         bool matchFound =false;
 
-        foreach (JsonData item in exhibits)
+        foreach (JsonData item in loadedData.art)
         {
            if (ID == item.artifactId)
             {
@@ -123,7 +149,7 @@ public class JsonController : MonoBehaviour
         {
             Debug.Log("artifact ID not found");
         }
-        
+        */
 
     }
 

@@ -236,11 +236,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc21b0be89472e44e82b9b0e638505d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Background: {fileID: 998382931}
-  Heading: {fileID: 1288906648}
-  Content: {fileID: 1254511514}
-  Media: {fileID: 1538258897}
-  json: {fileID: 46209173}
+  background: {fileID: 998382931}
+  heading: {fileID: 1288906648}
+  content: {fileID: 1254511514}
+  media: {fileID: 1538258897}
+  player: {fileID: 81784098}
+  image: {fileID: 1242992818}
+  json: {fileID: 0}
   artifactMenuOpen: 0
 --- !u!1 &46209172
 GameObject:
@@ -268,13 +270,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 46209172}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78a58dc5683330a4b896027b65cb3917, type: 3}
+  m_Script: {fileID: 11500000, guid: a056a5e51ab97e44194bf6c2ee9fd893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heading: {fileID: 1288906648}
-  content: {fileID: 1254511514}
-  player: {fileID: 81784098}
-  image: {fileID: 1242992818}
 --- !u!4 &46209174
 Transform:
   m_ObjectHideFlags: 0
