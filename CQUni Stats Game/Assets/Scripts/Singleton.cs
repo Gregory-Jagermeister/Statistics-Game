@@ -22,7 +22,4 @@ public abstract class Singleton<T> : MonoBehaviour where T : class
             return instance;
         }
     }
-
-
-    
 }
