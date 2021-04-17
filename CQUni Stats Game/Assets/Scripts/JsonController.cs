@@ -10,10 +10,6 @@ using System.IO;
 
 public class JsonController :MonoBehaviour
 {
-    public Text heading;
-    public Text content;
-    public VideoController player;
-    public RawImage image;
    
     AllJsonData loadedData;
     
@@ -56,7 +52,7 @@ public class JsonController :MonoBehaviour
 
     }
 
-    private IEnumerator DownloadImage(string URL)
+    private IEnumerator DownloadImage(string URL,RawImage image)
     {
         UnityWebRequest request = UnityWebRequestTexture.GetTexture(URL);
 
@@ -76,7 +72,7 @@ public class JsonController :MonoBehaviour
 
     public void DLImage(string imagePath,RawImage imgTexture)
     {
-        StartCoroutine(DownloadImage(imagePath));
+        StartCoroutine(DownloadImage(imagePath,imgTexture));
         CanvasExtentions.SizeToParent(imgTexture, 100);
 
     }
