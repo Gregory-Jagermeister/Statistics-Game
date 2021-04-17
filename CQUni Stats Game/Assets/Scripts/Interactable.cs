@@ -7,6 +7,8 @@ public class Interactable : MonoBehaviour
     // Start is called before the first frame update
     Movement player;
     public float radius = 2f; 
+    public string artifactID;
+    public ArtifactMenu menu;
     void Start()
     {
         player = GameObject.FindObjectOfType<Movement>();
@@ -25,7 +27,7 @@ public class Interactable : MonoBehaviour
             
             if(Input.GetButtonDown("Interact"))
             {
-                Debug.Log("you clicked on an artifact");
+               menu.OpenMenu(artifactID);
 
             }
 
