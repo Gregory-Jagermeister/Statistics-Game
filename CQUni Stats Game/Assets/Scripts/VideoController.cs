@@ -7,10 +7,10 @@ using YoutubePlayer;
 public class VideoController : MonoBehaviour
 {
 
-    
+
     private VideoPlayer player;
     private string videoUrl;
-    
+
     public string VIDEO_LINK
     {
         get
@@ -29,17 +29,20 @@ public class VideoController : MonoBehaviour
         //get the video player component.
         player = this.GetComponent<VideoPlayer>();
         //This will set the processing server that the youtube player uses, change this if you would like to use your own implementation.
-        //YoutubeDl.ServerUrl = "https://statsgamevideoserver.herokuapp.com/";
+        YoutubeDl.ServerUrl = "https://statsgamevideoserver.herokuapp.com";
     }
 
     public void PlayMedia()
     {
         if (string.IsNullOrEmpty(player.url))
         {
-            FindMedia(videoUrl);   
+            FindMedia(videoUrl);
         }
-    
-        
+        else
+        {
+            Debug.Log("No Video URL");
+        }
+
         player.Play();
     }
 
@@ -50,8 +53,8 @@ public class VideoController : MonoBehaviour
 
     public async void FindMedia(string url)
     {
-        await VideoPlayerExtensions.PlayYoutubeVideoAsync(player,url);
-        
+        await VideoPlayerExtensions.PlayYoutubeVideoAsync(player, url);
+
     }
 
 }

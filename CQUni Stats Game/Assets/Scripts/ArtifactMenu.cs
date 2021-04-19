@@ -18,7 +18,7 @@ public class ArtifactMenu : MonoBehaviour
     public JsonController json;
 
 
-    public bool artifactMenuOpen = false;
+    private bool artifactMenuOpen = false;
 
     void Start()
     {
@@ -58,6 +58,8 @@ public class ArtifactMenu : MonoBehaviour
         if (!(exhibits[2].ToLower() == "none"))
         {
             player.VIDEO_LINK = exhibits[2];
+            media.gameObject.SetActive(true);
+            player.PlayMedia();
         }
 
         if (!(exhibits[1].ToLower() == "none"))
@@ -69,7 +71,7 @@ public class ArtifactMenu : MonoBehaviour
         background.gameObject.SetActive(true);
         heading.gameObject.SetActive(true);
         content.gameObject.SetActive(true);
-        media.gameObject.SetActive(true);
+
 
         artifactMenuOpen = true;
         Time.timeScale = 0;
@@ -93,6 +95,12 @@ public class ArtifactMenu : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// The Coroutine that Downloads the image from a URL for use and sets it to a texture
+    /// </summary>
+    /// <param name="URL">The URL of the image location</param>
+    /// <param name="image">The RawImage Unity Gameobject to set the image to</param>
+    /// <returns></returns>
     private IEnumerator DownloadImage(string URL, RawImage image)
     {
         UnityWebRequest request = UnityWebRequestTexture.GetTexture(URL);
@@ -111,6 +119,11 @@ public class ArtifactMenu : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Downloads the image by using the "DownloadImage" Coroutine and sets the size of image to fit the parent
+    /// </summary>
+    /// <param name="imagePath"></param>
+    /// <param name="imgTexture"></param>
     public void DLImage(string imagePath, RawImage imgTexture)
     {
         StartCoroutine(DownloadImage(imagePath, imgTexture));
@@ -118,6 +131,10 @@ public class ArtifactMenu : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Resizes the image to fit the requires ratio.
+    /// </summary>
+    /// <param name="i"></param>
     public void ResizeImage(RawImage i)
     {
         if (i.rectTransform.sizeDelta.x > 256 && i.rectTransform.sizeDelta.y > 256)
