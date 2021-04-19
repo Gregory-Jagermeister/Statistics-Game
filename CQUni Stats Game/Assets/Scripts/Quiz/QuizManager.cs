@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+ //code was adapted or obtained from youtube videos made by Awesome Tuts, Brackeys and The Game Guy
 public class QuizManager : MonoBehaviour
 {
     public List<Questions> questions;
