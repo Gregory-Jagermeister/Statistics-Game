@@ -156,6 +156,7 @@ RectTransform:
   - {fileID: 1288906646}
   - {fileID: 1254511512}
   - {fileID: 1538258898}
+  - {fileID: 1664064358}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -242,8 +243,6 @@ MonoBehaviour:
   media: {fileID: 1538258897}
   player: {fileID: 81784098}
   image: {fileID: 1242992818}
-  json: {fileID: 46209175}
-  artifactMenuOpen: 0
 --- !u!1 &46209172
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +253,6 @@ GameObject:
   m_Component:
   - component: {fileID: 46209174}
   - component: {fileID: 46209173}
-  - component: {fileID: 46209175}
   m_Layer: 0
   m_Name: JSON Handler
   m_TagString: Untagged
@@ -288,18 +286,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &46209175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 46209172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78a58dc5683330a4b896027b65cb3917, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &81784092
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,7 +367,7 @@ VideoPlayer:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: https://r4---sn-p5qs7nek.googlevideo.com/videoplayback?expire=1616607582&ei=_iRbYOb8IcazgwOnurboAQ&ip=54.160.200.197&id=o-AB06YoZjqgqDlFAt1mWiC0KgzebBX1BfKTcVgqdbWpu3&itag=22&source=youtube&requiressl=yes&mh=qT&mm=31%2C29&mn=sn-p5qs7nek%2Csn-p5qlsndr&ms=au%2Crdu&mv=m&mvi=4&pl=14&initcwndbps=770000&vprv=1&mime=video%2Fmp4&ns=_VjwD2FCkmM1aQqIaANCt2kF&cnr=14&ratebypass=yes&dur=63.854&lmt=1615359231881429&mt=1616585809&fvip=4&fexp=24001373%2C24007246&c=WEB&txp=5532434&n=EDMtw2hRb0VmfSERTjdDE&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRgIhAI_4nbywaxGKsHcUACZWWozdSduJpt_mDqcI0YPE4uNqAiEA5U2eUwvXlyoVRVMdNVr4biHZlaqXoWRMYcy9IvuHPwU%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRAIgUsd6gSW6mT84QdReORYnpFtoOBJkLh4xkL1I0UWzhYYCIHSc10UZbsp3AuyCY0GZOaz5NpjkcFHv6sCTklBaq9GJ
+  m_Url: 
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
@@ -2386,6 +2372,72 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.9501, y: 1.047699}
   m_EdgeRadius: 0
+--- !u!1 &1664064357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1664064358}
+  - component: {fileID: 1664064360}
+  - component: {fileID: 1664064359}
+  m_Layer: 5
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1664064358
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664064357}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 44747837}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1664064359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664064357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1664064360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664064357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!1 &1956947730
 GameObject:
   m_ObjectHideFlags: 0
@@ -2926,7 +2978,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2
-  artifactID: Exhibit1
   menu: {fileID: 44747841}
 --- !u!114 &2063133967
 MonoBehaviour:
