@@ -34,13 +34,10 @@ public class VideoController : MonoBehaviour
 
     public void PlayMedia()
     {
-        if (string.IsNullOrEmpty(player.url))
+        Debug.Log(player.isPrepared);
+        if (!player.isPrepared)
         {
             FindMedia(videoUrl);
-        }
-        else
-        {
-            Debug.Log("No Video URL");
         }
 
         player.Play();
@@ -51,10 +48,15 @@ public class VideoController : MonoBehaviour
         player.Pause();
     }
 
+    public void ClearMedia()
+    {
+        player.Stop();
+    }
+
     public async void FindMedia(string url)
     {
         await VideoPlayerExtensions.PlayYoutubeVideoAsync(player, url);
-
+        Debug.Log(player.isPrepared);
     }
 
 }
