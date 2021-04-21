@@ -6,11 +6,13 @@ public class Movement : MonoBehaviour
 {
     private Rigidbody2D player;
     private Vector3 velocity;
+    private Animator animator;
     public float speed = 10f;
 
     private void Start()
     {
         player = this.GetComponent<Rigidbody2D>();
+        animator = this.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -21,11 +23,31 @@ public class Movement : MonoBehaviour
         //Finally use this vector to translate the transform of this gameObject
 
         velocity = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
-        
+
         //Daniels Edit
-        player.MovePosition(transform.position + velocity * Time.fixedDeltaTime *speed);
+
+        //If the player is moving then set the player sprite to animate.
+        if (velocity.x != 0 || velocity.y != 0)
+        {
+            animator.SetFloat("Speed", 1);
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0);
+        }
+        player.MovePosition(transform.position + velocity * Time.fixedDeltaTime * speed);
+        if (velocity.x > 0)
+        {
+            transform.localScale = new Vector2(1, transform.localScale.y);
+        }
+        else if (velocity.x < 0)
+        {
+            transform.localScale = new Vector2(-1, transform.localScale.y);
+        }
+
+
 
     }
 
-    
+
 }
