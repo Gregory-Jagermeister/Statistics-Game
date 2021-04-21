@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Interactable : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Interactable : MonoBehaviour
     Movement player;
     public float radius = 2f;
     public ArtifactMenu menu;
+    public bool isProf =false;
+    public string sceneNameTransition = "Quiz";
     void Start()
     {
         //Find the Player gameobject and if there isn't one log it to console.
@@ -26,7 +29,16 @@ public class Interactable : MonoBehaviour
         {
             if (Input.GetButtonDown("Interact"))
             {
-                menu.OpenMenu(this.gameObject.name);
+                if (isProf)
+                {
+                    SceneManager.LoadScene(sceneNameTransition);
+                }
+                else
+                {
+                    menu.OpenMenu(this.gameObject.name);
+                }
+                
+                
             }
 
         }

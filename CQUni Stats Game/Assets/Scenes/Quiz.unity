@@ -964,6 +964,8 @@ MonoBehaviour:
   multiChoicePanel: {fileID: 2141303719}
   InputPanel: {fileID: 204793383}
   input: {fileID: 1709633767}
+  nextSceneNameTransition: PlayerControlLaith
+  pastSceneNameTransition: PlayerControlLaith
 --- !u!4 &691165805
 Transform:
   m_ObjectHideFlags: 0
@@ -2265,7 +2267,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 691165804}
-        m_MethodName: ReloadScene
+        m_MethodName: LoadPrevScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
