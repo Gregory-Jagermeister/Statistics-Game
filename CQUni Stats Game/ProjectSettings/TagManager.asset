@@ -38,6 +38,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 581102935
+    locked: 0
+  - name: Shadows
+    uniqueID: 3692952735
+    locked: 0
+  - name: Entities
+    uniqueID: 490665771
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

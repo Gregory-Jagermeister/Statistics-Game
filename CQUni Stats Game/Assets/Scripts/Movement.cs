@@ -8,11 +8,13 @@ public class Movement : MonoBehaviour
     private Vector3 velocity;
     private Animator animator;
     public float speed = 10f;
+    private SpriteRenderer sprite;
 
     private void Start()
     {
         player = this.GetComponent<Rigidbody2D>();
         animator = this.GetComponent<Animator>();
+        sprite = this.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -36,6 +38,8 @@ public class Movement : MonoBehaviour
             animator.SetFloat("Speed", 0);
         }
         player.MovePosition(transform.position + velocity * Time.fixedDeltaTime * speed);
+        sprite.sortingOrder = (int)(transform.position.y * -100);
+
         if (velocity.x > 0)
         {
             transform.localScale = new Vector2(1, transform.localScale.y);
