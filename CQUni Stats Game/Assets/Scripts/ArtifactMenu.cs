@@ -24,7 +24,8 @@ public class ArtifactMenu : MonoBehaviour
     {
         //Shortform for the Gamemanger instance making it easier to access, Store the address to this on start of the scene
         json = GameManager.Instance.GetJson();
-        CloseMenu();
+        CloseMenuAtStart();
+
     }
 
     // Update is called once per frame
@@ -38,13 +39,6 @@ public class ArtifactMenu : MonoBehaviour
             }
 
         }
-        else
-        {
-            //CloseMenu();
-
-        }
-
-
     }
 
     public void OpenMenu(string ID)
@@ -85,6 +79,18 @@ public class ArtifactMenu : MonoBehaviour
         content.gameObject.SetActive(false);
         media.gameObject.SetActive(false);
         player.ClearMedia();
+        artifactMenuOpen = false;
+        Time.timeScale = 1;
+
+
+    }
+
+    public void CloseMenuAtStart()
+    {
+        background.gameObject.SetActive(false);
+        heading.gameObject.SetActive(false);
+        content.gameObject.SetActive(false);
+        media.gameObject.SetActive(false);
         artifactMenuOpen = false;
         Time.timeScale = 1;
 
