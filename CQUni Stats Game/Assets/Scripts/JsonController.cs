@@ -2,51 +2,48 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.Networking;
 
 
 
-public class JsonController
+public class JsonController : MonoBehaviour
 {
-
     private AllJsonData loadedData;
+    private string json;
 
-
-
-    // Start is called before the first frame update
-    public JsonController()
+    public void GetJson()
     {
         //Using Application.dataPath (location of data folder that unity will look for) read the JSON file called
         //Information.json
-        string json = File.ReadAllText(Application.dataPath + "/Information.json");
 
-        //load the read file into an object
-        loadedData = JsonUtility.FromJson<AllJsonData>(json);
+        /*       using (var webClient = new System.Net.WebClient())
+              {
+                  json = webClient.DownloadString("https://drive.google.com/uc?export=download&id=1AdlqF_1IWYO0LGF-XMgXPtQpKEKRHwBW");
+                  // Now parse with JSON.Net
+                  Debug.Log(json);
+                  loadedData = JsonUtility.FromJson<AllJsonData>(json);
+              } */
+        //json = File.ReadAllText(Application.dataPath + "/Information.json");
+        StartCoroutine(GetData("https://boiling-cliffs-78685.herokuapp.com/https://www.drive.google.com/uc?export=download&id=1AdlqF_1IWYO0LGF-XMgXPtQpKEKRHwBW"));
 
+    }
 
-        //Debug.Log(loadedData.art[0].artifactId);
-        //Debug.Log(loadedData.art[1].artifactId);
+    IEnumerator GetData(string URL)
+    {
+        UnityWebRequest request = UnityWebRequest.Get(URL);
+        request.SetRequestHeader("Access-Control-Allow-Origin", "*");
 
-        // use that object to display some output to console. if all is going to plan this should display the values in the json file.
-        // Debug.Log("Image: " + loadedData.imagePath);
-        // Debug.Log("Video: " + loadedData.videoUrl);
-        // Debug.Log("heading: " + loadedData.heading);
-        // Debug.Log("content:" + loadedData.content);
+        yield return request.SendWebRequest();
 
-        //Set the JSON information to the correct elements.
-        // heading.text = loadedData.heading;
-        // content.text = loadedData.content;
-
-        // if (!(loadedData.videoUrl.ToLower() == "none"))
-        // {
-        //     player.VIDEO_LINK = loadedData.videoUrl;
-        // }
-
-        // if (!(loadedData.imagePath.ToLower() == "none"))
-        // {
-        //     StartCoroutine(DownloadImage(loadedData.imagePath));
-        //     //CanvasExtentions.SizeToParent(image, 100);
-        // }
-
+        if (request.isNetworkError || request.isHttpError)
+        {
+            Debug.Log("THIS SHIT DONSET WORK");
+        }
+        else
+        {
+            loadedData = JsonUtility.FromJson<AllJsonData>(request.downloadHandler.text);
+            Debug.Log(request.downloadHandler.text);
+        }
     }
 
     public string[] getExhibit(string ID)
@@ -72,37 +69,6 @@ public class JsonController
             Debug.Log("artifact ID not found");
         }
         return exhibits;
-        /*moved in a refactor to a UI manager
-        bool matchFound =false;
-
-        foreach (JsonData item in loadedData.art)
-        {
-           if (ID == item.artifactId)
-            {
-                matchFound = true; 
-
-                //Set the JSON information to the correct elements.
-                heading.text = item.heading;
-                content.text = item.content;
-
-                if (!(item.videoUrl.ToLower() == "none"))
-                {
-                    player.VIDEO_LINK = item.videoUrl;
-                }
-
-                if (!(item.imagePath.ToLower() == "none"))
-                {
-                    StartCoroutine(DownloadImage(item.imagePath));
-                    CanvasExtentions.SizeToParent(image, 100);
-                }
-            }
-        }
-
-        if(!matchFound)
-        {
-            Debug.Log("artifact ID not found");
-        }
-        */
 
     }
 

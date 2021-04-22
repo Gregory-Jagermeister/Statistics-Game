@@ -22,7 +22,8 @@ public class GameManager : Singleton<GameManager>
         */
 
         //Generate the Instance of the Json Document.
-        _json = new JsonController();
+        _json = this.gameObject.AddComponent<JsonController>();
+        _json.GetJson();
 
     }
 

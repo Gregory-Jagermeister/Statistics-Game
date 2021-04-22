@@ -110,7 +110,7 @@ public class ArtifactMenu : MonoBehaviour
     /// <returns></returns>
     private IEnumerator DownloadImage(string URL, RawImage image)
     {
-        UnityWebRequest request = UnityWebRequestTexture.GetTexture(URL);
+        UnityWebRequest request = UnityWebRequestTexture.GetTexture("https://boiling-cliffs-78685.herokuapp.com/" + URL);
 
         yield return request.SendWebRequest();
         if (request.isNetworkError || request.isHttpError)

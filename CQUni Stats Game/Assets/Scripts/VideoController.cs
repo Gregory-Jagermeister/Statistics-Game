@@ -38,6 +38,7 @@ public class VideoController : MonoBehaviour
         if (!player.isPrepared)
         {
             FindMedia(videoUrl);
+            player.url = "https://boiling-cliffs-78685.herokuapp.com/" + player.url;
         }
 
         player.Play();
