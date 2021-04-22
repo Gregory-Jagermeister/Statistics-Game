@@ -2872,6 +2872,7 @@ GameObject:
   - component: {fileID: 2053172705}
   - component: {fileID: 2053172708}
   - component: {fileID: 2053172709}
+  - component: {fileID: 2053172710}
   m_Layer: 0
   m_Name: Professor
   m_TagString: Untagged
@@ -2991,6 +2992,21 @@ CapsuleCollider2D:
   m_Offset: {x: 0.07046372, y: 0.056370765}
   m_Size: {x: 0.12624776, y: 0.12624782}
   m_Direction: 0
+--- !u!114 &2053172710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053172704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad517f9166b0b94cbc91587a3b28576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 2
+  menu: {fileID: 44747841}
+  isProf: 1
 --- !u!1 &2063133962
 GameObject:
   m_ObjectHideFlags: 0
@@ -3116,6 +3132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.7
   menu: {fileID: 44747841}
+  isProf: 0
 --- !u!114 &2063133967
 MonoBehaviour:
   m_ObjectHideFlags: 0

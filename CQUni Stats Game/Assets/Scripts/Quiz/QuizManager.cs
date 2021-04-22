@@ -138,10 +138,18 @@ public class QuizManager : MonoBehaviour
 
     }
 
-    public void ReloadScene()
+    public string nextSceneNameTransition = "PlayerControlLaith";
+    public string pastSceneNameTransition = "PlayerControlLaith";
+    public void LoadNextScene()
     {
       
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(nextSceneNameTransition);
+   
+    }
+    public void LoadPrevScene()
+    {
+      
+        SceneManager.LoadScene(pastSceneNameTransition);
    
     }
 }
