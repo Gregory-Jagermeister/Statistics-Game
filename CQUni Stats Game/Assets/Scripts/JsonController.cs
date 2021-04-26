@@ -24,7 +24,16 @@ public class JsonController : MonoBehaviour
                   loadedData = JsonUtility.FromJson<AllJsonData>(json);
               } */
         //json = File.ReadAllText(Application.dataPath + "/Information.json");
-        StartCoroutine(GetData("https://boiling-cliffs-78685.herokuapp.com/https://www.drive.google.com/uc?export=download&id=1AdlqF_1IWYO0LGF-XMgXPtQpKEKRHwBW"));
+        if (Debug.isDebugBuild)
+        {
+            json = File.ReadAllText(Application.dataPath + "/Information.json");
+            loadedData = JsonUtility.FromJson<AllJsonData>(json);
+            Debug.Log(json);
+        }
+        else
+        {
+            StartCoroutine(GetData("https://boiling-cliffs-78685.herokuapp.com/https://www.drive.google.com/uc?export=download&id=1AdlqF_1IWYO0LGF-XMgXPtQpKEKRHwBW"));
+        }
 
     }
 
@@ -36,7 +45,7 @@ public class JsonController : MonoBehaviour
 
         if (request.isNetworkError || request.isHttpError)
         {
-            Debug.Log("THIS SHIT DONSET WORK");
+            Debug.Log(request.error);
         }
         else
         {

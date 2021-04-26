@@ -15,7 +15,9 @@ public class ArtifactMenu : MonoBehaviour
     public VideoController player;
     public RawImage image;
 
-    public JsonController json;
+    private JsonController json;
+
+    public RectTransform howToPanel;
 
 
     private bool artifactMenuOpen = false;
@@ -43,6 +45,7 @@ public class ArtifactMenu : MonoBehaviour
 
     public void OpenMenu(string ID)
     {
+        howToPanel.gameObject.SetActive(false);
         string[] exhibits = new string[5];
         exhibits = json.getExhibit(ID);
         Debug.Log(exhibits[0]);
@@ -74,6 +77,7 @@ public class ArtifactMenu : MonoBehaviour
 
     public void CloseMenu()
     {
+        howToPanel.gameObject.SetActive(true);
         background.gameObject.SetActive(false);
         heading.gameObject.SetActive(false);
         content.gameObject.SetActive(false);
@@ -110,7 +114,15 @@ public class ArtifactMenu : MonoBehaviour
     /// <returns></returns>
     private IEnumerator DownloadImage(string URL, RawImage image)
     {
-        UnityWebRequest request = UnityWebRequestTexture.GetTexture("https://boiling-cliffs-78685.herokuapp.com/" + URL);
+        UnityWebRequest request;
+        if (Debug.isDebugBuild)
+        {
+            request = UnityWebRequestTexture.GetTexture(URL);
+        }
+        else
+        {
+            request = UnityWebRequestTexture.GetTexture("https://boiling-cliffs-78685.herokuapp.com/" + URL);
+        }
 
         yield return request.SendWebRequest();
         if (request.isNetworkError || request.isHttpError)
