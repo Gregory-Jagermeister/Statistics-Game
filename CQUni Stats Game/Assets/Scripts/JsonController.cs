@@ -31,7 +31,6 @@ public class JsonController : MonoBehaviour
     IEnumerator GetData(string URL)
     {
         UnityWebRequest request = UnityWebRequest.Get(URL);
-        request.SetRequestHeader("Access-Control-Allow-Origin", "*");
 
         yield return request.SendWebRequest();
 

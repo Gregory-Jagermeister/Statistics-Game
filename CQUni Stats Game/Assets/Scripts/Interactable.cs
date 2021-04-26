@@ -7,9 +7,9 @@ public class Interactable : MonoBehaviour
 {
     // Start is called before the first frame update
     Movement player;
-    public float radius = 2f;
+    public float radius = 0.7f;
     public ArtifactMenu menu;
-    public bool isProf =false;
+    public bool isProf = false;
     public string sceneNameTransition = "Quiz";
     void Start()
     {
@@ -37,8 +37,8 @@ public class Interactable : MonoBehaviour
                 {
                     menu.OpenMenu(this.gameObject.name);
                 }
-                
-                
+
+
             }
 
         }
