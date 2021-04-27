@@ -39,19 +39,27 @@ public class Interactable : MonoBehaviour
         {
             if (Input.GetButtonDown("Interact"))
             {
-                if (isProf)
+                if(!GameManager.Instance.isInteracting)
                 {
+                    if (isProf)
+                    {
+                        GameManager.Instance.isInteracting= true;
+                        SceneManager.LoadScene(sceneNameTransition);
                     
+                    }
+                    else
+                    {
+                        Statics.artCount += 1;
+                        menu.OpenMenu(this.gameObject.name);
+                        GameManager.Instance.isInteracting= true;
+                    }
 
-
-                    SceneManager.LoadScene(sceneNameTransition);
-                    
                 }
                 else
                 {
-                    Statics.artCount += 1;
-                    menu.OpenMenu(this.gameObject.name);
+                    Debug.Log("already interacting");
                 }
+               
 
 
             }
