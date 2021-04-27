@@ -24,6 +24,12 @@ public class QuizManager : MonoBehaviour
     public GameObject multiChoicePanel;
     public GameObject InputPanel;
 
+    //sending results to google drive
+    public string send;
+
+    [SerializeField]
+    private string BASE_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdKmNRxpf0460uiCSEKMoheZodlUqtHkM8MCAEy4fGS3y_d-A/formResponse";
+
     Scene scene;
 
     // Start is called before the first frame update
@@ -33,6 +39,17 @@ public class QuizManager : MonoBehaviour
         scorePanel.gameObject.SetActive(false);
         quizPanel.gameObject.SetActive(true);    
         NextQuestion();
+    }
+
+    IEnumerator Create(string timer, string interactions, string scorePercent)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("entry.172307503", timer);
+        form.AddField("entry.1592556701", interactions);
+        form.AddField("entry.1050833444", scorePercent);
+        byte[] rawData = form.data;
+        WWW www = new WWW(BASE_URL, rawData);
+        yield return www;
     }
 
     public void Correct()
@@ -53,6 +70,8 @@ public class QuizManager : MonoBehaviour
         quizPanel.gameObject.SetActive(false);
         scorePanel.gameObject.SetActive(true);
         scoreText.text =  "You achieved a score of " + score + "/" +   totalQuestions;
+        Statics.quizScore = (100 / totalQuestions) * score;
+        StartCoroutine(Create(Statics.timer.ToString(), Statics.artCount.ToString(), Statics.quizScore.ToString()));
     }
 
     void SetAnswers()
