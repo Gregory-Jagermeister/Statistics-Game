@@ -6,6 +6,7 @@ public class GameManager : Singleton<GameManager>
 {
 
     private JsonController _json;
+    public bool isInteracting = false;
 
     void Awake()
     {
