@@ -67,6 +67,7 @@ public class QuizManager : MonoBehaviour
 
     public void QuizOver()
     {
+        GameManager.Instance.SetInteractingFalse();
         quizPanel.gameObject.SetActive(false);
         scorePanel.gameObject.SetActive(true);
         scoreText.text =  "You achieved a score of " + score + "/" +   totalQuestions;
@@ -75,6 +76,7 @@ public class QuizManager : MonoBehaviour
     }
     public void SceneTransition()
     {
+        
         if(score == totalQuestions)
         {
             LoadNextScene();
@@ -83,7 +85,7 @@ public class QuizManager : MonoBehaviour
         {
             LoadPrevScene();   
         }
-        GameManager.Instance.isInteracting = false;
+        
 
     }
 

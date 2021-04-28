@@ -43,7 +43,7 @@ public class Interactable : MonoBehaviour
                 {
                     if (isProf)
                     {
-                        GameManager.Instance.isInteracting= true;
+                        GameManager.Instance.SetInteractingTrue();
                         SceneManager.LoadScene(sceneNameTransition);
                     
                     }
@@ -51,7 +51,7 @@ public class Interactable : MonoBehaviour
                     {
                         Statics.artCount += 1;
                         menu.OpenMenu(this.gameObject.name);
-                        GameManager.Instance.isInteracting= true;
+                        GameManager.Instance.SetInteractingTrue();
                     }
 
                 }

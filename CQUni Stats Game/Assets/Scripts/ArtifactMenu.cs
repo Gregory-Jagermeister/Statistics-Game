@@ -85,7 +85,7 @@ public class ArtifactMenu : MonoBehaviour
         player.ClearMedia();
         artifactMenuOpen = false;
         Time.timeScale = 1;
-        GameManager.Instance.isInteracting = false;
+        GameManager.Instance.SetInteractingFalse();
 
 
     }

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-
+    
     private JsonController _json;
     public bool isInteracting = false;
 
     void Awake()
     {
-        /*
-        if(GameManager.Instance != null)
+        
+        if(GameManager.Instance != null && GameManager.Instance != this)
         {
            Destroy(this.gameObject);
 
@@ -20,12 +20,21 @@ public class GameManager : Singleton<GameManager>
         {
             DontDestroyOnLoad(this.gameObject);
         }
-        */
+        
 
         //Generate the Instance of the Json Document.
         _json = this.gameObject.AddComponent<JsonController>();
         _json.GetJson();
 
+    }
+
+    public void SetInteractingFalse()
+    {
+        isInteracting = false;
+    }
+    public void SetInteractingTrue()
+    {
+        isInteracting = true;
     }
 
     /// <summary>
@@ -40,6 +49,7 @@ public class GameManager : Singleton<GameManager>
     // Start is called before the first frame update
     void Start()
     {
+        isInteracting = false;
 
     }
 
