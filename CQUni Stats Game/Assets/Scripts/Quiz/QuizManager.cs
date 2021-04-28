@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
 
- //code was adapted or obtained from youtube videos made by Awesome Tuts, Brackeys and The Game Guy
+//code was adapted or obtained from youtube videos made by Awesome Tuts, Brackeys and The Game Guy
 public class QuizManager : MonoBehaviour
 {
     public List<Questions> questions;
@@ -37,7 +38,7 @@ public class QuizManager : MonoBehaviour
     {
         totalQuestions = questions.Count;
         scorePanel.gameObject.SetActive(false);
-        quizPanel.gameObject.SetActive(true);    
+        quizPanel.gameObject.SetActive(true);
         NextQuestion();
     }
 
@@ -48,21 +49,33 @@ public class QuizManager : MonoBehaviour
         form.AddField("entry.1592556701", interactions);
         form.AddField("entry.1050833444", scorePercent);
         byte[] rawData = form.data;
-        WWW www = new WWW(BASE_URL, rawData);
-        yield return www;
+        //Updated this to UnityWebRequest as WWW is obsolete.
+        using (var w = UnityWebRequest.Post(BASE_URL, form))
+        {
+            yield return w.SendWebRequest();
+            if (w.isHttpError || w.isNetworkError)
+            {
+                Debug.Log(w.error);
+            }
+            else
+            {
+                Debug.Log("Finished Sending Analytics Data");
+            }
+        }
+
     }
 
     public void Correct()
     {
-        score= score + 1;
+        score = score + 1;
         questions.RemoveAt(currentQuestion);
         NextQuestion();
     }
     public void Wrong()
     {
-        
+
         questions.RemoveAt(currentQuestion);
-        NextQuestion();        
+        NextQuestion();
     }
 
     public void QuizOver()
@@ -70,40 +83,40 @@ public class QuizManager : MonoBehaviour
         GameManager.Instance.SetInteractingFalse();
         quizPanel.gameObject.SetActive(false);
         scorePanel.gameObject.SetActive(true);
-        scoreText.text =  "You achieved a score of " + score + "/" +   totalQuestions;
+        scoreText.text = "You achieved a score of " + score + "/" + totalQuestions;
         Statics.quizScore = (100 / totalQuestions) * score;
         StartCoroutine(Create(Statics.timer.ToString(), Statics.artCount.ToString(), Statics.quizScore.ToString()));
     }
     public void SceneTransition()
     {
-        
-        if(score == totalQuestions)
+
+        if (score == totalQuestions)
         {
             LoadNextScene();
         }
         else
         {
-            LoadPrevScene();   
+            LoadPrevScene();
         }
-        
+
 
     }
 
     void SetAnswers()
     {
-        if(questions[currentQuestion].isMultiChoice)
+        if (questions[currentQuestion].isMultiChoice)
         {
             multiChoicePanel.gameObject.SetActive(true);
-            InputPanel.gameObject.SetActive(false);  
-                
-            for (int i= 0; i< choices.Length; i++)
+            InputPanel.gameObject.SetActive(false);
+
+            for (int i = 0; i < choices.Length; i++)
             {
-                choices[i].GetComponent<Answers>().isCorrect= false;                   
+                choices[i].GetComponent<Answers>().isCorrect = false;
                 choices[i].transform.GetChild(0).GetComponent<Text>().text = questions[currentQuestion].answers[i];
-                int answerIndex = i+1;
-                    
-                   
-                if(questions[currentQuestion].correctAnswer == answerIndex)
+                int answerIndex = i + 1;
+
+
+                if (questions[currentQuestion].correctAnswer == answerIndex)
                 {
                     choices[i].GetComponent<Answers>().isCorrect = true;
                 }
@@ -111,22 +124,22 @@ public class QuizManager : MonoBehaviour
             }
 
         }
-        
+
         else
         {
             multiChoicePanel.gameObject.SetActive(false);
             InputPanel.gameObject.SetActive(true);
-            correctInputAnswer =   questions[currentQuestion].answers[0];
+            correctInputAnswer = questions[currentQuestion].answers[0];
         }
-            
+
     }
-    
+
     // Update is called once per frame
     void NextQuestion()
     {
-        if(questions.Count >0)
+        if (questions.Count > 0)
         {
-            currentQuestion = Random.Range(0,questions.Count);
+            currentQuestion = Random.Range(0, questions.Count);
             questionText.text = questions[currentQuestion].question;
             SetAnswers();
 
@@ -139,9 +152,9 @@ public class QuizManager : MonoBehaviour
 
             QuizOver();
         }
-        
-        
-        
+
+
+
     }
 
     public InputField input;
@@ -149,14 +162,14 @@ public class QuizManager : MonoBehaviour
 
     public void GetInput(string guess)
     {
-        
+
         checkGuess(guess, correctInputAnswer);
 
     }
 
     public void checkGuess(string guess, string correctAnswer)
     {
-        if(guess == correctAnswer)
+        if (guess == correctAnswer)
         {
             //Debug.Log("you entered " + guess + " and it was right");
             Correct();
@@ -165,23 +178,23 @@ public class QuizManager : MonoBehaviour
         {
             //Debug.Log("you entered " + guess+ " and it was wrong");
             Wrong();
-            
+
         }
         input.text = "";
-        
+
 
     }
 
     public string nextSceneNameTransition = "PlayerControlLaith";
-    public string pastSceneNameTransition = "PlayerControlLaith" ;
+    public string pastSceneNameTransition = "PlayerControlLaith";
     void LoadNextScene()
     {
         SceneManager.LoadScene(nextSceneNameTransition);
-   
+
     }
     void LoadPrevScene()
-    {    
+    {
         SceneManager.LoadScene(pastSceneNameTransition);
-   
+
     }
 }
