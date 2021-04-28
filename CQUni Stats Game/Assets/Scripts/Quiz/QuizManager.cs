@@ -173,7 +173,7 @@ public class QuizManager : MonoBehaviour
     }
 
     public string nextSceneNameTransition = "PlayerControlLaith";
-    public string pastSceneNameTransition = "PlayerControlLaith";
+    public string pastSceneNameTransition = "PlayerControlLaith" ;
     void LoadNextScene()
     {
         SceneManager.LoadScene(nextSceneNameTransition);

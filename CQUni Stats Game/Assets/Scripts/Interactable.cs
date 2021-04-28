@@ -39,7 +39,7 @@ public class Interactable : MonoBehaviour
         {
             if (Input.GetButtonDown("Interact"))
             {
-                if(!GameManager.Instance.isInteracting)
+                if(!GameManager.Instance.isInteracting) 
                 {
                     if (isProf)
                     {

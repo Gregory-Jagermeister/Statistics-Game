@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 
 public class ArtifactMenu : MonoBehaviour
 {
-    public GameObject background;
+    public GameObject background ;
     public Text heading;
     public Text content;
     public GameObject media;
