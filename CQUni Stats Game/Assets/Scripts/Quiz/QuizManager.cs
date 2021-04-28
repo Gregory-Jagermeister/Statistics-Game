@@ -65,13 +65,26 @@ public class QuizManager : MonoBehaviour
         NextQuestion();        
     }
 
-     public void QuizOver()
+    public void QuizOver()
     {
         quizPanel.gameObject.SetActive(false);
         scorePanel.gameObject.SetActive(true);
         scoreText.text =  "You achieved a score of " + score + "/" +   totalQuestions;
         Statics.quizScore = (100 / totalQuestions) * score;
         StartCoroutine(Create(Statics.timer.ToString(), Statics.artCount.ToString(), Statics.quizScore.ToString()));
+    }
+    public void SceneTransition()
+    {
+        if(score == totalQuestions)
+        {
+            LoadNextScene();
+        }
+        else
+        {
+            LoadPrevScene();   
+        }
+        GameManager.Instance.isInteracting = false;
+
     }
 
     void SetAnswers()
@@ -159,17 +172,13 @@ public class QuizManager : MonoBehaviour
 
     public string nextSceneNameTransition = "PlayerControlLaith";
     public string pastSceneNameTransition = "PlayerControlLaith";
-    public void LoadNextScene()
+    void LoadNextScene()
     {
-        GameManager.Instance.isInteracting = false;
         SceneManager.LoadScene(nextSceneNameTransition);
    
     }
-    public void LoadPrevScene()
-    {
-
-        GameManager.Instance.isInteracting = false;
-      
+    void LoadPrevScene()
+    {    
         SceneManager.LoadScene(pastSceneNameTransition);
    
     }
