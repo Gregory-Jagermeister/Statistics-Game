@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 
 public class ArtifactMenu : MonoBehaviour
 {
-    public GameObject background;
+    public GameObject background ;
     public Text heading;
     public Text content;
     public GameObject media;
@@ -85,7 +85,7 @@ public class ArtifactMenu : MonoBehaviour
         player.ClearMedia();
         artifactMenuOpen = false;
         Time.timeScale = 1;
-        GameManager.Instance.isInteracting = false;
+        GameManager.Instance.SetInteractingFalse();
 
 
     }
