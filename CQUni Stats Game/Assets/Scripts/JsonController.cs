@@ -13,17 +13,7 @@ public class JsonController : MonoBehaviour
 
     public void GetJson()
     {
-        //Using Application.dataPath (location of data folder that unity will look for) read the JSON file called
-        //Information.json
-
-        /*       using (var webClient = new System.Net.WebClient())
-              {
-                  json = webClient.DownloadString("https://drive.google.com/uc?export=download&id=1AdlqF_1IWYO0LGF-XMgXPtQpKEKRHwBW");
-                  // Now parse with JSON.Net
-                  Debug.Log(json);
-                  loadedData = JsonUtility.FromJson<AllJsonData>(json);
-              } */
-        //json = File.ReadAllText(Application.dataPath + "/Information.json");
+        //added 
         if (Debug.isDebugBuild)
         {
             json = File.ReadAllText(Application.dataPath + "/Information.json");
