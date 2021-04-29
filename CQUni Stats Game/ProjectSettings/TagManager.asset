@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - UI
+  - Exhibits
   layers:
   - Default
   - TransparentFX
@@ -47,6 +48,9 @@ TagManager:
     locked: 0
   - name: Entities
     uniqueID: 490665771
+    locked: 0
+  - name: UI
+    uniqueID: 1448236901
     locked: 0
   - name: Default
     uniqueID: 0

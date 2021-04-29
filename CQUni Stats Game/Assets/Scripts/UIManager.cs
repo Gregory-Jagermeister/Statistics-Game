@@ -5,9 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.Video;
 using UnityEngine.Networking;
 
-public class ArtifactMenu : MonoBehaviour
+public class UIManager : MonoBehaviour
 {
-    public GameObject background ;
+    public RectTransform contentBackgrond;
     public Text heading;
     public Text content;
     public GameObject media;
@@ -18,22 +18,55 @@ public class ArtifactMenu : MonoBehaviour
     private JsonController json;
 
     public RectTransform howToPanel;
+    private GameObject[] exhibits;
 
+    private RectTransform[] indicators;
 
-    private bool artifactMenuOpen = false;
+    public RectTransform interactableIconPrefab;
+
+    public RectTransform quizUI;
+
+    private bool isAMenuOpen = false;
 
     void Start()
     {
         //Shortform for the Gamemanger instance making it easier to access, Store the address to this on start of the scene
         json = GameManager.Instance.GetJson();
-        CloseMenuAtStart();
+        //Get all the Exhibit Gameobjects
+        exhibits = GameObject.FindGameObjectsWithTag("Exhibits");
+        indicators = new RectTransform[exhibits.Length];
+        int count = 0;
+        foreach (var item in exhibits)
+        {
+            Interactable interact = item.GetComponent<Interactable>();
+            indicators[count] = Instantiate(interactableIconPrefab, interact.menu.gameObject.transform);
+            indicators[count].position = Camera.main.WorldToScreenPoint(item.transform.position + new Vector3(0, 0.4f, 0));
+            indicators[count].gameObject.SetActive(false);
+            count++;
+        }
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (artifactMenuOpen == true)
+        int count = 0;
+        foreach (var item in exhibits)
+        {
+            Interactable interact = item.GetComponent<Interactable>();
+            if (interact.IsPlayerClose() && !isAMenuOpen)
+            {
+                indicators[count].gameObject.SetActive(true);
+            }
+            else
+            {
+                indicators[count].gameObject.SetActive(false);
+            }
+            indicators[count].position = Camera.main.WorldToScreenPoint(item.transform.position + new Vector3(0, 0.4f, 0));
+            count++;
+        }
+
+        if (isAMenuOpen == true)
         {
             if (Input.GetButtonDown("Cancel"))
             {
@@ -43,8 +76,23 @@ public class ArtifactMenu : MonoBehaviour
         }
     }
 
-    public void OpenMenu(string ID)
+    public void OpenQuizMenu()
     {
+        isAMenuOpen = true;
+        CanvasExtentions.RectTransformPosition(quizUI, 0, 0, 0, 0);
+        Time.timeScale = 0;
+    }
+
+    public void CloseQuizMenu()
+    {
+        isAMenuOpen = false;
+        CanvasExtentions.RectTransformPosition(quizUI, 2000, -2000, 2000, -2000);
+        Time.timeScale = 1;
+    }
+
+    public void OpenContentMenu(string ID)
+    {
+        isAMenuOpen = true;
         howToPanel.gameObject.SetActive(false);
         string[] exhibits = new string[5];
         exhibits = json.getExhibit(ID);
@@ -56,7 +104,6 @@ public class ArtifactMenu : MonoBehaviour
         if (!(exhibits[2].ToLower() == "none"))
         {
             player.VIDEO_LINK = exhibits[2];
-            media.gameObject.SetActive(true);
         }
 
         if (!(exhibits[1].ToLower() == "none"))
@@ -64,46 +111,18 @@ public class ArtifactMenu : MonoBehaviour
             DLImage(exhibits[1], image);
         }
 
-
-        background.gameObject.SetActive(true);
-        heading.gameObject.SetActive(true);
-        content.gameObject.SetActive(true);
-
-
-        artifactMenuOpen = true;
+        CanvasExtentions.RectTransformPosition(contentBackgrond, 0, 0, 0, 0);
         Time.timeScale = 0;
-
     }
 
     public void CloseMenu()
     {
-        howToPanel.gameObject.SetActive(true);
-        background.gameObject.SetActive(false);
-        heading.gameObject.SetActive(false);
-        content.gameObject.SetActive(false);
-        media.gameObject.SetActive(false);
+        CanvasExtentions.RectTransformPosition(contentBackgrond, 2000, -2000, 2000, -2000);
         player.ClearMedia();
-        artifactMenuOpen = false;
+        isAMenuOpen = false;
         Time.timeScale = 1;
         GameManager.Instance.SetInteractingFalse();
 
-
-    }
-
-    public void CloseMenuAtStart()
-    {
-        background.gameObject.SetActive(false);
-        heading.gameObject.SetActive(false);
-        content.gameObject.SetActive(false);
-        media.gameObject.SetActive(false);
-        artifactMenuOpen = false;
-        Time.timeScale = 1;
-
-
-    }
-
-    public void UpdateMenu()
-    {
 
     }
 
@@ -154,7 +173,7 @@ public class ArtifactMenu : MonoBehaviour
     /// <summary>
     /// Resizes the image to fit the requires ratio.
     /// </summary>
-    /// <param name="i"></param>
+    /// <param name="i">The Image to Resize as a rawImage</param>
     public void ResizeImage(RawImage i)
     {
         if (i.rectTransform.sizeDelta.x > 256 && i.rectTransform.sizeDelta.y > 256)

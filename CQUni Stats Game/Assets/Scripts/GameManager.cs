@@ -1,31 +1,81 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    
+
     private JsonController _json;
-    public bool isInteracting = false ;
+
+    private UIManager _uIManager;
+
+    private QuizManager _quizManager;
+
+    public bool isInteracting = false;
+    private Movement player;
+    private bool quizPassed = false;
+
+    [SerializeField]
+    private string BASE_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdKmNRxpf0460uiCSEKMoheZodlUqtHkM8MCAEy4fGS3y_d-A/formResponse";
+
 
     void Awake()
     {
-        
-        if(GameManager.Instance != null && GameManager.Instance != this)
+
+        if (GameManager.Instance != null && GameManager.Instance != this)
         {
-           Destroy(this.gameObject);
+            Destroy(this.gameObject);
 
         }
         else
         {
             DontDestroyOnLoad(this.gameObject);
         }
-        
+
 
         //Generate the Instance of the Json Document.
         _json = this.gameObject.AddComponent<JsonController>();
         _json.GetJson();
 
+        _uIManager = this.gameObject.GetComponent<UIManager>();
+        _quizManager = this.gameObject.GetComponent<QuizManager>();
+
+    }
+
+    public void OpenContentMenu(string id)
+    {
+        _uIManager.OpenContentMenu(id);
+    }
+
+    public void OpenQuizMenu()
+    {
+        _uIManager.OpenQuizMenu();
+    }
+
+    public void CloseQuizMenu()
+    {
+        _uIManager.CloseQuizMenu();
+    }
+
+    public QuizManager GetQuizManager()
+    {
+        return _quizManager;
+    }
+    public Movement GetPlayer()
+    {
+        return player;
+    }
+
+    public void DidPlayerPassQuiz(bool passed)
+    {
+        quizPassed = passed;
+    }
+
+    public bool GetPlayersQuizResults()
+    {
+        return quizPassed;
     }
 
     public void SetInteractingFalse()
@@ -35,6 +85,41 @@ public class GameManager : Singleton<GameManager>
     public void SetInteractingTrue()
     {
         isInteracting = true;
+    }
+
+    public bool GetInteraction()
+    {
+        return isInteracting;
+    }
+
+    /// <summary>
+    /// Creates and sends the Analytics data to a google spreadsheet.
+    /// </summary>
+    /// <param name="timer"></param>
+    /// <param name="interactions"></param>
+    /// <param name="scorePercent"></param>
+    /// <returns></returns>
+    public IEnumerator CreateAnalyticsData(string timer, string interactions, string scorePercent)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("entry.172307503", timer);
+        form.AddField("entry.1592556701", interactions);
+        form.AddField("entry.1050833444", scorePercent);
+        byte[] rawData = form.data;
+        //Updated this to UnityWebRequest as WWW is obsolete.
+        using (var w = UnityWebRequest.Post(BASE_URL, form))
+        {
+            yield return w.SendWebRequest();
+            if (w.isHttpError || w.isNetworkError)
+            {
+                Debug.Log(w.error);
+            }
+            else
+            {
+                Debug.Log("Finished Sending Analytics Data");
+            }
+        }
+
     }
 
     /// <summary>
@@ -50,7 +135,11 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         isInteracting = false;
-
+        player = GameObject.FindObjectOfType<Movement>();
+        if (player == null)
+        {
+            Debug.Log("no player to interact with");
+        }
     }
 
     // Update is called once per frame
@@ -58,6 +147,4 @@ public class GameManager : Singleton<GameManager>
     {
 
     }
-
-    //
 }

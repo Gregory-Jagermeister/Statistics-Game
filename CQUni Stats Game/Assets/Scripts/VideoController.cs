@@ -38,8 +38,7 @@ public class VideoController : MonoBehaviour
         if (!player.isPrepared)
         {
             FindMedia(videoUrl);
-            string oldUrl = player.url;
-            player.url = "https://boiling-cliffs-78685.herokuapp.com/" + oldUrl;
+
         }
 
         player.Play();
@@ -58,6 +57,12 @@ public class VideoController : MonoBehaviour
     public async void FindMedia(string url)
     {
         await VideoPlayerExtensions.PlayYoutubeVideoAsync(player, url);
+        if (!Debug.isDebugBuild)
+        {
+            string oldUrl = player.url;
+            player.url = "https://boiling-cliffs-78685.herokuapp.com/" + oldUrl;
+        }
+
         Debug.Log(player.isPrepared);
     }
 

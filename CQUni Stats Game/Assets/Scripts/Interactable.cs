@@ -1,17 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class Interactable : MonoBehaviour
 {
     // Start is called before the first frame update
     Movement player;
     public float radius = 0.7f;
-    public ArtifactMenu menu;
+    public RectTransform menu;
     public bool isProf = false;
-    public string sceneNameTransition = "Quiz";
+    private bool isPlayerClose = false;
 
 
     [SerializeField]
@@ -20,37 +18,35 @@ public class Interactable : MonoBehaviour
     void Start()
     {
         //Find the Player gameobject and if there isn't one log it to console.
-        player = GameObject.FindObjectOfType<Movement>();
-        if (player == null)
-        {
-            Debug.Log("no player to interact with");
-        }
+        player = GameManager.Instance.GetPlayer();
     }
 
+    public bool IsPlayerClose()
+    {
+        return isPlayerClose;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        
-        
-        
         //if player is close enough, can click the trigger key to trigger a message say ("you clicked on an artifact")
         if (Vector3.Distance(player.transform.position, transform.position) < radius)
         {
+            isPlayerClose = true;
             if (Input.GetButtonDown("Interact"))
             {
-                if(!GameManager.Instance.isInteracting) 
+                if (!GameManager.Instance.isInteracting)
                 {
                     if (isProf)
                     {
                         GameManager.Instance.SetInteractingTrue();
-                        SceneManager.LoadScene(sceneNameTransition);
-                    
+                        GameManager.Instance.OpenQuizMenu();
+
                     }
                     else
                     {
                         Statics.artCount += 1;
-                        menu.OpenMenu(this.gameObject.name);
+                        GameManager.Instance.OpenContentMenu(this.gameObject.name);
                         GameManager.Instance.SetInteractingTrue();
                     }
 
@@ -59,14 +55,15 @@ public class Interactable : MonoBehaviour
                 {
                     Debug.Log("already interacting");
                 }
-               
+
 
 
             }
 
         }
-
+        else
+        {
+            isPlayerClose = false;
+        }
     }
-
-
 }

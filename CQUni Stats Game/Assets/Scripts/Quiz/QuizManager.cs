@@ -25,12 +25,6 @@ public class QuizManager : MonoBehaviour
     public GameObject multiChoicePanel;
     public GameObject InputPanel;
 
-    //sending results to google drive
-    public string send;
-
-    [SerializeField]
-    private string BASE_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdKmNRxpf0460uiCSEKMoheZodlUqtHkM8MCAEy4fGS3y_d-A/formResponse";
-
     Scene scene;
 
     // Start is called before the first frame update
@@ -42,28 +36,7 @@ public class QuizManager : MonoBehaviour
         NextQuestion();
     }
 
-    IEnumerator Create(string timer, string interactions, string scorePercent)
-    {
-        WWWForm form = new WWWForm();
-        form.AddField("entry.172307503", timer);
-        form.AddField("entry.1592556701", interactions);
-        form.AddField("entry.1050833444", scorePercent);
-        byte[] rawData = form.data;
-        //Updated this to UnityWebRequest as WWW is obsolete.
-        using (var w = UnityWebRequest.Post(BASE_URL, form))
-        {
-            yield return w.SendWebRequest();
-            if (w.isHttpError || w.isNetworkError)
-            {
-                Debug.Log(w.error);
-            }
-            else
-            {
-                Debug.Log("Finished Sending Analytics Data");
-            }
-        }
 
-    }
 
     public void Correct()
     {
@@ -85,21 +58,11 @@ public class QuizManager : MonoBehaviour
         scorePanel.gameObject.SetActive(true);
         scoreText.text = "You achieved a score of " + score + "/" + totalQuestions;
         Statics.quizScore = (100 / totalQuestions) * score;
-        StartCoroutine(Create(Statics.timer.ToString(), Statics.artCount.ToString(), Statics.quizScore.ToString()));
-    }
-    public void SceneTransition()
-    {
-
-        if (score == totalQuestions)
+        if ((100 / totalQuestions) * score == 100)
         {
-            LoadNextScene();
+            GameManager.Instance.DidPlayerPassQuiz(true);
         }
-        else
-        {
-            LoadPrevScene();
-        }
-
-
+        StartCoroutine(GameManager.Instance.CreateAnalyticsData(Statics.timer.ToString(), Statics.artCount.ToString(), Statics.quizScore.ToString()));
     }
 
     void SetAnswers()
@@ -147,8 +110,6 @@ public class QuizManager : MonoBehaviour
         else
         {
             Debug.Log("out of questions");
-            //load a new scene/deactiavte the UI
-            // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
             QuizOver();
         }
@@ -182,19 +143,6 @@ public class QuizManager : MonoBehaviour
         }
         input.text = "";
 
-
-    }
-
-    public string nextSceneNameTransition = "PlayerControlLaith";
-    public string pastSceneNameTransition = "PlayerControlLaith";
-    void LoadNextScene()
-    {
-        SceneManager.LoadScene(nextSceneNameTransition);
-
-    }
-    void LoadPrevScene()
-    {
-        SceneManager.LoadScene(pastSceneNameTransition);
 
     }
 }
