@@ -56,7 +56,18 @@ public class UIManager : MonoBehaviour
             Interactable interact = item.GetComponent<Interactable>();
             if (interact.IsPlayerClose() && !isAMenuOpen)
             {
-                indicators[count].gameObject.SetActive(true);
+                if (item.gameObject.layer == LayerMask.NameToLayer("Doors"))
+                {
+                    if (GameManager.Instance.GetPlayersQuizResults())
+                    {
+                        indicators[count].gameObject.SetActive(true);
+                    }
+                }
+                else if (!(item.gameObject.layer == LayerMask.NameToLayer("Doors")))
+                {
+                    indicators[count].gameObject.SetActive(true);
+                }
+
             }
             else
             {

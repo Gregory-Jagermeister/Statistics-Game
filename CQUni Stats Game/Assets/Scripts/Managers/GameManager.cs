@@ -6,7 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
+    public SpriteRenderer[] door;
+    public GameObject[] rooms;
 
+    private int roomIndex = 0;
+    public Sprite doorOpen;
     private JsonController _json;
 
     private UIManager _uIManager;
@@ -57,6 +61,11 @@ public class GameManager : Singleton<GameManager>
     public void CloseQuizMenu()
     {
         _uIManager.CloseQuizMenu();
+    }
+
+    public GameObject GetNextRoom()
+    {
+        return rooms[roomIndex];
     }
 
     public QuizManager GetQuizManager()
@@ -145,6 +154,18 @@ public class GameManager : Singleton<GameManager>
     // Update is called once per frame
     void Update()
     {
+        if (GetPlayersQuizResults())
+        {
+            door[0].sprite = doorOpen;
+            if (roomIndex > rooms.Length - 1)
+            {
+                roomIndex = rooms.Length - 1;
+            }
+            else
+            {
+                roomIndex++;
+            }
 
+        }
     }
 }
