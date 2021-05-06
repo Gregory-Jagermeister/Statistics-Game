@@ -9,6 +9,7 @@ public class Interactable : MonoBehaviour
     public float radius = 0.7f;
     public RectTransform menu;
     public bool isProf = false;
+    public bool isDoor = false;
     private bool isPlayerClose = false;
 
 
@@ -42,6 +43,13 @@ public class Interactable : MonoBehaviour
                         GameManager.Instance.SetInteractingTrue();
                         GameManager.Instance.OpenQuizMenu();
 
+                    }
+                    else if (isDoor)
+                    {
+                        if (GameManager.Instance.GetPlayersQuizResults())
+                        {
+                            player.transform.position = new Vector3(GameManager.Instance.GetNextRoom().transform.position.x, GameManager.Instance.GetNextRoom().transform.position.y, 0);
+                        }
                     }
                     else
                     {
