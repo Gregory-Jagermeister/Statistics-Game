@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/PlayerControlLaith.unity
     guid: 875b6c1320b04bf4d99b554cd586add3
   - enabled: 1
-    path: Assets/Scenes/Quiz.unity
+    path: Assets/Scenes/Test Scenes/Quiz.unity
     guid: ab5cec83fdd98f349a165d04601c70fb
   m_configObjects: {}
