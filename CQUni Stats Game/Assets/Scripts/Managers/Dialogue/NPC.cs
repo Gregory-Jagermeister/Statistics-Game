@@ -4,22 +4,12 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
+    
+    public string  npcName;
+    public List<Dialogue> convo; 
 
-    public string aNPCName;
-    public DialogueManager dialogueManager;
-    public List<string> aConvo;
-
-    // if interacted 
-    // DialogueManeger.StartDialogue(aNPCName,aConvo,); 
-    // Start is called before the first frame update
-    void Start()
+    public void triggerDialogue()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        GameManager.Instance.OpenDialogue(npcName,convo);
+    } 
 }

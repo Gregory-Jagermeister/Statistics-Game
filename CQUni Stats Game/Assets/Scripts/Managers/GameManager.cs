@@ -16,6 +16,7 @@ public class GameManager : Singleton<GameManager>
     private UIManager _uIManager;
 
     private QuizManager _quizManager;
+    private DialogueManager _dialogueManager;
 
     public bool isInteracting = false;
     private Movement player;
@@ -45,6 +46,7 @@ public class GameManager : Singleton<GameManager>
 
         _uIManager = this.gameObject.GetComponent<UIManager>();
         _quizManager = this.gameObject.GetComponent<QuizManager>();
+        _dialogueManager = this.gameObject.GetComponent<DialogueManager>();
 
     }
 
@@ -61,6 +63,16 @@ public class GameManager : Singleton<GameManager>
     public void CloseQuizMenu()
     {
         _uIManager.CloseQuizMenu();
+    }
+
+    public void OpenDialogue(string aName, List<Dialogue> convo)
+    {
+        _dialogueManager.OpenDialogue(aName,convo);
+    }
+
+    public void CloseDialogue()
+    {
+        _dialogueManager.StopDialogue();
     }
 
     public GameObject GetNextRoom()

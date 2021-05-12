@@ -11,13 +11,17 @@ public class DialogueManager : MonoBehaviour
     public Text dialogueText;
 
     
+    public GameObject nextButton;
+    public GameObject dialogueChoicesPanel;
 
-    public string[][] aNPCDialogue;
+    private string npcName;
+    public  string pcName;
+    private List<Dialogue> dialogue;
     
-
-    public InputField playerInputText;
+    private string nextStatement;
+    
+    
     private int dialogueIndex;
-    private int bonusDialogueIndex;
 
 
     //exit method
@@ -25,56 +29,183 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         dialoguePanel.SetActive(false);
+        nextButton.SetActive(false); 
     }
-
 
      // Start is called before the first frame update
-    public void StartDialogue(string aName, string[][] convo)
+    public void OpenDialogue(string aName, List<Dialogue> convo)
     {
-        aNPCName.text = aName;
-        DeepCopy2DArray(aNPCDialogue,convo);
+        npcName = aName;
+        aNPCName.text = npcName;
+        dialogue = convo;
         dialoguePanel.SetActive(true);
+        dialogueChoicesPanel.SetActive(true);
+        nextButton.SetActive(false);
+
         dialogueIndex = 0;
-    }
-
-    private void DeepCopy2DArray(string[][] targetArray,string[][] arrayToCopy)
-    {
-        for (int i = 0; i < arrayToCopy.GetLength(0); i++)
-        {
-            for (int j = 0; j < arrayToCopy.GetLength(1); j++)
-            {
-                targetArray[i][j] = targetArray[i][j];
-
-            }
-            
-        }
-
+        dialogueText.text = dialogue[dialogueIndex].statement; 
+        dialogueOpen= true;
     }
 
     public void StopDialogue()
     {
+        
+        GameManager.Instance.SetInteractingFalse();
         dialoguePanel.SetActive(false);
+        dialogueIndex = 0;
+        dialogueOpen= false;
     }
 
-    public void ShowDialogue()
+    private bool npcResponseFound = false;
+    public void NextButtonCheck()
     {
-        dialogueText.text = aNPCDialogue[dialogueIndex][dialogueIndex];
+
+        if(npcResponseFound)
+        {
+            aNPCName.text = npcName;
+            dialogueText.text = nextStatement;
+            npcResponseFound = false;
+
+        }
+        else
+        {
+            //next button check should lead to the next dialogue without the response
+            dialogueIndex++;
+            Next();
+
+        }
+        
+        
+
+        // hide original next button
+        //display new next button that progresses the next dialogue chain
     }
+    public void ChooseSeriousDialogue()
+    {
+        
+        aNPCName.text = pcName;
+
+        dialogueText.text = dialogue[dialogueIndex].pcResponse[0]; 
+        //hide the dialogue chocies panel
+        dialogueChoicesPanel.SetActive(false);
+
+        // update text to show the normal dialogue
+        //update the next statement
+        if(dialogue[dialogueIndex].npcResponse != null)
+        {
+            npcResponseFound = true;
+            nextStatement = dialogue[dialogueIndex].npcResponse[0];
+
+        }
+        else
+        {
+            npcResponseFound = false;
+            
+        }
+
+        //show the next dialogue button 
+        nextButton.SetActive(true);
+    }
+
+    public void ChooseExpositionDialogue()
+    {
+        aNPCName.text = pcName;
+
+        dialogueText.text = dialogue[dialogueIndex].pcResponse[1]; 
+        //hide the dialogue chocies panel
+        dialogueChoicesPanel.SetActive(false);
+
+        // update text to show the normal dialogue
+        //update the next statement
+        if(dialogue[dialogueIndex].npcResponse != null)
+        {
+            npcResponseFound = true;
+            nextStatement = dialogue[dialogueIndex].npcResponse[1];
+
+        }
+        else
+        {
+            npcResponseFound = false;
+            
+        }
+
+        //show the next dialogue button 
+        nextButton.SetActive(true);
+        
+    }
+
+    public void ChooseFunnyDialogue()
+    {
+        aNPCName.text = pcName;
+
+        dialogueText.text = dialogue[dialogueIndex].pcResponse[2]; 
+        //hide the dialogue chocies panel
+        dialogueChoicesPanel.SetActive(false);
+
+        // update text to show the normal dialogue
+        //update the next statement
+        if(dialogue[dialogueIndex].npcResponse != null)
+        {
+            npcResponseFound = true;
+            nextStatement = dialogue[dialogueIndex].npcResponse[2];
+
+        }
+        else
+        {
+            npcResponseFound = false;
+            
+        }
+
+        //show the next dialogue button 
+        nextButton.SetActive(true); 
+        
+    }
+
+    public bool dialogueOpen = false;
+
+     void Update()
+     {
+        Debug.Log(dialogueOpen);
+        if (dialogueOpen == true)
+        {
+            if (Input.GetButtonDown("Cancel"))
+            {
+                StopDialogue();
+            }
+
+        }
+         
+
+     }
 
     public void Next()
     {
-        if(dialogueIndex <aNPCDialogue.GetLength(0) -1 )
+        if(dialogueIndex < dialogue.Count )
         {
-            dialogueIndex++;
-            ShowDialogue();
+            aNPCName.text = npcName;
+            dialogueText.text = dialogue[dialogueIndex].statement;            
+            dialogueChoicesPanel.SetActive(true);
+        }
+        else
+        {
+            DialogueOver();
         }
         
     }
-
-    // Update is called once per frame
-    void Update()
+    public void DialogueOver()
     {
+        //GameManager.Instance.SetInteractingFalse();
+
         
+        GameManager.Instance.OpenQuizMenu();
+        dialogueIndex = 0;
+        Debug.Log("convo over");
+        //set dialogue pannel to false
+        dialoguePanel.SetActive(false);
+        dialogueOpen= false;
     }
+
+   
 }
