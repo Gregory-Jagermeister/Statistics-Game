@@ -11,6 +11,7 @@ public class Interactable : MonoBehaviour
     public bool isProf = false;
     public bool isDoor = false;
     private bool isPlayerClose = false;
+    
 
 
     [SerializeField]
@@ -41,7 +42,7 @@ public class Interactable : MonoBehaviour
                     if (isProf)
                     {
                         GameManager.Instance.SetInteractingTrue();
-                        GameManager.Instance.OpenQuizMenu();
+                        this.gameObject.GetComponent<NPC>().triggerDialogue();
 
                     }
                     else if (isDoor)
