@@ -57,6 +57,27 @@ public class Interactable : MonoBehaviour
                         Statics.artCount += 1;
                         GameManager.Instance.OpenContentMenu(this.gameObject.name);
                         GameManager.Instance.SetInteractingTrue();
+                        switch (this.gameObject.name)
+                        {
+                            case "Exhibit1":
+                                Statics.ex1TimeStart = true;
+                                break;
+                            case "Exhibit2":
+                                
+                                break;
+                            case "Exhibit3":
+                               
+                                break;
+                            case "Exhibit4":
+                                
+                                break;
+                            case "Exhibit5":
+                                
+                                break;
+                            default:
+                                
+                                break;
+                        }
                     }
 
                 }
