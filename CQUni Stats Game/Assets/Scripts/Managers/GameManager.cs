@@ -55,19 +55,23 @@ public class GameManager : Singleton<GameManager>
         _uIManager.OpenContentMenu(id);
     }
 
-    public void OpenQuizMenu()
+    public void OpenQuizMenu(List<Questions> quiz)
     {
-        _uIManager.OpenQuizMenu();
+
+        //_quizManager.StartQuiz(quiz);
+        
+        _uIManager.OpenQuizMenu(_quizManager,quiz);
     }
+
 
     public void CloseQuizMenu()
     {
         _uIManager.CloseQuizMenu();
     }
 
-    public void OpenDialogue(string aName, List<Dialogue> convo)
+    public void OpenDialogue(string aName, List<Dialogue> convo,List<Questions> quiz )
     {
-        _dialogueManager.OpenDialogue(aName,convo);
+        _dialogueManager.OpenDialogue(aName,convo,quiz);
     }
 
     public void CloseDialogue()

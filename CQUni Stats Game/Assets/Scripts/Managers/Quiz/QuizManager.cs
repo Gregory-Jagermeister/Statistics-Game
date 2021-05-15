@@ -8,7 +8,7 @@ using UnityEngine.Networking;
 //code was adapted or obtained from youtube videos made by Awesome Tuts, Brackeys and The Game Guy
 public class QuizManager : MonoBehaviour
 {
-    public List<Questions> questions;
+    private List<Questions> questions = new List<Questions>();
     public GameObject[] choices;
     public int currentQuestion;
     public Text questionText;
@@ -30,10 +30,26 @@ public class QuizManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //totalQuestions = questions.Count;
+        //scorePanel.gameObject.SetActive(false);
+        //quizPanel.gameObject.SetActive(true);
+        //NextQuestion();
+    }
+
+    public void StartQuiz(List<Questions> quiz)
+    {
+        Debug.Log(quiz);
+        foreach (Questions item in quiz)
+        {
+            Debug.Log(item);
+            questions.Add(item);
+        }
         totalQuestions = questions.Count;
+        Debug.Log(totalQuestions);
         scorePanel.gameObject.SetActive(false);
         quizPanel.gameObject.SetActive(true);
         NextQuestion();
+
     }
 
 
@@ -62,7 +78,9 @@ public class QuizManager : MonoBehaviour
         {
             GameManager.Instance.DidPlayerPassQuiz(true);
         }
+        
         StartCoroutine(GameManager.Instance.CreateAnalyticsData(Statics.timer.ToString(), Statics.artCount.ToString(), Statics.quizScore.ToString()));
+        score =0;
     }
 
     void SetAnswers()

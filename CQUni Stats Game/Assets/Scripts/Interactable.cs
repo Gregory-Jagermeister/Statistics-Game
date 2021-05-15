@@ -21,6 +21,10 @@ public class Interactable : MonoBehaviour
     {
         //Find the Player gameobject and if there isn't one log it to console.
         player = GameManager.Instance.GetPlayer();
+        if(player == null)
+        {
+            player = GameObject.FindObjectOfType<Movement>();
+        }
     }
 
     public bool IsPlayerClose()
@@ -31,6 +35,7 @@ public class Interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(player);
         //if player is close enough, can click the trigger key to trigger a message say ("you clicked on an artifact")
         if (Vector3.Distance(player.transform.position, transform.position) < radius)
         {

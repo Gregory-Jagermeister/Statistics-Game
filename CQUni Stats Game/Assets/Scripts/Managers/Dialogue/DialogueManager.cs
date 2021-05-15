@@ -23,6 +23,9 @@ public class DialogueManager : MonoBehaviour
     
     private int dialogueIndex;
 
+    private List<Questions> quiz;
+
+
 
     //exit method
 
@@ -35,11 +38,12 @@ public class DialogueManager : MonoBehaviour
     }
 
      // Start is called before the first frame update
-    public void OpenDialogue(string aName, List<Dialogue> convo)
+    public void OpenDialogue(string aName, List<Dialogue> convo, List<Questions> aQuiz)
     {
         npcName = aName;
         aNPCName.text = npcName;
         dialogue = convo;
+        quiz = aQuiz;
         dialoguePanel.SetActive(true);
         dialogueChoicesPanel.SetActive(true);
         nextButton.SetActive(false);
@@ -167,7 +171,7 @@ public class DialogueManager : MonoBehaviour
 
      void Update()
      {
-        Debug.Log(dialogueOpen);
+        
         if (dialogueOpen == true)
         {
             if (Input.GetButtonDown("Cancel"))
@@ -179,7 +183,7 @@ public class DialogueManager : MonoBehaviour
          
 
      }
-
+     
     public void Next()
     {
         if(dialogueIndex < dialogue.Count )
@@ -199,7 +203,7 @@ public class DialogueManager : MonoBehaviour
         //GameManager.Instance.SetInteractingFalse();
 
         
-        GameManager.Instance.OpenQuizMenu();
+        GameManager.Instance.OpenQuizMenu(quiz);
         dialogueIndex = 0;
         Debug.Log("convo over");
         //set dialogue pannel to false
