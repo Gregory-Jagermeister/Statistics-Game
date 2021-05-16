@@ -62,6 +62,7 @@ public class QuizManager : MonoBehaviour
         {
             GameManager.Instance.DidPlayerPassQuiz(true);
         }
+        //Statics.timer = Statics.timer / 60;
         StartCoroutine(GameManager.Instance.CreateAnalyticsData(Statics.timer.ToString(), Statics.artCount.ToString(), Statics.quizScore.ToString()));
     }
 

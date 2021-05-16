@@ -122,12 +122,13 @@ public class GameManager : Singleton<GameManager>
     /// <returns></returns>
     public IEnumerator CreateAnalyticsData(string timer, string interactions, string scorePercent)
     {
-        timer = timer.Substring(0, 4);
+        
+        timer = timer.Substring(0, timer.IndexOf(".") + 2);
         WWWForm form = new WWWForm();
         form.AddField("entry.172307503", timer);
         form.AddField("entry.1592556701", interactions);
         form.AddField("entry.1050833444", scorePercent);
-        form.AddField("entry.438884323", Statics.ex1Time.ToString());
+        form.AddField("entry.438884323", "Interactions: " + Statics.ex1Count + " Time: " + Statics.ex1Time.ToString().Substring(0, Statics.ex1Time.ToString().IndexOf(".") + 2));
         byte[] rawData = form.data;
         //Updated this to UnityWebRequest as WWW is obsolete.
         using (var w = UnityWebRequest.Post(BASE_URL, form))
@@ -181,5 +182,8 @@ public class GameManager : Singleton<GameManager>
             }
 
         }
+       
+
+
     }
 }

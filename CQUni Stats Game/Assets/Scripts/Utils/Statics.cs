@@ -10,10 +10,17 @@ public class Statics : MonoBehaviour
     public static int artCount = 0;
     public static float quizScore = 0.0f;
     public float score;
-    public float temp = 0;
+    public float tempPlay = 0;
+    public float tempQuiz = 0;
     public static int ex1Count = 0;
     public static float ex1Time = 0;
     public static bool ex1TimeStart = false;
+    public static int intCount = 0;
+    public int tempCount = 0;
+    //public string prev;
+    public System.DateTime prev = System.DateTime.Now;
+    public System.DateTime test;
+    public System.TimeSpan diff;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,17 +30,33 @@ public class Statics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        diff = System.DateTime.Now - prev;
+        //test = System.DateTime.Compare(prev, System.DateTime.Now);
+        //timer += System.DateTime.Now - prev;
+        timer += (float)diff.TotalSeconds / 2;
+        //if (timer > 60)
+        prev = System.DateTime.Now;
         if (ex1TimeStart == true)
         {
-            ex1Time += Time.deltaTime;
+            Statics.ex1Time += (float)diff.TotalSeconds / 2;
         }
         if (!GameManager.Instance.isInteracting)
         {
-            ex1TimeStart = false;
+            Statics.ex1TimeStart = false;
         }
+
+        //Statics.timer += Time.deltaTime;
+
+        
+
+      
+
         score = Statics.quizScore;
-        Statics.timer += Time.deltaTime;
-        temp = ex1Time;
+        
+        tempQuiz = Statics.ex1Time;
+        tempPlay = timer;
+        tempCount = Statics.intCount;
         //Statics.timer += Time.deltaTime;
     }
 }

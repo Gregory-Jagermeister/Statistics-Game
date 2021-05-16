@@ -61,6 +61,7 @@ public class Interactable : MonoBehaviour
                         {
                             case "Exhibit1":
                                 Statics.ex1TimeStart = true;
+                                Statics.ex1Count += 1;
                                 break;
                             case "Exhibit2":
                                 
