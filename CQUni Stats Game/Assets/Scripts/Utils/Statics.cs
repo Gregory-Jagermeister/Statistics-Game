@@ -17,6 +17,8 @@ public class Statics : MonoBehaviour
     public static bool ex1TimeStart = false;
     public static int intCount = 0;
     public int tempCount = 0;
+    public static int minutes = 0;
+    public static int ex1Min = 0;
     //public string prev;
     public System.DateTime prev = System.DateTime.Now;
     public System.DateTime test;
@@ -34,12 +36,16 @@ public class Statics : MonoBehaviour
         diff = System.DateTime.Now - prev;
         //test = System.DateTime.Compare(prev, System.DateTime.Now);
         //timer += System.DateTime.Now - prev;
-        timer += (float)diff.TotalSeconds / 2;
-        //if (timer > 60)
+        timer += (float)diff.TotalSeconds;
+        if (timer >= 60)
+        {
+            timer -= 60;
+            minutes += 1;
+        }
         prev = System.DateTime.Now;
         if (ex1TimeStart == true)
         {
-            Statics.ex1Time += (float)diff.TotalSeconds / 2;
+            Statics.ex1Time += (float)diff.TotalSeconds;
         }
         if (!GameManager.Instance.isInteracting)
         {
