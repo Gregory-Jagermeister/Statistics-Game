@@ -87,11 +87,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void OpenQuizMenu(QuizManager manager,List<Questions> quiz)
+    public void OpenQuizMenu(QuizManager manager,List<Questions> quiz, int level)
     {
         isAMenuOpen = true;
         CanvasExtentions.RectTransformPosition(quizUI, 0, 0, 0, 0);
-        manager.StartQuiz(quiz);
+        manager.StartQuiz(quiz,level);
         Time.timeScale = 0;
     }
 

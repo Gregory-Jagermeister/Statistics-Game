@@ -25,6 +25,8 @@ public class QuizManager : MonoBehaviour
     public GameObject multiChoicePanel;
     public GameObject InputPanel;
 
+    private int quizLevel;
+
     Scene scene;
 
     // Start is called before the first frame update
@@ -36,16 +38,15 @@ public class QuizManager : MonoBehaviour
         //NextQuestion();
     }
 
-    public void StartQuiz(List<Questions> quiz)
+    public void StartQuiz(List<Questions> quiz, int level)
     {
-        Debug.Log(quiz);
+        
         foreach (Questions item in quiz)
         {
-            Debug.Log(item);
             questions.Add(item);
         }
         totalQuestions = questions.Count;
-        Debug.Log(totalQuestions);
+        quizLevel = level;
         scorePanel.gameObject.SetActive(false);
         quizPanel.gameObject.SetActive(true);
         NextQuestion();
@@ -76,7 +77,7 @@ public class QuizManager : MonoBehaviour
         Statics.quizScore = (100 / totalQuestions) * score;
         if ((100 / totalQuestions) * score == 100)
         {
-            GameManager.Instance.DidPlayerPassQuiz(true);
+            GameManager.Instance.DidPlayerPassQuiz(true,quizLevel);
         }
         
         StartCoroutine(GameManager.Instance.CreateAnalyticsData(Statics.timer.ToString(), Statics.artCount.ToString(), Statics.quizScore.ToString()));

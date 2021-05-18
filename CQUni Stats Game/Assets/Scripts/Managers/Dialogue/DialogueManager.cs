@@ -24,6 +24,7 @@ public class DialogueManager : MonoBehaviour
     private int dialogueIndex;
 
     private List<Questions> quiz;
+    private int quizLevel;
 
 
 
@@ -38,7 +39,7 @@ public class DialogueManager : MonoBehaviour
     }
 
      // Start is called before the first frame update
-    public void OpenDialogue(string aName, List<Dialogue> convo, List<Questions> aQuiz)
+    public void OpenDialogue(string aName, List<Dialogue> convo, List<Questions> aQuiz, int level)
     {
         npcName = aName;
         aNPCName.text = npcName;
@@ -47,7 +48,7 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(true);
         dialogueChoicesPanel.SetActive(true);
         nextButton.SetActive(false);
-
+        quizLevel = level;
         dialogueIndex = 0;
         dialogueText.text = dialogue[dialogueIndex].statement; 
         dialogueOpen= true;
@@ -203,7 +204,7 @@ public class DialogueManager : MonoBehaviour
         //GameManager.Instance.SetInteractingFalse();
 
         
-        GameManager.Instance.OpenQuizMenu(quiz);
+        GameManager.Instance.OpenQuizMenu(quiz,quizLevel);
         dialogueIndex = 0;
         Debug.Log("convo over");
         //set dialogue pannel to false
