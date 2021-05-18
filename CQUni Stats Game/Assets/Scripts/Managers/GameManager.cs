@@ -122,17 +122,45 @@ public class GameManager : Singleton<GameManager>
     /// <returns></returns>
     public IEnumerator CreateAnalyticsData(string timer, string interactions, string scorePercent)
     {
-        
+        //allows for manipulating timers
+        string ex1Timer;
+        string ex2Timer;
+
+        //altering timers to more readable format on google sheets
         timer = timer.Substring(0, timer.IndexOf("."));
         if (float.Parse(timer) < 10)
         {
             timer = "0" + timer;
         }
+
+        if(Statics.ex1Time < 10)
+        {
+            ex1Timer = "0" + Statics.ex1Time.ToString();
+            ex1Timer = ex1Timer.Substring(0, ex1Timer.IndexOf("."));
+        }
+        else
+        {
+            ex1Timer = Statics.ex1Time.ToString();
+            ex1Timer = ex1Timer.Substring(0, ex1Timer.IndexOf("."));
+        }
+
+        if (Statics.ex2Time < 10)
+        {
+            ex2Timer = "0" + Statics.ex2Time.ToString();
+            ex2Timer = ex2Timer.Substring(0, ex2Timer.IndexOf("."));
+        }
+        else
+        {
+            ex2Timer = Statics.ex2Time.ToString();
+            ex2Timer = ex2Timer.Substring(0, ex2Timer.IndexOf("."));
+        }
+
         WWWForm form = new WWWForm();
         form.AddField("entry.172307503", Statics.minutes + "." + timer + " mins");
         form.AddField("entry.1592556701", interactions);
         form.AddField("entry.1050833444", scorePercent);
-        form.AddField("entry.438884323", "Interactions: " + Statics.ex1Count + " Time: " + Statics.ex1Time.ToString().Substring(0, Statics.ex1Time.ToString().IndexOf(".") + 2));
+        form.AddField("entry.438884323", "Interactions: " + Statics.ex1Count + " Time: " + Statics.ex1Min + "." + ex1Timer + "mins");
+        form.AddField("entry.77173192", "Interactions: " + Statics.ex2Count + " Time: " + Statics.ex2Min + "." + ex2Timer + "mins");
         byte[] rawData = form.data;
         //Updated this to UnityWebRequest as WWW is obsolete.
         using (var w = UnityWebRequest.Post(BASE_URL, form))

@@ -57,6 +57,8 @@ public class Interactable : MonoBehaviour
                         Statics.artCount += 1;
                         GameManager.Instance.OpenContentMenu(this.gameObject.name);
                         GameManager.Instance.SetInteractingTrue();
+
+                        //starts timer and counter for appropriate exhibit
                         switch (this.gameObject.name)
                         {
                             case "Exhibit1":
@@ -64,7 +66,8 @@ public class Interactable : MonoBehaviour
                                 Statics.ex1Count += 1;
                                 break;
                             case "Exhibit2":
-                                
+                                Statics.ex2TimeStart = true;
+                                Statics.ex2Count += 1;
                                 break;
                             case "Exhibit3":
                                
