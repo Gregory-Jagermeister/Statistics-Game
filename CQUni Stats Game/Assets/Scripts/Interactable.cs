@@ -70,10 +70,12 @@ public class Interactable : MonoBehaviour
                                 Statics.ex2Count += 1;
                                 break;
                             case "Exhibit3":
-                               
+                                Statics.ex3TimeStart = true;
+                                Statics.ex3Count += 1;
                                 break;
                             case "Exhibit4":
-                                
+                                //Statics.ex4TimeStart = true;
+                                //Statics.ex4Count += 1;
                                 break;
                             case "Exhibit5":
                                 

@@ -9,7 +9,7 @@ public class Statics : MonoBehaviour
     public static float timer = 0.0f;
     public static int artCount = 0;
     public static float quizScore = 0.0f;
-    public float score;
+    public float score = 0;
     public float tempPlay = 0;
     public float tempQuiz = 0;
     public static int intCount = 0; //interactions count
@@ -27,6 +27,16 @@ public class Statics : MonoBehaviour
     public static float ex2Time = 0;
     public static bool ex2TimeStart = false;
     public static int ex2Min = 0;
+
+    public static int ex3Count = 0;
+    public static float ex3Time = 0;
+    public static bool ex3TimeStart = false;
+    public static int ex3Min = 0;
+
+    public static int ex4Count = 0;
+    public static float ex4Time = 0;
+    public static bool ex4TimeStart = false;
+    public static int ex4Min = 0;
 
 
     //used for timer
@@ -78,10 +88,33 @@ public class Statics : MonoBehaviour
             }
 
         }
+        
+        if (ex3TimeStart == true)
+        {
+            Statics.ex3Time += (float)diff.TotalSeconds;
+            if (ex3Time >= 60)
+            {
+                ex3Min += 1;
+                ex3Time -= 60;
+            }
+
+        }/*
+        if (ex4TimeStart == true)
+        {
+            Statics.ex4Time += (float)diff.TotalSeconds;
+            if (ex4Time >= 60)
+            {
+                ex4Min += 1;
+                ex4Time -= 60;
+            }
+
+        }*/
         if (!GameManager.Instance.isInteracting)
         {
             Statics.ex1TimeStart = false;
             Statics.ex2TimeStart = false;
+            Statics.ex3TimeStart = false;
+            //Statics.ex4TimeStart = false;
         }
 
        
