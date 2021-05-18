@@ -167,7 +167,7 @@ public class DialogueManager : MonoBehaviour
 
      void Update()
      {
-        Debug.Log(dialogueOpen);
+        //Debug.Log(dialogueOpen);
         if (dialogueOpen == true)
         {
             if (Input.GetButtonDown("Cancel"))

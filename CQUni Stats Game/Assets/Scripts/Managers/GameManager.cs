@@ -136,19 +136,23 @@ public class GameManager : Singleton<GameManager>
         }
 
         //exhibit 1
-        if(Statics.ex1Time < 10)
+        if(Statics.ex1Time < 10 && Statics.ex1Time > 0)
         {
             ex1Timer = "0" + Statics.ex1Time.ToString();
             ex1Timer = ex1Timer.Substring(0, ex1Timer.IndexOf("."));
         }
         else
         {
-            ex1Timer = Statics.ex1Time.ToString();
-            ex1Timer = ex1Timer.Substring(0, ex1Timer.IndexOf("."));
+            
+                ex1Timer = Statics.ex1Time.ToString();
+            if (float.Parse(ex1Timer) != 0)
+            {
+                ex1Timer = ex1Timer.Substring(0, ex1Timer.IndexOf("."));
+            }
         }
 
         //exhibit 2
-        if (Statics.ex2Time < 10)
+        if (Statics.ex2Time < 10 && Statics.ex2Time > 0)
         {
             ex2Timer = "0" + Statics.ex2Time.ToString();
             ex2Timer = ex2Timer.Substring(0, ex2Timer.IndexOf("."));
@@ -156,11 +160,14 @@ public class GameManager : Singleton<GameManager>
         else
         {
             ex2Timer = Statics.ex2Time.ToString();
-            ex2Timer = ex2Timer.Substring(0, ex2Timer.IndexOf("."));
+            if (float.Parse(ex2Timer) != 0)
+            {
+                ex2Timer = ex2Timer.Substring(0, ex2Timer.IndexOf("."));
+            }
         }
         
         //exhibit 3
-        if (Statics.ex3Time < 10)
+        if (Statics.ex3Time < 10 && Statics.ex3Time > 0)
         {
             ex3Timer = "0" + Statics.ex3Time.ToString();
             ex3Timer = ex3Timer.Substring(0, ex3Timer.IndexOf("."));
@@ -168,7 +175,10 @@ public class GameManager : Singleton<GameManager>
         else
         {
             ex3Timer = Statics.ex3Time.ToString();
-            ex3Timer = ex3Timer.Substring(0, ex3Timer.IndexOf("."));
+            if (float.Parse(ex3Timer) != 0)
+            {
+                ex3Timer = ex3Timer.Substring(0, ex3Timer.IndexOf("."));
+            }
         }
         /*
         //exhibit 4
@@ -184,6 +194,7 @@ public class GameManager : Singleton<GameManager>
         }
         */
         WWWForm form = new WWWForm();
+        Debug.Log("it worked");
         form.AddField("entry.172307503", Statics.minutes + "." + timer + " mins"); //timer
         form.AddField("entry.1592556701", interactions); //interactions
         form.AddField("entry.1050833444", scorePercent); //quiz1 score

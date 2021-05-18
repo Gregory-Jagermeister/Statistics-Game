@@ -64,6 +64,7 @@ public class QuizManager : MonoBehaviour
         }
         //Statics.timer = Statics.timer / 60;
         //kickstarts the analytics routine
+        Debug.Log("made it to before post");
         StartCoroutine(GameManager.Instance.CreateAnalyticsData(Statics.timer.ToString(), Statics.artCount.ToString(), Statics.quizScore.ToString()));
     }
 
