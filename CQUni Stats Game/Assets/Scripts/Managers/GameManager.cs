@@ -21,6 +21,9 @@ public class GameManager : Singleton<GameManager>
     public bool isInteracting = false;
     private Movement player;
     private bool quizPassed = false;
+    private bool lvl1QuizPassed = false;
+    private bool lvl2QuizPassed = false;
+    private bool lvl3QuizPassed = false;
 
     [SerializeField]
     private string BASE_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdKmNRxpf0460uiCSEKMoheZodlUqtHkM8MCAEy4fGS3y_d-A/formResponse";
@@ -55,19 +58,23 @@ public class GameManager : Singleton<GameManager>
         _uIManager.OpenContentMenu(id);
     }
 
-    public void OpenQuizMenu()
+    public void OpenQuizMenu(List<Questions> quiz,int level)
     {
-        _uIManager.OpenQuizMenu();
+
+        //_quizManager.StartQuiz(quiz);
+        
+        _uIManager.OpenQuizMenu(_quizManager,quiz,level);
     }
+
 
     public void CloseQuizMenu()
     {
         _uIManager.CloseQuizMenu();
     }
 
-    public void OpenDialogue(string aName, List<Dialogue> convo)
+    public void OpenDialogue(string aName, List<Dialogue> convo,List<Questions> quiz, int level)
     {
-        _dialogueManager.OpenDialogue(aName,convo);
+        _dialogueManager.OpenDialogue(aName,convo,quiz,level);
     }
 
     public void CloseDialogue()
@@ -75,10 +82,12 @@ public class GameManager : Singleton<GameManager>
         _dialogueManager.StopDialogue();
     }
 
-    public GameObject GetNextRoom()
+    /*public GameObject GetNextRoom()
     {
+        Debug.Log(roomIndex);
         return rooms[roomIndex];
     }
+    */
 
     public QuizManager GetQuizManager()
     {
@@ -89,14 +98,46 @@ public class GameManager : Singleton<GameManager>
         return player;
     }
 
-    public void DidPlayerPassQuiz(bool passed)
+    public void DidPlayerPassQuiz(bool passed,int level)
     {
+        if(passed == true)
+        {
+            if(level == 1)
+            {
+                lvl1QuizPassed = true;
+
+            }
+            else if( level == 2)
+            {
+                lvl2QuizPassed = true;
+
+            }
+            else if(level ==3)
+            {
+                lvl3QuizPassed = true;
+
+            }
+
+        }
         quizPassed = passed;
     }
 
     public bool GetPlayersQuizResults()
     {
         return quizPassed;
+    }
+
+    public bool GetPlayersQuizResultsLVL1()
+    {
+        return lvl1QuizPassed;
+    }
+    public bool GetPlayersQuizResultsLVL2()
+    {
+        return lvl2QuizPassed;
+    }
+    public bool GetPlayersQuizResultsLVL3()
+    {
+        return lvl3QuizPassed;
     }
 
     public void SetInteractingFalse()
@@ -162,22 +203,53 @@ public class GameManager : Singleton<GameManager>
             Debug.Log("no player to interact with");
         }
     }
+    
+    /*public void SetRoomIndex(int index)
+    {
+        Debug.Log(index);
+        roomIndex = index;
+        Debug.Log(roomIndex);
+
+    }
+    */
+
+    public void MovePlayerToRoom(int index)
+    {
+       player.transform.position = new Vector3(rooms[index].transform.position.x, rooms[index].transform.position.y, 0);
+
+    }
+
+
+
+    public void OpenDoors()
+    {
+        if(GetPlayersQuizResultsLVL1())
+        {
+            door[0].sprite = doorOpen;
+            door[1].sprite = doorOpen;
+        
+        }
+        if(GetPlayersQuizResultsLVL2())
+        {
+            door[2].sprite = doorOpen;
+            door[3].sprite = doorOpen;
+            
+        }
+        /*
+        if(GetPlayersQuizResultsLVL3())
+        {
+            door[4].sprite = doorOpen;
+        
+        }
+        */
+
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (GetPlayersQuizResults())
-        {
-            door[0].sprite = doorOpen;
-            if (roomIndex > rooms.Length - 1)
-            {
-                roomIndex = rooms.Length - 1;
-            }
-            else
-            {
-                roomIndex++;
-            }
 
-        }
+       
+        OpenDoors();
     }
 }
