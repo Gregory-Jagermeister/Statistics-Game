@@ -8,7 +8,7 @@ using UnityEngine.Networking;
 //code was adapted or obtained from youtube videos made by Awesome Tuts, Brackeys and The Game Guy
 public class QuizManager : MonoBehaviour
 {
-    public List<Questions> questions;
+    private List<Questions> questions = new List<Questions>();
     public GameObject[] choices;
     public int currentQuestion;
     public Text questionText;
@@ -25,15 +25,32 @@ public class QuizManager : MonoBehaviour
     public GameObject multiChoicePanel;
     public GameObject InputPanel;
 
+    private int quizLevel;
+
     Scene scene;
 
     // Start is called before the first frame update
     void Start()
     {
+        //totalQuestions = questions.Count;
+        //scorePanel.gameObject.SetActive(false);
+        //quizPanel.gameObject.SetActive(true);
+        //NextQuestion();
+    }
+
+    public void StartQuiz(List<Questions> quiz, int level)
+    {
+        
+        foreach (Questions item in quiz)
+        {
+            questions.Add(item);
+        }
         totalQuestions = questions.Count;
+        quizLevel = level;
         scorePanel.gameObject.SetActive(false);
         quizPanel.gameObject.SetActive(true);
         NextQuestion();
+
     }
 
 
@@ -60,9 +77,13 @@ public class QuizManager : MonoBehaviour
         Statics.quizScore = (100 / totalQuestions) * score;
         if ((100 / totalQuestions) * score == 100)
         {
-            GameManager.Instance.DidPlayerPassQuiz(true);
+            GameManager.Instance.DidPlayerPassQuiz(true,quizLevel);
         }
+        //Statics.timer = Statics.timer / 60;
+        //kickstarts the analytics routine
+        Debug.Log("made it to before post");
         StartCoroutine(GameManager.Instance.CreateAnalyticsData(Statics.timer.ToString(), Statics.artCount.ToString(), Statics.quizScore.ToString()));
+        score =0;
     }
 
     void SetAnswers()

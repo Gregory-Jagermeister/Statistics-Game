@@ -10,6 +10,20 @@ public class Interactable : MonoBehaviour
     public RectTransform menu;
     public bool isProf = false;
     public bool isDoor = false;
+
+    public bool isFinalDoor = false;
+
+
+    public bool isLVL1To2Door = false;
+    
+    public bool isLVL2To1Door = false;
+ 
+    public bool isLVL2To3Door = false;
+
+    public bool isLVL3To2Door = false;
+
+
+
     private bool isPlayerClose = false;
     
 
@@ -21,6 +35,10 @@ public class Interactable : MonoBehaviour
     {
         //Find the Player gameobject and if there isn't one log it to console.
         player = GameManager.Instance.GetPlayer();
+        if(player == null)
+        {
+            player = GameObject.FindObjectOfType<Movement>();
+        }
     }
 
     public bool IsPlayerClose()
@@ -47,9 +65,42 @@ public class Interactable : MonoBehaviour
                     }
                     else if (isDoor)
                     {
-                        if (GameManager.Instance.GetPlayersQuizResults())
+                        
+                        //door leads to level 1 from level 2
+                        if(isLVL2To1Door == true)
                         {
-                            player.transform.position = new Vector3(GameManager.Instance.GetNextRoom().transform.position.x, GameManager.Instance.GetNextRoom().transform.position.y, 0);
+                            GameManager.Instance.MovePlayerToRoom(1);
+                            
+                        }
+
+                        //door leads to level 2 from level 1
+                        else if(isLVL1To2Door == true && GameManager.Instance.GetPlayersQuizResultsLVL1() == true)
+                        {
+                            GameManager.Instance.MovePlayerToRoom(2);
+                            
+
+                        }
+                        
+                        //door leads to level 2 from level 3
+                        else if(isLVL3To2Door  == true)
+                        {
+                            GameManager.Instance.MovePlayerToRoom(3);
+                            
+                        }
+
+                        //door leads to level 3 from level 2
+                        else if(isLVL2To3Door  == true && GameManager.Instance.GetPlayersQuizResultsLVL2()  == true)
+                        {
+                            GameManager.Instance.MovePlayerToRoom(4);
+                           
+                            
+                        }
+                        //final door
+                        else if(isFinalDoor  == true && GameManager.Instance.GetPlayersQuizResultsLVL3()  == true   )
+                        {
+                            //end game
+                            
+                            
                         }
                     }
                     else
@@ -57,6 +108,33 @@ public class Interactable : MonoBehaviour
                         Statics.artCount += 1;
                         GameManager.Instance.OpenContentMenu(this.gameObject.name);
                         GameManager.Instance.SetInteractingTrue();
+
+                        //starts timer and counter for appropriate exhibit
+                        switch (this.gameObject.name)
+                        {
+                            case "Exhibit1":
+                                Statics.ex1TimeStart = true;
+                                Statics.ex1Count += 1;
+                                break;
+                            case "Exhibit2":
+                                Statics.ex2TimeStart = true;
+                                Statics.ex2Count += 1;
+                                break;
+                            case "Exhibit3":
+                                Statics.ex3TimeStart = true;
+                                Statics.ex3Count += 1;
+                                break;
+                            case "Exhibit4":
+                                //Statics.ex4TimeStart = true;
+                                //Statics.ex4Count += 1;
+                                break;
+                            case "Exhibit5":
+                                
+                                break;
+                            default:
+                                
+                                break;
+                        }
                     }
 
                 }
