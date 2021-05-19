@@ -79,7 +79,9 @@ public class QuizManager : MonoBehaviour
         {
             GameManager.Instance.DidPlayerPassQuiz(true,quizLevel);
         }
-        
+        //Statics.timer = Statics.timer / 60;
+        //kickstarts the analytics routine
+        Debug.Log("made it to before post");
         StartCoroutine(GameManager.Instance.CreateAnalyticsData(Statics.timer.ToString(), Statics.artCount.ToString(), Statics.quizScore.ToString()));
         score =0;
     }

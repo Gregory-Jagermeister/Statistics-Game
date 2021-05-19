@@ -163,10 +163,86 @@ public class GameManager : Singleton<GameManager>
     /// <returns></returns>
     public IEnumerator CreateAnalyticsData(string timer, string interactions, string scorePercent)
     {
+        //allows for manipulating timers
+        string ex1Timer;
+        string ex2Timer;
+        string ex3Timer;
+        string ex4Timer;
+
+        //altering timers to more readable format on google sheets
+        timer = timer.Substring(0, timer.IndexOf("."));
+        if (float.Parse(timer) < 10)
+        {
+            timer = "0" + timer;
+        }
+
+        //exhibit 1
+        if(Statics.ex1Time < 10 && Statics.ex1Time > 0)
+        {
+            ex1Timer = "0" + Statics.ex1Time.ToString();
+            ex1Timer = ex1Timer.Substring(0, ex1Timer.IndexOf("."));
+        }
+        else
+        {
+            
+                ex1Timer = Statics.ex1Time.ToString();
+            if (float.Parse(ex1Timer) != 0)
+            {
+                ex1Timer = ex1Timer.Substring(0, ex1Timer.IndexOf("."));
+            }
+        }
+
+        //exhibit 2
+        if (Statics.ex2Time < 10 && Statics.ex2Time > 0)
+        {
+            ex2Timer = "0" + Statics.ex2Time.ToString();
+            ex2Timer = ex2Timer.Substring(0, ex2Timer.IndexOf("."));
+        }
+        else
+        {
+            ex2Timer = Statics.ex2Time.ToString();
+            if (float.Parse(ex2Timer) != 0)
+            {
+                ex2Timer = ex2Timer.Substring(0, ex2Timer.IndexOf("."));
+            }
+        }
+        
+        //exhibit 3
+        if (Statics.ex3Time < 10 && Statics.ex3Time > 0)
+        {
+            ex3Timer = "0" + Statics.ex3Time.ToString();
+            ex3Timer = ex3Timer.Substring(0, ex3Timer.IndexOf("."));
+        }
+        else
+        {
+            ex3Timer = Statics.ex3Time.ToString();
+            if (float.Parse(ex3Timer) != 0)
+            {
+                ex3Timer = ex3Timer.Substring(0, ex3Timer.IndexOf("."));
+            }
+        }
+        /*
+        //exhibit 4
+        if (Statics.ex4Time < 10)
+        {
+            ex4Timer = "0" + Statics.ex4Time.ToString();
+            ex4Timer = ex4Timer.Substring(0, ex4Timer.IndexOf("."));
+        }
+        else
+        {
+            ex4Timer = Statics.ex4Time.ToString();
+            ex4Timer = ex4Timer.Substring(0, ex4Timer.IndexOf("."));
+        }
+        */
         WWWForm form = new WWWForm();
-        form.AddField("entry.172307503", timer);
-        form.AddField("entry.1592556701", interactions);
-        form.AddField("entry.1050833444", scorePercent);
+        Debug.Log("it worked");
+        form.AddField("entry.172307503", Statics.minutes + "." + timer + " mins"); //timer
+        form.AddField("entry.1592556701", interactions); //interactions
+        form.AddField("entry.1050833444", scorePercent); //quiz1 score
+        form.AddField("entry.438884323", "Interactions: " + Statics.ex1Count + " Time: " + Statics.ex1Min + "." + ex1Timer + "mins"); //exhibit1
+        form.AddField("entry.77173192", "Interactions: " + Statics.ex2Count + " Time: " + Statics.ex2Min + "." + ex2Timer + "mins"); //exhibit2
+        form.AddField("entry.1662654721", "Interactions: " + Statics.ex3Count + " Time: " + Statics.ex3Min + "." + ex3Timer + "mins"); //exhibit3
+        //form.AddField("entry.338377618", "Interactions: " + Statics.ex4Count + " Time: " + Statics.ex4Min + "." + ex4Timer + "mins"); //exhibit4
         byte[] rawData = form.data;
         //Updated this to UnityWebRequest as WWW is obsolete.
         using (var w = UnityWebRequest.Post(BASE_URL, form))
