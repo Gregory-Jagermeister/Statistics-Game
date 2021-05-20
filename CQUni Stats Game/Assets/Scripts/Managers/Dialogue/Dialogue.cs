@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Dialogue 
 {
+  
   public string statement;
   public string[] pcResponse;
   public string[] npcResponse;
