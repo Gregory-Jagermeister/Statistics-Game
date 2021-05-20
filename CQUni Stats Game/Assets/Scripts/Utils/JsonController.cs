@@ -70,10 +70,91 @@ public class JsonController : MonoBehaviour
 
     }
 
+    public List<Questions> getQuizArray(int level)
+    {
+        List<Questions> returning = new List<Questions>();
+        switch(level)
+        {
+            case 1:
+                foreach (Questions item in loadedData.lvl1Quiz)
+                {
+                    returning.Add(item);
+                
+                }
+                break;
+
+            case 2:
+                foreach (Questions item in loadedData.lvl2Quiz)
+                {
+                    returning.Add(item);
+                
+                }
+                break;
+
+            case 3:
+                foreach (Questions item in loadedData.lvl3Quiz)
+                {
+                    returning.Add(item);
+                
+                }
+                break;
+            default:
+            
+                break;
+
+        }
+        return returning;
+    }
+
+    public List<Dialogue> getDialogueArray(int level)
+    {
+        List<Dialogue> returning = new List<Dialogue>();
+        switch(level)
+        {
+            case 1:
+                foreach (Dialogue item in loadedData.lvl1Dialogue)
+                {
+                    returning.Add(item);
+                
+                }
+                break;
+
+            case 2:
+                foreach (Dialogue item in loadedData.lvl2Dialogue)
+                {
+                    returning.Add(item);
+                
+                }
+                break;
+
+            case 3:
+                foreach (Dialogue item in loadedData.lvl3Dialogue)
+                {
+                    returning.Add(item);
+                
+                }
+                break;
+            default:
+            
+                break;
+
+        }
+        return returning;
+    }
+
     [System.Serializable]
     private class AllJsonData
     {
         public JsonData[] art;
+        
+        public Questions[] lvl1Quiz;
+        public Questions[] lvl2Quiz;
+        public Questions[] lvl3Quiz;
+
+        public Dialogue[] lvl1Dialogue;
+        public Dialogue[] lvl2Dialogue;
+        public Dialogue[] lvl3Dialogue;
+
     }
 
 
