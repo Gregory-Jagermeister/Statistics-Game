@@ -1,55 +1,71 @@
-const fs = require("fs");
-const ytdl = require("ytdl-core");
 const express = require("express");
 var cors = require("cors");
 var path = require("path");
 const app = express();
 
-var http = require("http").createServer(app);
-const io = require("socket.io")(http);
-const port = process.env.PORT || 5000;
-
-var clientGlob = null;
-
-const getAudio = (videoURL, res) => {
-  console.log(videoURL);
-  var stream = ytdl(videoURL, {
-    quality: "highestaudio",
-    filter: "audioonly",
-  })
-    .on("progress", (chunkSize, downloadedChunk, totalChunk) => {
-      // console.log(downloadedChunk);
-      clientGlob.emit("progressEventSocket", [
-        (downloadedChunk * 100) / totalChunk,
-      ]);
-      clientGlob.emit("downloadCompletedServer", [downloadedChunk]);
-      if (downloadedChunk === totalChunk) {
-        console.log("Downloaded");
-      }
-    })
-    .pipe(res);
-
-  ytdl.getInfo(videoURL).then((info) => {
-    console.log("title:", info.videoDetails.title);
-    console.log("rating:", info.player_response.videoDetails.averageRating);
-    console.log("uploaded by:", info.videoDetails.author.name);
-    clientGlob.emit("videoDetails", [
-      info.videoDetails.title,
-      info.videoDetails.author.name,
-    ]);
-  });
-};
-
-app.use(express.json()); // to support JSON-encoded bodies
-app.use(express.urlencoded({ extended: true })); // to support URL-encoded bodies
 app.use(cors());
-app.post("/", (req, res) => {
-   getAudio(req.body.url, res);
+app.use(express.json());
+app.use(express.static("build"));
+
+app.get('/api/information', (req, res) => {
+  console.log("Information was Sought");
+  return res.json({
+    "art": [
+      {
+        "artifactId": "Exhibit1",
+        "heading": "Poverty #1",
+        "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
+        "videoUrl": "https://www.youtube.com/watch?v=ElG5-nXD0B8",
+        "content": "Poverty is bad"
+      },
+      {
+        "artifactId": "Exhibit2",
+        "heading": "Poverty #2",
+        "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
+        "videoUrl": "https://www.youtube.com/watch?v=i9aSp9bFmMg",
+        "content": "Poverty is not for the faint of heart"
+      },
+      {
+        "artifactId": "Exhibit3",
+        "heading": "Poverty #3",
+        "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
+        "videoUrl": "https://www.youtube.com/watch?v=aLwRZibUqL0",
+        "content": "Poverty should be fixed give money to all"
+      },
+      {
+        "artifactId": "Exhibit4",
+        "heading": "Poverty #3",
+        "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
+        "videoUrl": "https://www.youtube.com/watch?v=aLwRZibUqL0",
+        "content": "Poverty should be fixed give money to all"
+      }
+    ],
+    'lvl1Quiz': [
+      {
+        "question": "How many dick in a Basket",
+        "answers": [1, 2, 3, 4],
+        "correctAnswer": 4,
+        "isMultiChoice" : true
+      }
+    ],
+    'lvl2Quiz': [],
+    'lvl3Quiz': [],
+    'lvl1Dialouge': [],
+    'lvl2Dialouge': [],
+    'lvl3Dialouge': [],
+  });
 });
-io.on("connection", (client) => {
-    clientGlob = client;
-    console.log("User connected");
+
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(process.cwd(), "build/index.html"), function (err) {
+    if (err) {
+      console.log("Path is: " + path.join(process.cwd(), "build/index.html"));
+      res.status(500).send(err);
+    }
+  });
 });
-http.listen(port, () => {
-   console.log(`Example app listening at http://localhost:${port}`);
+ 
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

@@ -7,6 +7,10 @@ function App() {
 
   const unityContext = new UnityContent('UnityBuild/Build/UnityBuild.json', 'UnityBuild/Build/UnityLoader.js');
 
+  unityContext.on("debug", (message) => {
+    console.log(message);
+  });
+
   return (
     <div className="App">
       <header className="App-header">
