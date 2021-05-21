@@ -57,6 +57,43 @@
                 "hello, my name is 2",
                 "hello, my name is 3"
             ]
+        },
+        {
+            "statement": "ok but seriously what is your name?",
+            "pcResponse": [
+                "my name is Bob Henderson",
+                "my name is Joe"
+            ],
+            "npcResponse": [
+                "hello, Bob Henderson",
+                "Joe who? wait why are you laughing"
+            ]
+        },
+        {
+            "statement": "Moving on then. Are you aware that you will be undergoing a statistics quiz?",
+            "pcResponse": [
+                "Yes"
+            ],
+            "npcResponse": [
+                "Very good"
+            ]
+        },
+        {
+            "statement": "Good Luck!",
+            "pcResponse": [],
+            "npcResponse": []
+        },
+        {
+            "statement": "you poor soul",
+            "pcResponse": [
+                "wait, what do you mean?"
+            ],
+            "npcResponse": []
+        },
+        {
+            "statement": "don't worry about it",
+            "pcResponse": [],
+            "npcResponse": []
         }
     ],
     "lvl2Dialogue": [],
