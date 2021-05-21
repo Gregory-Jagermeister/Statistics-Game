@@ -430,8 +430,14 @@ MonoBehaviour:
   dialogueText: {fileID: 1228679101}
   nextButton: {fileID: 1584876893}
   dialogueChoicesPanel: {fileID: 957544028}
+  dialogueChoices:
+  - {fileID: 81214447}
+  - {fileID: 353227818}
+  - {fileID: 859708569}
   pcName: Bob
   dialogueOpen: 0
+  offsetDialogue1Pos: {x: 300, y: 0, z: 0}
+  normalDialogue1Pos: {x: 100, y: 0, z: 0}
 --- !u!114 &46209178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -531,7 +537,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 46209177}
-        m_MethodName: ChooseSeriousDialogue
+        m_MethodName: ChooseOption1Dialogue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1175,7 +1181,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 46209177}
-        m_MethodName: ChooseFunnyDialogue
+        m_MethodName: ChooseOption2Dialogue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1372,7 +1378,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
@@ -1381,7 +1387,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Serious Response
+  m_Text: Curt
 --- !u!222 &418027814
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1735,7 +1741,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
@@ -1744,7 +1750,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Please Give More Detail
+  m_Text: Inquire
 --- !u!222 &619271975
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2600,7 +2606,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 46209177}
-        m_MethodName: ChooseExpositionDialogue
+        m_MethodName: ChooseOption3Dialogue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9161,7 +9167,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
@@ -9170,7 +9176,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Funny Response
+  m_Text: Joke
 --- !u!222 &1671122185
 CanvasRenderer:
   m_ObjectHideFlags: 0

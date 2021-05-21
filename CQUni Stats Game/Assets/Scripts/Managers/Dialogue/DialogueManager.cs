@@ -13,6 +13,8 @@ public class DialogueManager : MonoBehaviour
     
     public GameObject nextButton;
     public GameObject dialogueChoicesPanel;
+    public GameObject[] dialogueChoices;
+
 
     private string npcName;
     public  string pcName;
@@ -46,11 +48,12 @@ public class DialogueManager : MonoBehaviour
         dialogue = convo;
         quiz = aQuiz;
         dialoguePanel.SetActive(true);
-        dialogueChoicesPanel.SetActive(true);
-        nextButton.SetActive(false);
+        
         quizLevel = level;
         dialogueIndex = 0;
-        dialogueText.text = dialogue[dialogueIndex].statement; 
+        Dialogue aSegment = dialogue[dialogueIndex];
+        SetupChoices(aSegment);
+        dialogueText.text = aSegment.statement; 
         dialogueOpen= true;
     }
 
@@ -87,21 +90,24 @@ public class DialogueManager : MonoBehaviour
         // hide original next button
         //display new next button that progresses the next dialogue chain
     }
-    public void ChooseSeriousDialogue()
+    public void ChooseOption1Dialogue()
     {
         
         aNPCName.text = pcName;
 
-        dialogueText.text = dialogue[dialogueIndex].pcResponse[0]; 
+        Dialogue aSegment;
+        aSegment = dialogue[dialogueIndex];
+
+        dialogueText.text = aSegment.pcResponse[0]; 
         //hide the dialogue chocies panel
         dialogueChoicesPanel.SetActive(false);
 
         // update text to show the normal dialogue
         //update the next statement
-        if(dialogue[dialogueIndex].npcResponse != null)
+        if(aSegment.npcResponse.Length >= 1)
         {
             npcResponseFound = true;
-            nextStatement = dialogue[dialogueIndex].npcResponse[0];
+            nextStatement = aSegment.npcResponse[0];
 
         }
         else
@@ -114,20 +120,23 @@ public class DialogueManager : MonoBehaviour
         nextButton.SetActive(true);
     }
 
-    public void ChooseExpositionDialogue()
+    public void ChooseOption2Dialogue()
     {
         aNPCName.text = pcName;
+        
+        Dialogue aSegment;
+        aSegment = dialogue[dialogueIndex];
 
-        dialogueText.text = dialogue[dialogueIndex].pcResponse[1]; 
+        dialogueText.text = aSegment.pcResponse[1]; 
         //hide the dialogue chocies panel
         dialogueChoicesPanel.SetActive(false);
 
         // update text to show the normal dialogue
         //update the next statement
-        if(dialogue[dialogueIndex].npcResponse != null)
+        if( aSegment.npcResponse.Length >=2)
         {
             npcResponseFound = true;
-            nextStatement = dialogue[dialogueIndex].npcResponse[1];
+            nextStatement = aSegment.npcResponse[1];
 
         }
         else
@@ -141,20 +150,23 @@ public class DialogueManager : MonoBehaviour
         
     }
 
-    public void ChooseFunnyDialogue()
+    public void ChooseOption3Dialogue()
     {
         aNPCName.text = pcName;
+       
+        Dialogue aSegment;
+        aSegment = dialogue[dialogueIndex];
 
-        dialogueText.text = dialogue[dialogueIndex].pcResponse[2]; 
+        dialogueText.text = aSegment.pcResponse[2]; 
         //hide the dialogue chocies panel
         dialogueChoicesPanel.SetActive(false);
 
         // update text to show the normal dialogue
         //update the next statement
-        if(dialogue[dialogueIndex].npcResponse != null)
+        if(aSegment.npcResponse.Length >=3)
         {
             npcResponseFound = true;
-            nextStatement = dialogue[dialogueIndex].npcResponse[2];
+            nextStatement = aSegment.npcResponse[2];
 
         }
         else
@@ -184,14 +196,82 @@ public class DialogueManager : MonoBehaviour
          
 
      }
+
+    public Vector3 offsetDialogue1Pos = new Vector3(300,0,0) ;
+    public Vector3 normalDialogue1Pos = new Vector3(100,0,0);
+
+    public void SetupChoices(Dialogue aSegment)
+    {
+        
+        Debug.Log("aSegment.pcResponse.Length = " + aSegment.pcResponse.Length);
+        if( aSegment.pcResponse.Length == 0 )
+        {
+            dialogueChoicesPanel.SetActive(false);
+            dialogueChoices[0].SetActive(false);
+            dialogueChoices[1].SetActive(false);
+            dialogueChoices[2].SetActive(false);
+            nextButton.SetActive(true);
+
+            npcResponseFound = false;
+
+        }
+        else if(aSegment.pcResponse.Length == 1)
+        {
+            dialogueChoicesPanel.SetActive(true);
+            dialogueChoices[0].SetActive(true);
+            //dialogueChoices[0].transform.position = offsetDialogue1Pos;
+            dialogueChoices[1].SetActive(false);
+            dialogueChoices[2].SetActive(false);
+            nextButton.SetActive(false);
+            
+        }
+        else if(aSegment.pcResponse.Length ==2)
+        {
+            dialogueChoicesPanel.SetActive(true);
+            dialogueChoices[0].SetActive(true);
+           // dialogueChoices[0].transform.position = normalDialogue1Pos;
+            dialogueChoices[1].SetActive(true);
+            dialogueChoices[2].SetActive(false);
+            nextButton.SetActive(false);
+
+        }
+        else if(aSegment.pcResponse.Length >= 3)
+        {
+            dialogueChoicesPanel.SetActive(true);
+            dialogueChoices[0].SetActive(true);
+            //dialogueChoices[0].transform.position = normalDialogue1Pos;
+            dialogueChoices[1].SetActive(true);
+            dialogueChoices[2].SetActive(true);
+
+            
+            nextButton.SetActive(false);
+
+        }
+        else
+        {
+            dialogueChoicesPanel.SetActive(false);
+            dialogueChoices[0].SetActive(false);
+            dialogueChoices[1].SetActive(false);
+            dialogueChoices[2].SetActive(false);
+            nextButton.SetActive(true);
+
+            npcResponseFound = false;
+
+        }
+        
+
+    }
      
     public void Next()
     {
         if(dialogueIndex < dialogue.Count )
         {
+            
             aNPCName.text = npcName;
-            dialogueText.text = dialogue[dialogueIndex].statement;            
-            dialogueChoicesPanel.SetActive(true);
+            Dialogue aSegment;
+            aSegment = dialogue[dialogueIndex];
+            SetupChoices(aSegment);
+            dialogueText.text = aSegment.statement;  
         }
         else
         {
