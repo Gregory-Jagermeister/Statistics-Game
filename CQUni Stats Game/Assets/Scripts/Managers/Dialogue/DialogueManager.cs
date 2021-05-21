@@ -104,7 +104,7 @@ public class DialogueManager : MonoBehaviour
 
         // update text to show the normal dialogue
         //update the next statement
-        if(aSegment.npcResponse.Length >= 1)
+        if(aSegment.npcResponse != null && aSegment.npcResponse.Length >= 1)
         {
             npcResponseFound = true;
             nextStatement = aSegment.npcResponse[0];
@@ -133,7 +133,7 @@ public class DialogueManager : MonoBehaviour
 
         // update text to show the normal dialogue
         //update the next statement
-        if( aSegment.npcResponse.Length >=2)
+        if( aSegment.npcResponse != null && aSegment.npcResponse.Length >=2)
         {
             npcResponseFound = true;
             nextStatement = aSegment.npcResponse[1];
@@ -163,7 +163,7 @@ public class DialogueManager : MonoBehaviour
 
         // update text to show the normal dialogue
         //update the next statement
-        if(aSegment.npcResponse.Length >=3)
+        if(aSegment.npcResponse != null &&  aSegment.npcResponse.Length >=3)
         {
             npcResponseFound = true;
             nextStatement = aSegment.npcResponse[2];
@@ -203,8 +203,7 @@ public class DialogueManager : MonoBehaviour
     public void SetupChoices(Dialogue aSegment)
     {
         
-        Debug.Log("aSegment.pcResponse.Length = " + aSegment.pcResponse.Length);
-        if( aSegment.pcResponse.Length == 0 )
+        if( aSegment.pcResponse != null && aSegment.pcResponse.Length == 0 )
         {
             dialogueChoicesPanel.SetActive(false);
             dialogueChoices[0].SetActive(false);
@@ -215,7 +214,7 @@ public class DialogueManager : MonoBehaviour
             npcResponseFound = false;
 
         }
-        else if(aSegment.pcResponse.Length == 1)
+        else if(aSegment.pcResponse != null && aSegment.pcResponse.Length == 1)
         {
             dialogueChoicesPanel.SetActive(true);
             dialogueChoices[0].SetActive(true);
@@ -225,7 +224,7 @@ public class DialogueManager : MonoBehaviour
             nextButton.SetActive(false);
             
         }
-        else if(aSegment.pcResponse.Length ==2)
+        else if(aSegment.pcResponse != null && aSegment.pcResponse.Length ==2)
         {
             dialogueChoicesPanel.SetActive(true);
             dialogueChoices[0].SetActive(true);
@@ -235,7 +234,7 @@ public class DialogueManager : MonoBehaviour
             nextButton.SetActive(false);
 
         }
-        else if(aSegment.pcResponse.Length >= 3)
+        else if(aSegment.pcResponse != null && aSegment.pcResponse.Length >= 3)
         {
             dialogueChoicesPanel.SetActive(true);
             dialogueChoices[0].SetActive(true);
