@@ -22,7 +22,8 @@ public class JsonController : MonoBehaviour
         }
         else
         {
-            StartCoroutine(GetData("https://boiling-cliffs-78685.herokuapp.com/https://www.drive.google.com/uc?export=download&id=1AdlqF_1IWYO0LGF-XMgXPtQpKEKRHwBW"));
+            //StartCoroutine(GetData("https://boiling-cliffs-78685.herokuapp.com/https://www.drive.google.com/uc?export=download&id=1AdlqF_1IWYO0LGF-XMgXPtQpKEKRHwBW"));
+            StartCoroutine(GetData(Application.dataPath + "/api/information"));
         }
 
     }
@@ -73,13 +74,13 @@ public class JsonController : MonoBehaviour
     public List<Questions> getQuizArray(int level)
     {
         List<Questions> returning = new List<Questions>();
-        switch(level)
+        switch (level)
         {
             case 1:
                 foreach (Questions item in loadedData.lvl1Quiz)
                 {
                     returning.Add(item);
-                
+
                 }
                 break;
 
@@ -87,7 +88,7 @@ public class JsonController : MonoBehaviour
                 foreach (Questions item in loadedData.lvl2Quiz)
                 {
                     returning.Add(item);
-                
+
                 }
                 break;
 
@@ -95,11 +96,11 @@ public class JsonController : MonoBehaviour
                 foreach (Questions item in loadedData.lvl3Quiz)
                 {
                     returning.Add(item);
-                
+
                 }
                 break;
             default:
-            
+
                 break;
 
         }
@@ -109,13 +110,13 @@ public class JsonController : MonoBehaviour
     public List<Dialogue> getDialogueArray(int level)
     {
         List<Dialogue> returning = new List<Dialogue>();
-        switch(level)
+        switch (level)
         {
             case 1:
                 foreach (Dialogue item in loadedData.lvl1Dialogue)
                 {
                     returning.Add(item);
-                
+
                 }
                 break;
 
@@ -123,7 +124,7 @@ public class JsonController : MonoBehaviour
                 foreach (Dialogue item in loadedData.lvl2Dialogue)
                 {
                     returning.Add(item);
-                
+
                 }
                 break;
 
@@ -131,11 +132,11 @@ public class JsonController : MonoBehaviour
                 foreach (Dialogue item in loadedData.lvl3Dialogue)
                 {
                     returning.Add(item);
-                
+
                 }
                 break;
             default:
-            
+
                 break;
 
         }
@@ -146,7 +147,7 @@ public class JsonController : MonoBehaviour
     private class AllJsonData
     {
         public JsonData[] art;
-        
+
         public Questions[] lvl1Quiz;
         public Questions[] lvl2Quiz;
         public Questions[] lvl3Quiz;

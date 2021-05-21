@@ -1,0 +1,64 @@
+{
+    "art": [
+        {
+            "artifactId": "Exhibit1",
+            "heading": "Poverty #1",
+            "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
+            "videoUrl": "https://www.youtube.com/watch?v=ElG5-nXD0B8",
+            "content": "Poverty is bad"
+        },
+        {
+            "artifactId": "Exhibit2",
+            "heading": "Poverty #2",
+            "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
+            "videoUrl": "https://www.youtube.com/watch?v=i9aSp9bFmMg",
+            "content": "Poverty is not for the faint of heart"
+        },
+        {
+            "artifactId": "Exhibit3",
+            "heading": "Poverty #3",
+            "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
+            "videoUrl": "https://www.youtube.com/watch?v=aLwRZibUqL0",
+            "content": "Poverty should be fixed give money to all"
+        },
+        {
+            "artifactId": "Exhibit4",
+            "heading": "Poverty #3",
+            "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
+            "videoUrl": "https://www.youtube.com/watch?v=aLwRZibUqL0",
+            "content": "Poverty should be fixed give money to all"
+        }
+    ],
+    "lvl1Quiz": [
+        {
+            "question": "How many apples in a Basket",
+            "answers": [
+                1,
+                2,
+                3,
+                4
+            ],
+            "correctAnswer": 4,
+            "isMultiChoice": true
+        }
+    ],
+    "lvl2Quiz": [],
+    "lvl3Quiz": [],
+    "lvl1Dialogue": [
+        {
+            "statement": "Hello, I am Prof. What is your name?",
+            "pcResponse": [
+                "my name is 1",
+                "my name is 2",
+                "my name is 3"
+            ],
+            "npcResponse": [
+                "hello, my name is 1",
+                "hello, my name is 2",
+                "hello, my name is 3"
+            ]
+        }
+    ],
+    "lvl2Dialogue": [],
+    "lvl3Dialogue": []
+}

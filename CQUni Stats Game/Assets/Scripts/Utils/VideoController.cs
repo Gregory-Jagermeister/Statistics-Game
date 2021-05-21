@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using YoutubePlayer;
+using UnityEngine.Networking;
 
 public class VideoController : MonoBehaviour
 {
@@ -37,11 +38,11 @@ public class VideoController : MonoBehaviour
         Debug.Log(player.isPrepared);
         if (!player.isPrepared)
         {
-            FindMedia(videoUrl);
-
+            StartCoroutine(FindMedia(Application.dataPath + "/api/video/" + videoUrl));
         }
 
         player.Play();
+
     }
 
     public void PauseMedia()
@@ -54,13 +55,21 @@ public class VideoController : MonoBehaviour
         player.Stop();
     }
 
-    public async void FindMedia(string url)
+    public IEnumerator FindMedia(string url)
     {
-        await VideoPlayerExtensions.PlayYoutubeVideoAsync(player, url);
-        if (!Debug.isDebugBuild)
+        UnityWebRequest request = UnityWebRequest.Get(url);
+
+        yield return request.SendWebRequest();
+
+        if (request.isNetworkError || request.isHttpError)
         {
-            string oldUrl = player.url;
-            player.url = "https://boiling-cliffs-78685.herokuapp.com/" + oldUrl;
+            Debug.Log(request.error);
+        }
+        else
+        {
+            Debug.Log(request.downloadHandler.text);
+            player.url = Application.dataPath + "/proxy/" + request.downloadHandler.text;
+            player.Play();
         }
 
         Debug.Log(player.isPrepared);

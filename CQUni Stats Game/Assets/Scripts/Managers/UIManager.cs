@@ -87,11 +87,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void OpenQuizMenu(QuizManager manager,List<Questions> quiz, int level)
+    public void OpenQuizMenu(QuizManager manager, List<Questions> quiz, int level)
     {
         isAMenuOpen = true;
         CanvasExtentions.RectTransformPosition(quizUI, 0, 0, 0, 0);
-        manager.StartQuiz(quiz,level);
+        manager.StartQuiz(quiz, level);
         Time.timeScale = 0;
     }
 
@@ -149,12 +149,14 @@ public class UIManager : MonoBehaviour
         UnityWebRequest request;
         if (Debug.isDebugBuild)
         {
-            request = UnityWebRequestTexture.GetTexture(URL);
+            request = UnityWebRequestTexture.GetTexture("/proxy/" + URL);
         }
         else
         {
-            request = UnityWebRequestTexture.GetTexture("https://boiling-cliffs-78685.herokuapp.com/" + URL);
+            request = UnityWebRequestTexture.GetTexture("/proxy/" + URL);
+
         }
+
 
         yield return request.SendWebRequest();
         if (request.isNetworkError || request.isHttpError)
