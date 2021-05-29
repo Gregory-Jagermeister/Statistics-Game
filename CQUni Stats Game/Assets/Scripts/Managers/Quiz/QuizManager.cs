@@ -20,6 +20,8 @@ public class QuizManager : MonoBehaviour
     public Text scoreText;
     private int totalQuestions;
     private int score;
+    public int numQuestions = 2;
+    private int totalNumQuestions;
 
 
     public GameObject multiChoicePanel;
@@ -32,6 +34,7 @@ public class QuizManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        totalNumQuestions = numQuestions;
         //totalQuestions = questions.Count;
         //scorePanel.gameObject.SetActive(false);
         //quizPanel.gameObject.SetActive(true);
@@ -58,6 +61,7 @@ public class QuizManager : MonoBehaviour
     public void Correct()
     {
         score = score + 1;
+        numQuestions = numQuestions-1;
         questions.RemoveAt(currentQuestion);
         NextQuestion();
     }
@@ -65,6 +69,7 @@ public class QuizManager : MonoBehaviour
     {
 
         questions.RemoveAt(currentQuestion);
+        numQuestions = numQuestions-1;
         NextQuestion();
     }
 
@@ -73,9 +78,9 @@ public class QuizManager : MonoBehaviour
         GameManager.Instance.SetInteractingFalse();
         quizPanel.gameObject.SetActive(false);
         scorePanel.gameObject.SetActive(true);
-        scoreText.text = "You achieved a score of " + score + "/" + totalQuestions;
-        Statics.quizScore = (100 / totalQuestions) * score;
-        if ((100 / totalQuestions) * score == 100)
+        scoreText.text = "You achieved a score of " + score + "/" + totalNumQuestions;
+        Statics.quizScore = (100 / totalNumQuestions) * score;
+        if ((100 / totalNumQuestions) * score == 100)
         {
             GameManager.Instance.DidPlayerPassQuiz(true,quizLevel);
         }
@@ -84,6 +89,7 @@ public class QuizManager : MonoBehaviour
         Debug.Log("made it to before post");
         StartCoroutine(GameManager.Instance.CreateAnalyticsData(Statics.timer.ToString(), Statics.artCount.ToString(), Statics.quizScore.ToString()));
         score =0;
+        numQuestions = totalNumQuestions;
     }
 
     void SetAnswers()
@@ -121,7 +127,7 @@ public class QuizManager : MonoBehaviour
     // Update is called once per frame
     void NextQuestion()
     {
-        if (questions.Count > 0)
+        if (questions.Count > 0 && numQuestions != 0 )
         {
             currentQuestion = Random.Range(0, questions.Count);
             questionText.text = questions[currentQuestion].question;
