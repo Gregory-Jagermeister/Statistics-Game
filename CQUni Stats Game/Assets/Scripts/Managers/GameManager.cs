@@ -25,6 +25,9 @@ public class GameManager : Singleton<GameManager>
     private bool lvl2QuizPassed = false;
     private bool lvl3QuizPassed = false;
 
+    public float quiz1Average = 0f;
+    public int quiz1Attempts = 0;
+
     [SerializeField]
     private string BASE_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdKmNRxpf0460uiCSEKMoheZodlUqtHkM8MCAEy4fGS3y_d-A/formResponse";
 
@@ -161,7 +164,7 @@ public class GameManager : Singleton<GameManager>
     /// <param name="interactions"></param>
     /// <param name="scorePercent"></param>
     /// <returns></returns>
-    public IEnumerator CreateAnalyticsData(string timer, string interactions, string scorePercent)
+    public IEnumerator CreateAnalyticsData(string timer, string interactions, string scorePercent1)
     {
         //allows for manipulating timers
         string ex1Timer;
@@ -170,7 +173,8 @@ public class GameManager : Singleton<GameManager>
         string ex4Timer;
         string ex5Timer;
         string ex6Timer;
-
+        scorePercent1 = "";
+        
         //altering timers to more readable format on google sheets
         timer = timer.Substring(0, timer.IndexOf("."));
         if (float.Parse(timer) < 10)
@@ -269,13 +273,19 @@ public class GameManager : Singleton<GameManager>
                 ex6Timer = ex6Timer.Substring(0, ex6Timer.IndexOf("."));
             }
         }
-
+        quiz1Attempts = Statics.quizCount1;
+        for(int count = 0; count <= Statics.quizCount1; count ++)
+        {
+            quiz1Average += Statics.quizScore[count];
+        }
+        quiz1Average = quiz1Average / Statics.quizCount1;
 
         WWWForm form = new WWWForm();
         Debug.Log("it worked");
         form.AddField("entry.172307503", Statics.minutes + "." + timer + " mins"); //timer
         form.AddField("entry.1592556701", interactions); //interactions
-        form.AddField("entry.1050833444", scorePercent); //quiz1 score
+        form.AddField("entry.1050833444", quiz1Average.ToString()); //quiz1 score
+        form.AddField("entry.319759789", Statics.quizCount1.ToString());
         form.AddField("entry.438884323", "Interactions: " + Statics.ex1Count + " Time: " + Statics.ex1Min + "." + ex1Timer + "mins"); //exhibit1
         form.AddField("entry.77173192", "Interactions: " + Statics.ex2Count + " Time: " + Statics.ex2Min + "." + ex2Timer + "mins"); //exhibit2
         form.AddField("entry.1662654721", "Interactions: " + Statics.ex3Count + " Time: " + Statics.ex3Min + "." + ex3Timer + "mins"); //exhibit3

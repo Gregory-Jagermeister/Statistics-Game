@@ -13,7 +13,7 @@ public class QuizManager : MonoBehaviour
     public int currentQuestion;
     public Text questionText;
 
-
+    public float[] TestquizScore = new float[99];
 
     public GameObject scorePanel;
     public GameObject quizPanel;
@@ -79,15 +79,21 @@ public class QuizManager : MonoBehaviour
         quizPanel.gameObject.SetActive(false);
         scorePanel.gameObject.SetActive(true);
         scoreText.text = "You achieved a score of " + score + "/" + totalNumQuestions;
-        Statics.quizScore = (100 / totalNumQuestions) * score;
+        if (quizLevel == 1)
+        {
+            Statics.quizScore[Statics.quizCount1] = (100 / totalNumQuestions) * score;
+            TestquizScore[Statics.quizCount1] = (100 / totalNumQuestions) * score;
+            Statics.quizCount1 += 1;
+        } 
         if ((100 / totalNumQuestions) * score == 100)
         {
             GameManager.Instance.DidPlayerPassQuiz(true,quizLevel);
+            StartCoroutine(GameManager.Instance.CreateAnalyticsData(Statics.timer.ToString(), Statics.artCount.ToString(), Statics.quizScore.ToString()));
         }
         //Statics.timer = Statics.timer / 60;
         //kickstarts the analytics routine
         Debug.Log("made it to before post");
-        StartCoroutine(GameManager.Instance.CreateAnalyticsData(Statics.timer.ToString(), Statics.artCount.ToString(), Statics.quizScore.ToString()));
+        
         score =0;
         numQuestions = totalNumQuestions;
     }

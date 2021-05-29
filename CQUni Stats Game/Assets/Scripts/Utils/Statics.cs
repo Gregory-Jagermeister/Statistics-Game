@@ -8,7 +8,12 @@ public class Statics : MonoBehaviour
 {
     public static float timer = 0.0f;
     public static int artCount = 0;
-    public static float quizScore = 0.0f;
+    public static float[] quizScore = new float [99];
+    public static float[] quizScore2 = new float [99];
+    public static float[] quizScore3 = new float [99];
+    public static int quizCount1 = 0;
+    public static int quizCount2 = 0;
+    public static int quizCount3 = 0;
     public float score = 0;
     public float tempPlay = 0;
     public float tempQuiz = 0;
@@ -16,6 +21,7 @@ public class Statics : MonoBehaviour
     public int tempCount = 0;
     public static int minutes = 0;
 
+    //quiz scores
 
     //exhibits
     public static int ex1Count = 0;
@@ -154,7 +160,7 @@ public class Statics : MonoBehaviour
 
       
         //testing variables for statics
-        score = Statics.quizScore;  
+        //score = Statics.quizScore;  
         tempQuiz = Statics.ex1Time;
         tempPlay = timer;
         tempCount = Statics.intCount;
