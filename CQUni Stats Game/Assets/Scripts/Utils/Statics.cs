@@ -38,6 +38,15 @@ public class Statics : MonoBehaviour
     public static bool ex4TimeStart = false;
     public static int ex4Min = 0;
 
+    public static int ex5Count = 0;
+    public static float ex5Time = 0;
+    public static bool ex5TimeStart = false;
+    public static int ex5Min = 0;
+
+    public static int ex6Count = 0;
+    public static float ex6Time = 0;
+    public static bool ex6TimeStart = false;
+    public static int ex6Min = 0;
 
     //used for timer
     public System.DateTime prev = System.DateTime.Now;
@@ -98,7 +107,7 @@ public class Statics : MonoBehaviour
                 ex3Time -= 60;
             }
 
-        }/*
+        }
         if (ex4TimeStart == true)
         {
             Statics.ex4Time += (float)diff.TotalSeconds;
@@ -108,13 +117,35 @@ public class Statics : MonoBehaviour
                 ex4Time -= 60;
             }
 
-        }*/
+        }
+        if (ex5TimeStart == true)
+        {
+            Statics.ex5Time += (float)diff.TotalSeconds;
+            if (ex5Time >= 60)
+            {
+                ex5Min += 1;
+                ex5Time -= 60;
+            }
+
+        }
+        if (ex6TimeStart == true)
+        {
+            Statics.ex6Time += (float)diff.TotalSeconds;
+            if (ex6Time >= 60)
+            {
+                ex6Min += 1;
+                ex6Time -= 60;
+            }
+
+        }
         if (!GameManager.Instance.isInteracting)
         {
             Statics.ex1TimeStart = false;
             Statics.ex2TimeStart = false;
             Statics.ex3TimeStart = false;
-            //Statics.ex4TimeStart = false;
+            Statics.ex4TimeStart = false;
+            Statics.ex5TimeStart = false;
+            Statics.ex6TimeStart = false;
         }
 
        

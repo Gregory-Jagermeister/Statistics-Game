@@ -168,6 +168,8 @@ public class GameManager : Singleton<GameManager>
         string ex2Timer;
         string ex3Timer;
         string ex4Timer;
+        string ex5Timer;
+        string ex6Timer;
 
         //altering timers to more readable format on google sheets
         timer = timer.Substring(0, timer.IndexOf("."));
@@ -221,19 +223,54 @@ public class GameManager : Singleton<GameManager>
                 ex3Timer = ex3Timer.Substring(0, ex3Timer.IndexOf("."));
             }
         }
-        /*
+
         //exhibit 4
-        if (Statics.ex4Time < 10)
+        if (Statics.ex4Time < 10 && Statics.ex4Time > 0)
         {
             ex4Timer = "0" + Statics.ex4Time.ToString();
             ex4Timer = ex4Timer.Substring(0, ex4Timer.IndexOf("."));
         }
         else
         {
+
             ex4Timer = Statics.ex4Time.ToString();
-            ex4Timer = ex4Timer.Substring(0, ex4Timer.IndexOf("."));
+            if (float.Parse(ex4Timer) != 0)
+            {
+                ex4Timer = ex4Timer.Substring(0, ex4Timer.IndexOf("."));
+            }
         }
-        */
+
+        //exhibit 5
+        if (Statics.ex5Time < 10 && Statics.ex5Time > 0)
+        {
+            ex5Timer = "0" + Statics.ex5Time.ToString();
+            ex5Timer = ex5Timer.Substring(0, ex5Timer.IndexOf("."));
+        }
+        else
+        {
+            ex5Timer = Statics.ex5Time.ToString();
+            if (float.Parse(ex5Timer) != 0)
+            {
+                ex5Timer = ex5Timer.Substring(0, ex5Timer.IndexOf("."));
+            }
+        }
+
+        //exhibit 6
+        if (Statics.ex6Time < 10 && Statics.ex6Time > 0)
+        {
+            ex6Timer = "0" + Statics.ex6Time.ToString();
+            ex6Timer = ex6Timer.Substring(0, ex6Timer.IndexOf("."));
+        }
+        else
+        {
+            ex6Timer = Statics.ex6Time.ToString();
+            if (float.Parse(ex6Timer) != 0)
+            {
+                ex6Timer = ex6Timer.Substring(0, ex6Timer.IndexOf("."));
+            }
+        }
+
+
         WWWForm form = new WWWForm();
         Debug.Log("it worked");
         form.AddField("entry.172307503", Statics.minutes + "." + timer + " mins"); //timer
@@ -242,7 +279,9 @@ public class GameManager : Singleton<GameManager>
         form.AddField("entry.438884323", "Interactions: " + Statics.ex1Count + " Time: " + Statics.ex1Min + "." + ex1Timer + "mins"); //exhibit1
         form.AddField("entry.77173192", "Interactions: " + Statics.ex2Count + " Time: " + Statics.ex2Min + "." + ex2Timer + "mins"); //exhibit2
         form.AddField("entry.1662654721", "Interactions: " + Statics.ex3Count + " Time: " + Statics.ex3Min + "." + ex3Timer + "mins"); //exhibit3
-        //form.AddField("entry.338377618", "Interactions: " + Statics.ex4Count + " Time: " + Statics.ex4Min + "." + ex4Timer + "mins"); //exhibit4
+        form.AddField("entry.1998886816", "Interactions: " + Statics.ex4Count + " Time: " + Statics.ex4Min + "." + ex4Timer + "mins"); //exhibit4
+        form.AddField("entry.1161738900", "Interactions: " + Statics.ex5Count + " Time: " + Statics.ex5Min + "." + ex5Timer + "mins"); //exhibit5
+        form.AddField("entry.109809298", "Interactions: " + Statics.ex5Count + " Time: " + Statics.ex5Min + "." + ex5Timer + "mins"); //exhibit6
         byte[] rawData = form.data;
         //Updated this to UnityWebRequest as WWW is obsolete.
         using (var w = UnityWebRequest.Post(BASE_URL, form))
