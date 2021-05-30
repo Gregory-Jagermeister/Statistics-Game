@@ -669,6 +669,12 @@ MonoBehaviour:
   - {fileID: 81214447}
   - {fileID: 353227818}
   - {fileID: 859708569}
+  profPose: {fileID: 290447256}
+  sprites:
+  - {fileID: 21300000, guid: ff5f75eb117a0a2448dc384349f8fc1e, type: 3}
+  - {fileID: 21300000, guid: 774f3d31c6b980747abfe3c0b77ce60d, type: 3}
+  - {fileID: 21300000, guid: a5cbb2b4979b9514182700b22c94ec11, type: 3}
+  - {fileID: 21300000, guid: 8e09a898c92498949a1a0428c17a3867, type: 3}
   pcName: Bob
   dialogueOpen: 0
   offsetDialogue1Pos: {x: 300, y: 0, z: 0}
@@ -1566,7 +1572,7 @@ GameObject:
   - component: {fileID: 290447257}
   - component: {fileID: 290447256}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ProfessorPose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2898,6 +2904,7 @@ MonoBehaviour:
     - Hello
     - Hello
     - Hello
+    npcPose: 0
   quiz:
   - question: IS THIS WORK?
     answers:

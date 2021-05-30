@@ -14,7 +14,9 @@ public class DialogueManager : MonoBehaviour
     public GameObject nextButton;
     public GameObject dialogueChoicesPanel;
     public GameObject[] dialogueChoices;
+    public Image profPose;
 
+    public Sprite [] sprites;
 
     private string npcName;
     public  string pcName;
@@ -53,6 +55,7 @@ public class DialogueManager : MonoBehaviour
         dialogueIndex = 0;
         Dialogue aSegment = dialogue[dialogueIndex];
         SetupChoices(aSegment);
+        SetupPose(aSegment.npcPose);
         dialogueText.text = aSegment.statement; 
         dialogueOpen= true;
     }
@@ -261,6 +264,29 @@ public class DialogueManager : MonoBehaviour
 
     }
      
+    public void  SetupPose(int poseIndex)
+    {
+     
+        switch (poseIndex)
+        {
+            case 0:
+                profPose.sprite = sprites[0];
+                break;
+            case 1:
+                profPose.sprite = sprites[1];
+                break;
+            case 2:
+                profPose.sprite = sprites[2];
+                break;
+            case 3:
+                profPose.sprite = sprites[3];
+                break;           
+            default:
+                profPose.sprite = sprites[0];
+                break;
+        }
+
+    }
     public void Next()
     {
         if(dialogueIndex < dialogue.Count )
@@ -270,6 +296,7 @@ public class DialogueManager : MonoBehaviour
             Dialogue aSegment;
             aSegment = dialogue[dialogueIndex];
             SetupChoices(aSegment);
+            SetupPose(aSegment.npcPose);
             dialogueText.text = aSegment.statement;  
         }
         else

@@ -176,13 +176,13 @@
                 "My name is Bob.",
                 "It's Joe.",
                 "It's Bob. Is 'The Professor' your actual name, or just a title?"
-                
             ],
             "npcResponse": [
-                "Hello Bob! Welcome to the Museum!", 
+                "Hello Bob! Welcome to the Museum!",
                 "Joe who- wait... why are you laughing?",
                 "Just Bob? ...Well, my actual name is Hugh Jass. You can see why I use my title instead..."
-            ]
+            ],
+            "npcPose": 0
         },
         {
             "statement": "Are you sure that is your name?",
@@ -193,7 +193,8 @@
             "npcResponse": [
                 "Hello, Bob Henderson!",
                 "Hey Joe M. Ama! Wait..."
-            ]
+            ],
+            "npcPose": 1
         },
         {
             "statement": "Moving on then. Are you aware that you will be undergoing a statistics quiz?",
@@ -202,12 +203,14 @@
             ],
             "npcResponse": [
                 "Very good!"
-            ]
+            ],
+            "npcPose": 2
         },
         {
             "statement": "Good Luck!",
             "pcResponse": [],
-            "npcResponse": []
+            "npcResponse": [],
+            "npcPose": 3
         },
         {
             "statement": "You poor soul...",
@@ -219,7 +222,8 @@
         {
             "statement": "O-Oh, don't you worry about it!",
             "pcResponse": [],
-            "npcResponse": []
+            "npcResponse": [],
+            "npcPose": 1
         }
     ],
     "lvl2Dialogue": [],
