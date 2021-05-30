@@ -249,39 +249,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6541ffea57844f34b8f1f5c67740e25d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Prof
+  npcName: The Professor
   convo:
-  - statement: Hi I am Prof. What is your name?
+  - statement: Greetings! I am The Professor. What is your name?
     pcResponse:
-    - Bob
-    - My name is Bob. Is Prof your real name or a title?
-    - Joe
+    - Bob.
+    - My name is Bob. Is 'The Professor' your real name, or a title?
+    - Joe.
     npcResponse:
-    - Hello Bob, Welcome to the museum
-    - Prof is my title, but my real name is Richard Hugh Johnson. So you can see
-      why i go by Prof
-    - Joe who? wait why are you laughing?
-  - statement: So this is a test
+    - Hello Bob! Welcome to the Museum.
+    - '''The Professor'' is my title! But my real name is Richard Hugh Johnson.'
+    - Joe who? Wait... why are you laughing?
+  - statement: So this is a test?
     pcResponse:
     - Really?
     - Really, a test about what?
-    - And thats my que to leave
+    - And that's my cue to leave.
     npcResponse:
-    - Yes
-    - A test about statistics
-    - I activate my trap card. You are forced to take the test
-  quiz:
-  - question: what is the year?
-    answers:
-    - 2021
-    correctAnswer: 1
-    isMultiChoice: 0
-  - question: is this a simple quiz
-    answers:
-    - no
-    - maybe
-    - kind of
-    - yes
-    correctAnswer: 4
-    isMultiChoice: 1
+    - Yes!
+    - A test about statistics!
+    - I activate my trap card! You're forced to take the test! Hahaha!
+  quiz: []
   level: 1

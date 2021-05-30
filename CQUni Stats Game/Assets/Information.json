@@ -171,36 +171,37 @@
     "lvl3Quiz": [],
     "lvl1Dialogue": [
         {
-            "statement": "Hello, I am Prof. What is your name?",
+            "statement": "Hello! I am 'The Professor'! What is your name?",
             "pcResponse": [
-                "my name is 1",
-                "my name is 2",
-                "my name is 3"
+                "My name is Bob.",
+                "It's Joe.",
+                "It's Bob. Is 'The Professor' your actual name, or just a title?"
+                
             ],
             "npcResponse": [
-                "hello, my name is 1",
-                "hello, my name is 2",
-                "hello, my name is 3"
+                "Hello Bob! Welcome to the Museum!", 
+                "Joe who- wait... why are you laughing?",
+                "Just Bob? ...Well, my actual name is Hugh Jass. You can see why I use my title instead..."
             ]
         },
         {
-            "statement": "ok but seriously what is your name?",
+            "statement": "Are you sure that is your name?",
             "pcResponse": [
-                "my name is Bob Henderson",
-                "my name is Joe"
+                "My name is Bob Henderson.",
+                "My name is Joe M. Ama."
             ],
             "npcResponse": [
-                "hello, Bob Henderson",
-                "Joe who? wait why are you laughing"
+                "Hello, Bob Henderson!",
+                "Hey Joe M. Ama! Wait..."
             ]
         },
         {
             "statement": "Moving on then. Are you aware that you will be undergoing a statistics quiz?",
             "pcResponse": [
-                "Yes"
+                "Yes."
             ],
             "npcResponse": [
-                "Very good"
+                "Very good!"
             ]
         },
         {
@@ -209,14 +210,14 @@
             "npcResponse": []
         },
         {
-            "statement": "you poor soul",
+            "statement": "You poor soul...",
             "pcResponse": [
-                "wait, what do you mean?"
+                "Hang on, what?"
             ],
             "npcResponse": []
         },
         {
-            "statement": "don't worry about it",
+            "statement": "O-Oh, don't you worry about it!",
             "pcResponse": [],
             "npcResponse": []
         }
