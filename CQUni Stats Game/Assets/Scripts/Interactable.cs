@@ -102,6 +102,10 @@ public class Interactable : MonoBehaviour
                             
                             
                         }
+                        else
+                        {
+                            GameManager.Instance.OpenClosedDoor();
+                        }
                     }
                     else
                     {

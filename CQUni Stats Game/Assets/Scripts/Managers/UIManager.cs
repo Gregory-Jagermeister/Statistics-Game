@@ -20,11 +20,16 @@ public class UIManager : MonoBehaviour
     public RectTransform howToPanel;
     private GameObject[] exhibits;
 
+    
+
     private RectTransform[] indicators;
 
     public RectTransform interactableIconPrefab;
 
     public RectTransform quizUI;
+
+
+    public GameObject ClosedDoorPanel;
 
     private bool isAMenuOpen = false;
 
@@ -44,6 +49,7 @@ public class UIManager : MonoBehaviour
             indicators[count].gameObject.SetActive(false);
             count++;
         }
+        ClosedDoorPanel.SetActive(false);
 
     }
 
@@ -102,6 +108,19 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
+
+    public void OpenClosedDoorPanel()
+    {
+        isAMenuOpen = true;
+        ClosedDoorPanel.SetActive(true);
+        Time.timeScale = 0;
+    }
+    public void CloseClosedDoorPanel()
+    {
+        isAMenuOpen = true;
+        ClosedDoorPanel.SetActive(false);
+        Time.timeScale = 1;
+    }
     public void OpenContentMenu(string ID)
     {
         isAMenuOpen = true;
@@ -131,6 +150,7 @@ public class UIManager : MonoBehaviour
     {
         CanvasExtentions.RectTransformPosition(contentBackgrond, 2000, -2000, 2000, -2000);
         player.ClearMedia();
+        ClosedDoorPanel.SetActive(false);
         isAMenuOpen = false;
         Time.timeScale = 1;
         GameManager.Instance.SetInteractingFalse();

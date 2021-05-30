@@ -68,8 +68,7 @@ public class GameManager : Singleton<GameManager>
         
         _uIManager.OpenQuizMenu(_quizManager,quiz,level);
     }
-
-
+    
     public void CloseQuizMenu()
     {
         _uIManager.CloseQuizMenu();
@@ -85,12 +84,19 @@ public class GameManager : Singleton<GameManager>
         _dialogueManager.StopDialogue();
     }
 
-    /*public GameObject GetNextRoom()
+    public void OpenClosedDoor()
     {
-        Debug.Log(roomIndex);
-        return rooms[roomIndex];
+
+        //_quizManager.StartQuiz(quiz);
+        
+        _uIManager.OpenClosedDoorPanel();
     }
-    */
+
+    public void CloseClosedDoor()
+    {
+        
+        _uIManager.CloseClosedDoorPanel();
+    }
 
     public QuizManager GetQuizManager()
     {

@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4687334993649054050}
   - component: {fileID: 4687334993649054049}
+  - component: {fileID: 1803871445060241955}
   m_Layer: 0
-  m_Name: DescMona
+  m_Name: Desc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,3 +82,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1803871445060241955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4687334993649054051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad517f9166b0b94cbc91587a3b28576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.7
+  menu: {fileID: 0}
+  isProf: 0
+  isDoor: 0
+  isFinalDoor: 0
+  isLVL1To2Door: 0
+  isLVL2To1Door: 0
+  isLVL2To3Door: 0
+  isLVL3To2Door: 0
+  BASE_URL: https://docs.google.com/forms/u/0/d/e/1FAIpQLSdKmNRxpf0460uiCSEKMoheZodlUqtHkM8MCAEy4fGS3y_d-A/formResponse
