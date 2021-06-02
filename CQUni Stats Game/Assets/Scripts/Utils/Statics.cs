@@ -23,6 +23,12 @@ public class Statics : MonoBehaviour
 
     //quiz scores
 
+    public static int[] questChosen = new int[99];
+    public static int[] questCorrect = new int[99];
+    
+    public static int questCounter = 0;
+    public static int correctCounter = 0;
+
     //exhibits
     public static int ex1Count = 0;
     public static float ex1Time = 0;
@@ -54,6 +60,14 @@ public class Statics : MonoBehaviour
     public static bool ex6TimeStart = false;
     public static int ex6Min = 0;
 
+    public static float score1;
+    public static float score2;
+    public static float score3;
+    public static float score4;
+    public static float score5;
+    public static float score6;
+    public static float score7;
+
     //used for timer
     public System.DateTime prev = System.DateTime.Now;
     public System.DateTime test;
@@ -67,7 +81,7 @@ public class Statics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
         diff = System.DateTime.Now - prev;
         //test = System.DateTime.Compare(prev, System.DateTime.Now);
         //timer += System.DateTime.Now - prev;
@@ -132,7 +146,7 @@ public class Statics : MonoBehaviour
                 ex5Min += 1;
                 ex5Time -= 60;
             }
-
+            
         }
         if (ex6TimeStart == true)
         {

@@ -2905,16 +2905,8 @@ MonoBehaviour:
     - Hello
     - Hello
     npcPose: 0
-  quiz:
-  - question: IS THIS WORK?
-    answers:
-    - no
-    - no
-    - no
-    - yes
-    correctAnswer: 4
-    isMultiChoice: 1
-  level: 2
+  quiz: []
+  level: 0
 --- !u!114 &828200543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5498,7 +5490,7 @@ MonoBehaviour:
   isDoor: 1
   isFinalDoor: 0
   isLVL1To2Door: 0
-  isLVL2To1Door: 1
+  isLVL2To1Door: 0
   isLVL2To3Door: 0
   isLVL3To2Door: 0
   BASE_URL: https://docs.google.com/forms/u/0/d/e/1FAIpQLSdKmNRxpf0460uiCSEKMoheZodlUqtHkM8MCAEy4fGS3y_d-A/formResponse
@@ -10755,7 +10747,7 @@ MonoBehaviour:
   isLVL1To2Door: 0
   isLVL2To1Door: 0
   isLVL2To3Door: 0
-  isLVL3To2Door: 1
+  isLVL3To2Door: 0
   BASE_URL: https://docs.google.com/forms/u/0/d/e/1FAIpQLSdKmNRxpf0460uiCSEKMoheZodlUqtHkM8MCAEy4fGS3y_d-A/formResponse
 --- !u!212 &1951475887
 SpriteRenderer:
@@ -11639,7 +11631,7 @@ MonoBehaviour:
   isProf: 0
   isDoor: 1
   isFinalDoor: 0
-  isLVL1To2Door: 1
+  isLVL1To2Door: 0
   isLVL2To1Door: 0
   isLVL2To3Door: 0
   isLVL3To2Door: 0
