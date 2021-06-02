@@ -30,6 +30,7 @@ public class UIManager : MonoBehaviour
 
 
     public GameObject ClosedDoorPanel;
+    public GameObject EndGamePanel;
 
     private bool isAMenuOpen = false;
 
@@ -50,6 +51,7 @@ public class UIManager : MonoBehaviour
             count++;
         }
         ClosedDoorPanel.SetActive(false);
+        EndGamePanel.SetActive(false);
 
     }
 
@@ -115,12 +117,29 @@ public class UIManager : MonoBehaviour
         ClosedDoorPanel.SetActive(true);
         Time.timeScale = 0;
     }
+
+    
     public void CloseClosedDoorPanel()
     {
         isAMenuOpen = true;
         ClosedDoorPanel.SetActive(false);
         Time.timeScale = 1;
     }
+
+    public void OpenEndGamePanel()
+    {
+        isAMenuOpen = true;
+        EndGamePanel.SetActive(true);
+        Time.timeScale = 0;
+    }
+    public void CloseEndGamePanel()
+    {
+        isAMenuOpen = true;
+        ClosedDoorPanel.SetActive(false);
+        EndGamePanel.SetActive(false);
+        Time.timeScale = 1;
+    }
+    
     public void OpenContentMenu(string ID)
     {
         isAMenuOpen = true;

@@ -18,23 +18,16 @@ public class NPC : MonoBehaviour
             case 1:
                 quiz = GameManager.Instance.GetJson().getQuizArray(1);
                 convo = GameManager.Instance.GetJson().getDialogueArray(1);
-
-                Debug.Log(quiz[0].question);
-                Debug.Log(convo[0].statement);
-                /*
-                foreach (var item in collection)
-                {
-                    
-                }
-                */
                 break;
 
             case 2:
-                
+                quiz = GameManager.Instance.GetJson().getQuizArray(2);
+                convo = GameManager.Instance.GetJson().getDialogueArray(2);
                 break;
 
             case 3:
-                
+                quiz = GameManager.Instance.GetJson().getQuizArray(3);
+                convo = GameManager.Instance.GetJson().getDialogueArray(3);
                 break;
             default:
 

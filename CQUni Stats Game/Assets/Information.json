@@ -167,8 +167,90 @@
             "isMultiChoice": false
         }
     ],
-    "lvl2Quiz": [],
-    "lvl3Quiz": [],
+    "lvl2Quiz": [
+        {
+            "question": "this is a demo question, answer is 1 ",
+            "answers": [
+                "1"
+            ],
+            "correctAnswer": 1,
+            "isMultiChoice": false
+        },
+        {
+            "question": "this is a demo question, answer is 1 ",
+            "answers": [
+                "1"
+            ],
+            "correctAnswer": 1,
+            "isMultiChoice": false
+        },
+        {
+            "question": "this is a demo question, answer is 1 ",
+            "answers": [
+                "1"
+            ],
+            "correctAnswer": 1,
+            "isMultiChoice": false
+        },
+        {
+            "question": "this is a demo question, answer is 1 ",
+            "answers": [
+                "1"
+            ],
+            "correctAnswer": 1,
+            "isMultiChoice": false
+        },
+        {
+            "question": "this is a demo question, answer is 1 ",
+            "answers": [
+                "1"
+            ],
+            "correctAnswer": 1,
+            "isMultiChoice": false
+        }
+    ],
+    "lvl3Quiz": [
+        {
+            "question": "this is a demo question, answer is 1 ",
+            "answers": [
+                "1"
+            ],
+            "correctAnswer": 1,
+            "isMultiChoice": false
+        },
+        {
+            "question": "this is a demo question, answer is 1 ",
+            "answers": [
+                "1"
+            ],
+            "correctAnswer": 1,
+            "isMultiChoice": false
+        },
+        {
+            "question": "this is a demo question, answer is 1 ",
+            "answers": [
+                "1"
+            ],
+            "correctAnswer": 1,
+            "isMultiChoice": false
+        },
+        {
+            "question": "this is a demo question, answer is 1 ",
+            "answers": [
+                "1"
+            ],
+            "correctAnswer": 1,
+            "isMultiChoice": false
+        },
+        {
+            "question": "this is a demo question, answer is 1 ",
+            "answers": [
+                "1"
+            ],
+            "correctAnswer": 1,
+            "isMultiChoice": false
+        }
+    ],
     "lvl1Dialogue": [
         {
             "statement": "Hello! I am 'The Professor'! What is your name?",
@@ -226,6 +308,36 @@
             "npcPose": 1
         }
     ],
-    "lvl2Dialogue": [],
-    "lvl3Dialogue": []
+    "lvl2Dialogue": [
+        {
+            "statement": "Hello! I am 'The Handsome Professor'! What is your name?",
+            "pcResponse": [
+                "My name is Bob.",
+                "It's Joe.",
+                "It's Bob. Is 'The Professor' your actual name, or just a title?"
+            ],
+            "npcResponse": [
+                "Hello Bob! Welcome to the Museum!",
+                "Joe who- wait... why are you laughing?",
+                "Just Bob? ...Well, my actual name is Hugh Jass. You can see why I use my title instead..."
+            ],
+            "npcPose": 0
+        }
+    ],
+    "lvl3Dialogue": [
+        {
+            "statement": "Hello! I am 'The Even More Handsome Professor'! What is your name?",
+            "pcResponse": [
+                "My name is Bob.",
+                "It's Joe.",
+                "It's Bob. Is 'The Professor' your actual name, or just a title?"
+            ],
+            "npcResponse": [
+                "Hello Bob! Welcome to the Museum!",
+                "Joe who- wait... why are you laughing?",
+                "Just Bob? ...Well, my actual name is Hugh Jass. You can see why I use my title instead..."
+            ],
+            "npcPose": 0
+        }
+    ]
 }

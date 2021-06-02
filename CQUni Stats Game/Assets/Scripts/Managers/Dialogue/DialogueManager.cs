@@ -49,7 +49,7 @@ public class DialogueManager : MonoBehaviour
         aNPCName.text = npcName;
         dialogue = convo;
         quiz = aQuiz;
-        dialoguePanel.SetActive(true);
+        dialoguePanel.SetActive(true);  
         
         quizLevel = level;
         dialogueIndex = 0;

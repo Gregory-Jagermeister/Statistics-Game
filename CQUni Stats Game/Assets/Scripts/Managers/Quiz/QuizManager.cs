@@ -79,6 +79,7 @@ public class QuizManager : MonoBehaviour
         quizPanel.gameObject.SetActive(false);
         scorePanel.gameObject.SetActive(true);
         scoreText.text = "You achieved a score of " + score + "/" + totalNumQuestions;
+        
         if (quizLevel == 1)
         {
             Statics.quizScore[Statics.quizCount1] = (100 / totalNumQuestions) * score;
@@ -95,6 +96,7 @@ public class QuizManager : MonoBehaviour
         Debug.Log("made it to before post");
         
         score =0;
+        questions.Clear();
         numQuestions = totalNumQuestions;
     }
 

@@ -58,7 +58,7 @@ public class Interactable : MonoBehaviour
                 if (!GameManager.Instance.isInteracting)
                 {
                     if (isProf)
-                    {
+                    {   
                         GameManager.Instance.SetInteractingTrue();
                         this.gameObject.GetComponent<NPC>().triggerDialogue();
 
@@ -98,8 +98,7 @@ public class Interactable : MonoBehaviour
                         //final door
                         else if(isFinalDoor  == true && GameManager.Instance.GetPlayersQuizResultsLVL3()  == true   )
                         {
-                            //end game
-                            
+                            GameManager.Instance.GameOver();
                             
                         }
                         else

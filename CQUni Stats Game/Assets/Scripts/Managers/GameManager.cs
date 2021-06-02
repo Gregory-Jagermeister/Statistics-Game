@@ -11,6 +11,7 @@ public class GameManager : Singleton<GameManager>
 
     private int roomIndex = 0;
     public Sprite doorOpen;
+    public Sprite doorClose;
     private JsonController _json;
 
     private UIManager _uIManager;
@@ -33,19 +34,7 @@ public class GameManager : Singleton<GameManager>
 
 
     void Awake()
-    {
-
-        if (GameManager.Instance != null && GameManager.Instance != this)
-        {
-            Destroy(this.gameObject);
-
-        }
-        else
-        {
-            DontDestroyOnLoad(this.gameObject);
-        }
-
-
+    {     
         //Generate the Instance of the Json Document.
         _json = this.gameObject.AddComponent<JsonController>();
         _json.GetJson();
@@ -327,6 +316,10 @@ public class GameManager : Singleton<GameManager>
     // Start is called before the first frame update
     void Start()
     {
+
+        
+
+
         isInteracting = false;
         player = GameObject.FindObjectOfType<Movement>();
         if (player == null)
@@ -360,20 +353,50 @@ public class GameManager : Singleton<GameManager>
             door[1].sprite = doorOpen;
         
         }
+        else
+        {
+            door[0].sprite = doorClose;
+            door[1].sprite = doorClose;
+        }
         if(GetPlayersQuizResultsLVL2())
         {
             door[2].sprite = doorOpen;
             door[3].sprite = doorOpen;
             
         }
-        /*
+        else
+        {
+            door[2].sprite = doorClose;
+            door[3].sprite = doorClose;
+        }
+        
         if(GetPlayersQuizResultsLVL3())
         {
             door[4].sprite = doorOpen;
         
         }
-        */
+        else
+        {
+            door[4].sprite = doorClose;   
+        }
+    }
+   
 
+    
+
+    public void GameOver()
+    {
+        _uIManager.OpenEndGamePanel(); 
+    }
+      
+    public void reloadGame()
+    {
+        MovePlayerToRoom(0);
+        lvl1QuizPassed = false;
+        lvl2QuizPassed = false;
+        lvl3QuizPassed = false;
+        _uIManager.CloseEndGamePanel();
+        
     }
 
     // Update is called once per frame
