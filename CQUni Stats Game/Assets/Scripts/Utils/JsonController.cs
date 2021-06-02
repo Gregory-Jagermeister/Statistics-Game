@@ -36,12 +36,12 @@ public class JsonController : MonoBehaviour
 
         if (request.isNetworkError || request.isHttpError)
         {
-            Debug.Log(request.error);
+            //Debug.Log(request.error);
         }
         else
         {
             loadedData = JsonUtility.FromJson<AllJsonData>(request.downloadHandler.text);
-            Debug.Log(request.downloadHandler.text);
+            //Debug.Log(request.downloadHandler.text);
         }
     }
 
