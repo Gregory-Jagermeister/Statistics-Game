@@ -123,7 +123,8 @@
                 "The center point of a range of values provided when the dataset is sorted in either ascending or descending order"
             ],
             "correctAnswer": 2,
-            "isMultiChoice": true
+            "isMultiChoice": true,
+            "questionIndex": 1
         },
         {
             "question": "What is meant when someone is asked to find the mean of a dataset?",
@@ -134,7 +135,8 @@
                 "The center point of a range of values provided when the dataset is sorted in either ascending or descending order"
             ],
             "correctAnswer": 1,
-            "isMultiChoice": true
+            "isMultiChoice": true,
+            "questionIndex": 2
         },
         {
             "question": "What is meant when someone is asked to find the median of a dataset?",
@@ -145,7 +147,8 @@
                 "The center point of a range of values provided when the dataset is sorted in either ascending or descending order"
             ],
             "correctAnswer": 4,
-            "isMultiChoice": true
+            "isMultiChoice": true,
+            "questionIndex": 3
         },
         {
             "question": "What is meant when someone is asked to find the standard deviation of a dataset?",
@@ -156,7 +159,8 @@
                 "The center point of a range of values provided when the dataset is sorted in either ascending or descending order"
             ],
             "correctAnswer": 3,
-            "isMultiChoice": true
+            "isMultiChoice": true,
+            "questionIndex": 4
         },
         {
             "question": "In a study done by the Oxford Poverty and Human development Initiative as of 2018 it was discovered that Intensity of deprivation on a subnational scale for Mali included the following data points for each of its regions. {58.6, 58.2, 57.8, 59.8, 65.6, 44.9}. What is the average Intensity of deprivation for Mali based on this information to 2 decimal places.",
@@ -164,7 +168,8 @@
                 "57.48"
             ],
             "correctAnswer": 1,
-            "isMultiChoice": false
+            "isMultiChoice": false,
+            "questionIndex": 5
         }
     ],
     "lvl2Quiz": [

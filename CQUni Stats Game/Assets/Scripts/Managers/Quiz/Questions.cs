@@ -10,4 +10,5 @@ public class Questions
   public string[] answers;
   public int correctAnswer;
   public bool isMultiChoice;
+  public int questionIndex;
 }

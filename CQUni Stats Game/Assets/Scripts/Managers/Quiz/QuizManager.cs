@@ -60,6 +60,8 @@ public class QuizManager : MonoBehaviour
 
     public void Correct()
     {
+        Statics.questCorrect[Statics.correctCounter] += 1;
+        Statics.correctCounter += 1;
         score = score + 1;
         numQuestions = numQuestions-1;
         questions.RemoveAt(currentQuestion);
@@ -138,6 +140,9 @@ public class QuizManager : MonoBehaviour
         if (questions.Count > 0 && numQuestions != 0 )
         {
             currentQuestion = Random.Range(0, questions.Count);
+            Statics.questChosen[Statics.questCounter] = questions[currentQuestion].questionIndex;
+            
+            Statics.questCounter += 1;
             questionText.text = questions[currentQuestion].question;
             SetAnswers();
 

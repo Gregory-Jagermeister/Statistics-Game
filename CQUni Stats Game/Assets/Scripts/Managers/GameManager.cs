@@ -26,6 +26,21 @@ public class GameManager : Singleton<GameManager>
     private bool lvl2QuizPassed = false;
     private bool lvl3QuizPassed = false;
 
+    public float questCount1 = 0;
+    public float questCount2 = 0;
+    public float questCount3 = 0;
+    public float questCount4 = 0;
+    public float questCount5 = 0;
+    public float questCount6 = 0;
+    public float questCount7 = 0;
+    public float questCorrect1 = 0;
+    public float questCorrect2 = 0;
+    public float questCorrect3 = 0;
+    public float questCorrect4 = 0;
+    public float questCorrect5 = 0;
+    public float questCorrect6 = 0;
+    public float questCorrect7 = 0;
+
     public float quiz1Average = 0f;
     public int quiz1Attempts = 0;
 
@@ -275,6 +290,117 @@ public class GameManager : Singleton<GameManager>
         }
         quiz1Average = quiz1Average / Statics.quizCount1;
 
+        for (int x = 0; x < Statics.questChosen.Length; x++)
+        {
+
+            switch (Statics.questChosen[x])
+            {
+                case 1:
+                    questCount1 += 1;
+                    if (Statics.questCorrect[x] == 1)
+                    {
+                        questCorrect1 += 1;
+
+                    }
+                    break;
+                case 2:
+                    questCount2 += 1;
+                    if (Statics.questCorrect[x] == 1)
+                    {
+                        questCorrect2 += 1;
+                    }
+                    break;
+                case 3:
+                    questCount3 += 1;
+                    if (Statics.questCorrect[x] == 1)
+                    {
+                        questCorrect3 += 1;
+                    }
+                    break;
+                case 4:
+                    questCount4 += 1;
+                    if (Statics.questCorrect[x] == 1)
+                    {
+                        questCorrect4 += 1;
+                    }
+                    break;
+                case 5:
+                    questCount5 += 1;
+                    if (Statics.questCorrect[x] == 1)
+                    {
+                        questCorrect5 += 1;
+                    }
+                    break;
+                case 6:
+                    questCount6 += 1;
+                    if (Statics.questCorrect[x] == 1)
+                    {
+                        questCorrect6 += 1;
+                    }
+                    break;
+                case 7:
+                    questCount7 += 1;
+                    if (Statics.questCorrect[x] == 1)
+                    {
+                        questCorrect7 += 1;
+                    }
+                    break;
+                default:
+
+                    break;
+            }
+        }
+
+        if (questCount1 != 0)
+        {
+            Debug.Log(questCorrect1);
+            Debug.Log(questCount1);
+            Debug.Log((questCorrect1 / questCount1) * 100);
+            Statics.score1 = (questCorrect1 / questCount1) * 100;
+        }
+        if (questCount2 != 0)
+        {
+            Debug.Log(questCorrect2);
+            Debug.Log(questCount2);
+            Debug.Log((questCorrect2 / questCount2) * 100);
+            Statics.score2 = (questCorrect2 / questCount2) * 100;
+        }
+        if (questCount3 != 0)
+        {
+            Debug.Log(questCorrect3);
+            Debug.Log(questCount3);
+            Debug.Log((questCorrect3 / questCount3) * 100);
+            Statics.score3 = (questCorrect3 / questCount3) * 100;
+        }
+        if (questCount4 != 0)
+        {
+            Debug.Log(questCorrect4);
+            Debug.Log(questCount4);
+            Debug.Log((questCorrect4 / questCount4) * 100);
+            Statics.score4 = (questCorrect4 / questCount4) * 100;
+        }
+        if (questCount5 != 0)
+        {
+            Debug.Log(questCorrect5);
+            Debug.Log(questCount5);
+            Debug.Log((questCorrect5 / questCount5) * 100);
+            Statics.score5 = (questCorrect5 / questCount5) * 100;
+        }
+        if (questCount6 != 0)
+        {
+            Debug.Log(questCorrect6);
+            Debug.Log(questCount6);
+            Debug.Log((questCorrect6 / questCount6) * 100);
+            Statics.score6 = (questCorrect6 / questCount6) * 100;
+        }
+        if (questCount7 != 0)
+        {
+            Debug.Log(questCorrect7);
+            Debug.Log(questCount7);
+            Debug.Log((questCorrect7 / questCount7) * 100);
+            Statics.score7 = (questCorrect7 / questCount7) * 100;
+        }
+
         WWWForm form = new WWWForm();
         Debug.Log("it worked");
         form.AddField("entry.172307503", Statics.minutes + "." + timer + " mins"); //timer
@@ -287,6 +413,13 @@ public class GameManager : Singleton<GameManager>
         form.AddField("entry.1998886816", "Interactions: " + Statics.ex4Count + " Time: " + Statics.ex4Min + "." + ex4Timer + "mins"); //exhibit4
         form.AddField("entry.1161738900", "Interactions: " + Statics.ex5Count + " Time: " + Statics.ex5Min + "." + ex5Timer + "mins"); //exhibit5
         form.AddField("entry.109809298", "Interactions: " + Statics.ex5Count + " Time: " + Statics.ex5Min + "." + ex5Timer + "mins"); //exhibit6
+        form.AddField("entry.141957908", Statics.score1.ToString());
+        form.AddField("entry.862675307", Statics.score2.ToString());
+        form.AddField("entry.2080658045", Statics.score3.ToString());
+        form.AddField("entry.1205516660", Statics.score4.ToString());
+        form.AddField("entry.1703204616", Statics.score5.ToString());
+        form.AddField("entry.835495359", Statics.score6.ToString());
+        form.AddField("entry.760970667", Statics.score7.ToString());
         byte[] rawData = form.data;
         //Updated this to UnityWebRequest as WWW is obsolete.
         using (var w = UnityWebRequest.Post(BASE_URL, form))

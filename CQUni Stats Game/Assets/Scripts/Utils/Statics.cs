@@ -8,9 +8,9 @@ public class Statics : MonoBehaviour
 {
     public static float timer = 0.0f;
     public static int artCount = 0;
-    public static float[] quizScore = new float [99];
-    public static float[] quizScore2 = new float [99];
-    public static float[] quizScore3 = new float [99];
+    public static float[] quizScore = new float[99];
+    public static float[] quizScore2 = new float[99];
+    public static float[] quizScore3 = new float[99];
     public static int quizCount1 = 0;
     public static int quizCount2 = 0;
     public static int quizCount3 = 0;
@@ -22,6 +22,12 @@ public class Statics : MonoBehaviour
     public static int minutes = 0;
 
     //quiz scores
+
+    public static int[] questChosen = new int[99];
+    public static int[] questCorrect = new int[99];
+
+    public static int questCounter = 0;
+    public static int correctCounter = 0;
 
     //exhibits
     public static int ex1Count = 0;
@@ -54,6 +60,14 @@ public class Statics : MonoBehaviour
     public static bool ex6TimeStart = false;
     public static int ex6Min = 0;
 
+    public static float score1;
+    public static float score2;
+    public static float score3;
+    public static float score4;
+    public static float score5;
+    public static float score6;
+    public static float score7;
+
     //used for timer
     public System.DateTime prev = System.DateTime.Now;
     public System.DateTime test;
@@ -61,7 +75,7 @@ public class Statics : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -71,7 +85,7 @@ public class Statics : MonoBehaviour
         diff = System.DateTime.Now - prev;
         //test = System.DateTime.Compare(prev, System.DateTime.Now);
         //timer += System.DateTime.Now - prev;
-        
+
         //main timer
         timer += (float)diff.TotalSeconds;
         if (timer >= 60)
@@ -103,7 +117,7 @@ public class Statics : MonoBehaviour
             }
 
         }
-        
+
         if (ex3TimeStart == true)
         {
             Statics.ex3Time += (float)diff.TotalSeconds;
@@ -154,11 +168,11 @@ public class Statics : MonoBehaviour
             Statics.ex6TimeStart = false;
         }
 
-       
 
-        
 
-      
+
+
+
         //testing variables for statics
         //score = Statics.quizScore;  
         tempQuiz = Statics.ex1Time;
