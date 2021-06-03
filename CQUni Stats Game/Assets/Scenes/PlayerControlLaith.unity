@@ -703,7 +703,6 @@ MonoBehaviour:
   - {fileID: 641763244}
   - {fileID: 804538608}
   - {fileID: 1773645775}
-  currentQuestion: 1
   questionText: {fileID: 102989570}
   TestquizScore:
   - 0
@@ -805,6 +804,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  backgroundQuizPanel: {fileID: 624436936}
   scorePanel: {fileID: 963883895}
   quizPanel: {fileID: 1483447092}
   scoreText: {fileID: 58052084}
@@ -1285,7 +1285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &101833390
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3094,7 +3094,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &477048568
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3400,6 +3400,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619271972}
   m_CullTransparentMesh: 0
+--- !u!1 &624436936 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4294718527064605879, guid: c0a6e939ee3bb9c4bbed5854c771234e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1546652788}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &632294444
 GameObject:
   m_ObjectHideFlags: 0
@@ -8090,7 +8096,7 @@ PrefabInstance:
     - target: {fileID: 4294718527064605879, guid: c0a6e939ee3bb9c4bbed5854c771234e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6903172584982154341, guid: c0a6e939ee3bb9c4bbed5854c771234e,
         type: 3}
