@@ -11,11 +11,12 @@ public class QuizManager : MonoBehaviour
 {
     private List<Questions> questions = new List<Questions>();
     public GameObject[] choices;
-    public int currentQuestion;
+    private int currentQuestion;
     public TextMeshProUGUI questionText;
 
     public float[] TestquizScore = new float[99];
 
+    public GameObject backgroundQuizPanel;
     public GameObject scorePanel;
     public GameObject quizPanel;
     public TextMeshProUGUI scoreText;
@@ -23,7 +24,6 @@ public class QuizManager : MonoBehaviour
     private int score;
     public int numQuestions = 2;
     private int totalNumQuestions;
-
 
     public GameObject multiChoicePanel;
     public GameObject InputPanel;
@@ -46,7 +46,6 @@ public class QuizManager : MonoBehaviour
         {
             totalNumQuestions = numQuestions;
         }
-
 
     }
 
@@ -73,10 +72,10 @@ public class QuizManager : MonoBehaviour
         quizLevel = level;
         scorePanel.gameObject.SetActive(false);
         quizPanel.gameObject.SetActive(true);
+        backgroundQuizPanel.gameObject.SetActive(true);
         NextQuestion();
 
     }
-
 
 
     public void Correct()
@@ -121,6 +120,8 @@ public class QuizManager : MonoBehaviour
         score = 0;
         questions.Clear();
         numQuestions = totalNumQuestions;
+        backgroundQuizPanel.gameObject.SetActive(false);
+        GameManager.Instance.CloseQuizMenu();
     }
 
     void SetAnswers()
@@ -135,7 +136,6 @@ public class QuizManager : MonoBehaviour
                 choices[i].GetComponent<Answers>().isCorrect = false;
                 choices[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText(questions[currentQuestion].answers[i]);
                 int answerIndex = i + 1;
-
 
                 if (questions[currentQuestion].correctAnswer == answerIndex)
                 {
@@ -161,6 +161,10 @@ public class QuizManager : MonoBehaviour
         if (questions.Count > 0 && numQuestions != 0)
         {
             currentQuestion = Random.Range(0, questions.Count);
+            if(currentQuestion > questions.Count)
+            {
+                Debug.Log("something has gone wrong");
+            }
             Statics.questChosen[Statics.questCounter] = questions[currentQuestion].questionIndex;
 
             Statics.questCounter += 1;
@@ -174,7 +178,6 @@ public class QuizManager : MonoBehaviour
 
             QuizOver();
         }
-
 
 
     }
@@ -204,6 +207,7 @@ public class QuizManager : MonoBehaviour
         }
         input.text = "";
 
-
     }
 }
+
+

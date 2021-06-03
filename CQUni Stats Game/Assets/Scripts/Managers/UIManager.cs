@@ -6,7 +6,6 @@ using UnityEngine.Video;
 using UnityEngine.Networking;
 using TMPro;
 
-
 public class UIManager : MonoBehaviour
 {
     public RectTransform contentBackgrond;
@@ -33,7 +32,6 @@ public class UIManager : MonoBehaviour
     public RectTransform quizUI;
 
     public RectTransform VideoPlayerUI;
-
 
     public GameObject ClosedDoorPanel;
     public GameObject EndGamePanel;
@@ -141,14 +139,12 @@ public class UIManager : MonoBehaviour
         player.ClearMedia();
     }
 
-
     public void OpenClosedDoorPanel()
     {
         isAMenuOpen = true;
         ClosedDoorPanel.SetActive(true);
         Time.timeScale = 0;
     }
-
 
     public void CloseClosedDoorPanel()
     {
@@ -182,12 +178,12 @@ public class UIManager : MonoBehaviour
         heading.text = exhibits[3];
         content.text = exhibits[4];
 
-        if (!(exhibits[2].ToLower() == "none"))
+        if (!(exhibits[2].ToLower() == "none"|| exhibits[1] == null))
         {
             player.VIDEO_LINK = exhibits[2];
         }
-
-        if (!(exhibits[1].ToLower() == "none"))
+        
+        if (!(exhibits[1].ToLower() == "none" || exhibits[1] == null))
         {
             DLImage(exhibits[1], image);
         }
@@ -204,7 +200,6 @@ public class UIManager : MonoBehaviour
         isAMenuOpen = false;
         Time.timeScale = 1;
         GameManager.Instance.SetInteractingFalse();
-
 
     }
 
@@ -227,7 +222,6 @@ public class UIManager : MonoBehaviour
 
         }
 
-
         yield return request.SendWebRequest();
         if (request.isNetworkError || request.isHttpError)
         {
@@ -237,7 +231,7 @@ public class UIManager : MonoBehaviour
         {
             image.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
             image.SetNativeSize();
-            //ResizeImage(image);
+            ResizeImage(image);
 
         }
     }
@@ -251,6 +245,8 @@ public class UIManager : MonoBehaviour
     {
         StartCoroutine(DownloadImage(imagePath, imgTexture));
         CanvasExtentions.SizeToParent(imgTexture, 100);
+        //ResizeImage(imgTexture);
+        
 
     }
 
@@ -260,17 +256,28 @@ public class UIManager : MonoBehaviour
     /// <param name="i">The Image to Resize as a rawImage</param>
     public void ResizeImage(RawImage i)
     {
-        if (i.rectTransform.sizeDelta.x > 256 && i.rectTransform.sizeDelta.y > 256)
+
+        Debug .Log(i.rectTransform.rect.height);
+        if (i.rectTransform.rect.width> 375 && i.rectTransform.rect.height > 375)
         {
-            i.rectTransform.sizeDelta = new Vector2(i.rectTransform.sizeDelta.x / 2, i.rectTransform.sizeDelta.y / 2);
+            i.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,  i.rectTransform.rect.width/2);
+            i.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,  i.rectTransform.rect.height/2);
             ResizeImage(i);
+        }
+        else if(i.rectTransform.rect.width< 0 || i.rectTransform.rect.height < 0)
+        {
+            i.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,  i.rectTransform.rect.width *-1);
+            i.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,  i.rectTransform.rect.height *-1);
+            ResizeImage(i);
+
         }
         else
         {
             return;
         }
-
+        
     }
 
 }
+
 
