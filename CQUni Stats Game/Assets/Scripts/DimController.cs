@@ -12,6 +12,12 @@ public class DimController : MonoBehaviour
     private Color32 c;
     private Color32 full;
 
+    public Sprite open;
+    public Sprite closed;
+
+    public Image diaBox;
+    public Sprite bobTalk;
+    public Sprite profTalk;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,12 +30,16 @@ public class DimController : MonoBehaviour
     {
         if (txt.GetParsedText() == "Bob")
         {
+            imgBob.sprite = open;
+            diaBox.sprite = bobTalk;
             imgBob.color = full;
             imgProf.color = c;
         }
 
         if (txt.GetParsedText() == "The Professor")
         {
+            imgBob.sprite = closed;
+            diaBox.sprite = profTalk;
             imgBob.color = c;
             imgProf.color = full;
         }
