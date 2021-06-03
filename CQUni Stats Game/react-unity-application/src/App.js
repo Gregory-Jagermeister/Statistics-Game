@@ -11,9 +11,14 @@ function App() {
     console.log(message);
   });
 
+  function handleOnClickFullscreen() {
+    unityContext.setFullscreen(true);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
+        <button onClick={handleOnClickFullscreen}>Fullscreen</button>
         <Unity unityContent={unityContext}></Unity>
       </header>
     </div>
