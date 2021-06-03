@@ -8,7 +8,7 @@ using UnityEngine.Networking;
 public class VideoController : MonoBehaviour
 {
 
-
+    private bool isPlayButton = true;
     private VideoPlayer player;
     private string videoUrl;
 
@@ -33,12 +33,34 @@ public class VideoController : MonoBehaviour
         YoutubeDl.ServerUrl = "https://statsgamevideoserver.herokuapp.com";
     }
 
+    public void ControlMedia()
+    {
+        if (isPlayButton)
+        {
+            PlayMedia();
+            isPlayButton = false;
+        }
+        else
+        {
+            PauseMedia();
+            isPlayButton = true;
+        }
+    }
+
     public void PlayMedia()
     {
         Debug.Log(player.isPrepared);
         if (!player.isPrepared)
         {
-            StartCoroutine(FindMedia(Application.dataPath + "/api/video/" + videoUrl));
+            if (Debug.isDebugBuild)
+            {
+                StartCoroutine(FindMedia("http://localhost:3001/api/video/" + videoUrl));
+            }
+            else
+            {
+                StartCoroutine(FindMedia(Application.dataPath + "/api/video/" + videoUrl));
+            }
+
         }
 
         player.Play();
@@ -68,6 +90,14 @@ public class VideoController : MonoBehaviour
         else
         {
             Debug.Log(request.downloadHandler.text);
+            if (Debug.isDebugBuild)
+            {
+                player.url = request.downloadHandler.text;
+            }
+            else
+            {
+                player.url = Application.dataPath + "/proxy/" + request.downloadHandler.text;
+            }
             player.url = Application.dataPath + "/proxy/" + request.downloadHandler.text;
             player.Play();
         }

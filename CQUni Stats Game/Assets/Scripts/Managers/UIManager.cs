@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using UnityEngine.Networking;
+using TMPro;
+
 
 public class UIManager : MonoBehaviour
 {
     public RectTransform contentBackgrond;
-    public Text heading;
-    public Text content;
+    public TextMeshProUGUI heading;
+    public TextMeshProUGUI content;
     public GameObject media;
 
     public VideoController player;
@@ -20,13 +22,17 @@ public class UIManager : MonoBehaviour
     public RectTransform howToPanel;
     private GameObject[] exhibits;
 
-    
+    public Image playButton;
+    public Sprite[] playButtonIcons;
+    private bool isPlayButton = true;
 
     private RectTransform[] indicators;
 
     public RectTransform interactableIconPrefab;
 
     public RectTransform quizUI;
+
+    public RectTransform VideoPlayerUI;
 
 
     public GameObject ClosedDoorPanel;
@@ -53,6 +59,20 @@ public class UIManager : MonoBehaviour
         ClosedDoorPanel.SetActive(false);
         EndGamePanel.SetActive(false);
 
+    }
+
+    public void PlayOrPauseMedia()
+    {
+        Debug.Log("isPlayButton is: " + isPlayButton);
+        if (isPlayButton)
+        {
+            playButton.sprite = playButtonIcons[1];
+        }
+        else
+        {
+            playButton.sprite = playButtonIcons[0];
+        }
+        isPlayButton = !isPlayButton;
     }
 
     // Update is called once per frame
@@ -110,6 +130,17 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void OpenVideoPlayer()
+    {
+        CanvasExtentions.RectTransformPosition(VideoPlayerUI, 0, 0, 0, 0);
+    }
+
+    public void CloseVideoPlayer()
+    {
+        CanvasExtentions.RectTransformPosition(VideoPlayerUI, 2000, -2000, 2000, -2000);
+        player.ClearMedia();
+    }
+
 
     public void OpenClosedDoorPanel()
     {
@@ -118,7 +149,7 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    
+
     public void CloseClosedDoorPanel()
     {
         isAMenuOpen = true;
@@ -139,7 +170,7 @@ public class UIManager : MonoBehaviour
         EndGamePanel.SetActive(false);
         Time.timeScale = 1;
     }
-    
+
     public void OpenContentMenu(string ID)
     {
         isAMenuOpen = true;
@@ -188,7 +219,7 @@ public class UIManager : MonoBehaviour
         UnityWebRequest request;
         if (Debug.isDebugBuild)
         {
-            request = UnityWebRequestTexture.GetTexture("/proxy/" + URL);
+            request = UnityWebRequestTexture.GetTexture(URL);
         }
         else
         {
@@ -206,7 +237,7 @@ public class UIManager : MonoBehaviour
         {
             image.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
             image.SetNativeSize();
-            ResizeImage(image);
+            //ResizeImage(image);
 
         }
     }

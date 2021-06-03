@@ -3,9 +3,9 @@
         {
             "artifactId": "Exhibit1",
             "heading": "Mali - Kayes",
-            "imagePath": "https://lh3.googleusercontent.com/proxy/eCbQ99E2_uBXDF6c-io7wMZCF6hh5MRKnIM43TnLassnakiFJ9GrUwL6asRKzUQZstNA7v4tnrabRnVf7KeQKCVaIaWOZkTt7gfb",
+            "imagePath": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
             "videoUrl": "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
-            "content": "MPI stands for Multidimensional Poverty Index, which is where a range of indicators is used to calculate a summary poverty figure for a given population, in which a larger figure indicates a higher level of poverty as noted by  'https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.' \n\nThe overall MPI score for Mali is 0.457, but the regional score is 0.485 as noted in 'https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv'  that was last updated 3 years ago.\n\nThe percentage of people listed as poor in this region was found to be 82.8%. Of the surveyed regions it has the 3rd highest Intensity of deprivation in the nation at 58.6"
+            "content": "MPI stands for Multidimensional Poverty Index, which is where a range of indicators is used to calculate a summary poverty figure for a given population, in which a larger figure indicates a higher level of poverty as noted by the <link=\"https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.\"><color=orange>Multidimensional Poverty Index</color></link> \n\nThe overall MPI score for Mali is 0.457, but the regional score is 0.485 as noted in <link=\"https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv\"><color=orange>the Data Set</color></link>  that was last updated 3 years ago.\n\nThe percentage of people listed as poor in this region was found to be 82.8%. Of the surveyed regions it has the 3rd highest Intensity of deprivation in the nation at 58.6"
         },
         {
             "artifactId": "Exhibit2",
@@ -24,7 +24,7 @@
         {
             "artifactId": "Exhibit4",
             "heading": "Mali - Sðgou",
-            "imagePath": "https://lh3.googleusercontent.com/proxy/eCbQ99E2_uBXDF6c-io7wMZCF6hh5MRKnIM43TnLassnakiFJ9GrUwL6asRKzUQZstNA7v4tnrabRnVf7KeQKCVaIaWOZkTt7gfb",
+            "imagePath": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
             "videoUrl": "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
             "content": "MPI stands for Multidimensional Poverty Index, which is where a range of indicators is used to calculate a summary poverty figure for a given population, in which a larger figure indicates a higher level of poverty as noted by  'https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.' \n\nThe overall MPI score for Mali is 0.457, but the regional score is 0.498 as noted in 'https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv'  that was last updated 3 years ago. \n\nThe percentage of people listed as poor in this region was found to be 83.2%. Of the surveyed regions it has the 2nd highest Intensity of deprivation in the nation at 59.8"
         },

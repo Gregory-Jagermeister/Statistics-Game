@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
+using TMPro;
 
 //code was adapted or obtained from youtube videos made by Awesome Tuts, Brackeys and The Game Guy
 public class QuizManager : MonoBehaviour
@@ -11,13 +12,13 @@ public class QuizManager : MonoBehaviour
     private List<Questions> questions = new List<Questions>();
     public GameObject[] choices;
     public int currentQuestion;
-    public Text questionText;
+    public TextMeshProUGUI questionText;
 
     public float[] TestquizScore = new float[99];
 
     public GameObject scorePanel;
     public GameObject quizPanel;
-    public Text scoreText;
+    public TextMeshProUGUI scoreText;
     private int totalQuestions;
     private int score;
     public int numQuestions = 2;
@@ -35,9 +36,9 @@ public class QuizManager : MonoBehaviour
     void Start()
     {
 
-        if(numQuestions > questions.Count)
+        if (numQuestions > questions.Count)
         {
-            
+
             totalNumQuestions = questions.Count;
 
         }
@@ -45,22 +46,22 @@ public class QuizManager : MonoBehaviour
         {
             totalNumQuestions = numQuestions;
         }
-        
-      
+
+
     }
 
     public void StartQuiz(List<Questions> quiz, int level)
     {
-        
+
         foreach (Questions item in quiz)
         {
             questions.Add(item);
         }
-        
+
         arraySize = quiz.Count;
-        if(numQuestions > arraySize)
+        if (numQuestions > arraySize)
         {
-            
+
             totalNumQuestions = arraySize;
 
         }
@@ -68,7 +69,7 @@ public class QuizManager : MonoBehaviour
         {
             totalNumQuestions = numQuestions;
         }
-        
+
         quizLevel = level;
         scorePanel.gameObject.SetActive(false);
         quizPanel.gameObject.SetActive(true);
@@ -83,7 +84,7 @@ public class QuizManager : MonoBehaviour
         Statics.questCorrect[Statics.correctCounter] += 1;
         Statics.correctCounter += 1;
         score = score + 1;
-        numQuestions = numQuestions-1;
+        numQuestions = numQuestions - 1;
         questions.RemoveAt(currentQuestion);
         NextQuestion();
     }
@@ -91,7 +92,7 @@ public class QuizManager : MonoBehaviour
     {
 
         questions.RemoveAt(currentQuestion);
-        numQuestions = numQuestions-1;
+        numQuestions = numQuestions - 1;
         NextQuestion();
     }
 
@@ -100,24 +101,24 @@ public class QuizManager : MonoBehaviour
         GameManager.Instance.SetInteractingFalse();
         quizPanel.gameObject.SetActive(false);
         scorePanel.gameObject.SetActive(true);
-        scoreText.text = "You achieved a score of " + score + "/" + totalNumQuestions;
-        
+        scoreText.SetText("You achieved a score of " + score + "/" + totalNumQuestions);
+
         if (quizLevel == 1)
         {
             Statics.quizScore[Statics.quizCount1] = (100 / totalNumQuestions) * score;
             TestquizScore[Statics.quizCount1] = (100 / totalNumQuestions) * score;
             Statics.quizCount1 += 1;
-        } 
+        }
         if ((100 / totalNumQuestions) * score == 100)
         {
-            GameManager.Instance.DidPlayerPassQuiz(true,quizLevel);
+            GameManager.Instance.DidPlayerPassQuiz(true, quizLevel);
             StartCoroutine(GameManager.Instance.CreateAnalyticsData(Statics.timer.ToString(), Statics.artCount.ToString(), Statics.quizScore.ToString()));
         }
         //Statics.timer = Statics.timer / 60;
         //kickstarts the analytics routine
         Debug.Log("made it to before post");
-        
-        score =0;
+
+        score = 0;
         questions.Clear();
         numQuestions = totalNumQuestions;
     }
@@ -132,7 +133,7 @@ public class QuizManager : MonoBehaviour
             for (int i = 0; i < choices.Length; i++)
             {
                 choices[i].GetComponent<Answers>().isCorrect = false;
-                choices[i].transform.GetChild(0).GetComponent<Text>().text = questions[currentQuestion].answers[i];
+                choices[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText(questions[currentQuestion].answers[i]);
                 int answerIndex = i + 1;
 
 
@@ -157,13 +158,13 @@ public class QuizManager : MonoBehaviour
     // Update is called once per frame
     void NextQuestion()
     {
-        if (questions.Count > 0 && numQuestions != 0 )
+        if (questions.Count > 0 && numQuestions != 0)
         {
             currentQuestion = Random.Range(0, questions.Count);
             Statics.questChosen[Statics.questCounter] = questions[currentQuestion].questionIndex;
-            
+
             Statics.questCounter += 1;
-            questionText.text = questions[currentQuestion].question;
+            questionText.SetText(questions[currentQuestion].question);
             SetAnswers();
 
         }
@@ -178,7 +179,7 @@ public class QuizManager : MonoBehaviour
 
     }
 
-    public InputField input;
+    public TMP_InputField input;
     private string correctInputAnswer;
 
     public void GetInput(string guess)
