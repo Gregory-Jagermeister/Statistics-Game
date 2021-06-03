@@ -28,17 +28,25 @@ public class QuizManager : MonoBehaviour
     public GameObject InputPanel;
 
     private int quizLevel;
-
+    private int arraySize;
     Scene scene;
 
     // Start is called before the first frame update
     void Start()
     {
-        totalNumQuestions = numQuestions;
-        //totalQuestions = questions.Count;
-        //scorePanel.gameObject.SetActive(false);
-        //quizPanel.gameObject.SetActive(true);
-        //NextQuestion();
+
+        if(numQuestions > questions.Count)
+        {
+            
+            totalNumQuestions = questions.Count;
+
+        }
+        else
+        {
+            totalNumQuestions = numQuestions;
+        }
+        
+      
     }
 
     public void StartQuiz(List<Questions> quiz, int level)
@@ -48,7 +56,19 @@ public class QuizManager : MonoBehaviour
         {
             questions.Add(item);
         }
-        totalQuestions = questions.Count;
+        
+        arraySize = quiz.Count;
+        if(numQuestions > arraySize)
+        {
+            
+            totalNumQuestions = arraySize;
+
+        }
+        else
+        {
+            totalNumQuestions = numQuestions;
+        }
+        
         quizLevel = level;
         scorePanel.gameObject.SetActive(false);
         quizPanel.gameObject.SetActive(true);

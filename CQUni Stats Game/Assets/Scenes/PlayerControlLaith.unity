@@ -714,7 +714,7 @@ MonoBehaviour:
   scorePanel: {fileID: 963883895}
   quizPanel: {fileID: 1483447092}
   scoreText: {fileID: 1102598150}
-  numQuestions: 5
+  numQuestions: 10
   multiChoicePanel: {fileID: 1324741293}
   InputPanel: {fileID: 1525658950}
   input: {fileID: 421520767}
