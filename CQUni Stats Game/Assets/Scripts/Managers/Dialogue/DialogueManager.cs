@@ -19,7 +19,7 @@ public class DialogueManager : MonoBehaviour
 
     public Sprite[] sprites;
 
-    private string npcName;
+    public string npcName;
     public string pcName;
     private List<Dialogue> dialogue;
 
@@ -84,9 +84,7 @@ public class DialogueManager : MonoBehaviour
         else
         {
             //next button check should lead to the next dialogue without the response
-            dialogueIndex++;
-            Next();
-
+            NextSegment();
         }
 
 
@@ -97,80 +95,39 @@ public class DialogueManager : MonoBehaviour
     public void ChooseOption1Dialogue()
     {
 
-        aNPCName.SetText(pcName);
-
-        Dialogue aSegment;
-        aSegment = dialogue[dialogueIndex];
-
-        dialogueText.SetText(aSegment.pcResponse[0]);
-        //hide the dialogue chocies panel
-        dialogueChoicesPanel.SetActive(false);
-
-        // update text to show the normal dialogue
-        //update the next statement
-        if (aSegment.npcResponse != null && aSegment.npcResponse.Length >= 1)
-        {
-            npcResponseFound = true;
-            nextStatement = aSegment.npcResponse[0];
-
-        }
-        else
-        {
-            npcResponseFound = false;
-
-        }
-
-        //show the next dialogue button 
-        nextButton.SetActive(true);
+       ChooseOptionDialogue(0);
     }
 
     public void ChooseOption2Dialogue()
     {
-        aNPCName.SetText(pcName);
-
-        Dialogue aSegment;
-        aSegment = dialogue[dialogueIndex];
-
-        dialogueText.SetText(aSegment.pcResponse[1]);
-        //hide the dialogue chocies panel
-        dialogueChoicesPanel.SetActive(false);
-
-        // update text to show the normal dialogue
-        //update the next statement
-        if (aSegment.npcResponse != null && aSegment.npcResponse.Length >= 2)
-        {
-            npcResponseFound = true;
-            nextStatement = aSegment.npcResponse[1];
-
-        }
-        else
-        {
-            npcResponseFound = false;
-
-        }
-
-        //show the next dialogue button 
-        nextButton.SetActive(true);
+       ChooseOptionDialogue(1);
 
     }
 
     public void ChooseOption3Dialogue()
     {
+       ChooseOptionDialogue(2);
+
+    }
+
+    public void ChooseOptionDialogue(int choiceIndex)
+    {
         aNPCName.SetText(pcName);
 
         Dialogue aSegment;
         aSegment = dialogue[dialogueIndex];
 
-        dialogueText.SetText(aSegment.pcResponse[2]);
+        dialogueText.SetText(aSegment.pcResponse[choiceIndex]);
         //hide the dialogue chocies panel
         dialogueChoicesPanel.SetActive(false);
 
         // update text to show the normal dialogue
         //update the next statement
-        if (aSegment.npcResponse != null && aSegment.npcResponse.Length >= 3)
+
+        if (aSegment.npcResponse != null && aSegment.npcResponse.Length >= (choiceIndex+1))
         {
             npcResponseFound = true;
-            nextStatement = aSegment.npcResponse[2];
+            nextStatement = aSegment.npcResponse[choiceIndex];
 
         }
         else
@@ -306,6 +263,18 @@ public class DialogueManager : MonoBehaviour
         }
 
     }
+
+    public void NextSegment()
+    {
+        
+        dialogueIndex++;
+        Next();
+    }
+
+     
+
+
+
     public void DialogueOver()
     {
         //GameManager.Instance.SetInteractingFalse();

@@ -106,6 +106,11 @@ public class GameManager : Singleton<GameManager>
     {
         return _quizManager;
     }
+
+    public DialogueManager GetDialogueManager()
+    {
+        return _dialogueManager;
+    }
     public Movement GetPlayer()
     {
         return player;

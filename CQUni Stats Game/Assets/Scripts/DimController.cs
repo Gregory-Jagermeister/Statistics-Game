@@ -53,7 +53,7 @@ public class DimController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (txt.GetParsedText() == "Bob")
+        if (txt.GetParsedText() == GameManager.Instance.GetDialogueManager().pcName)
         {
             imgBob.sprite = open;
             diaBox.sprite = bobTalk;
@@ -74,7 +74,7 @@ public class DimController : MonoBehaviour
             }
         }
 
-        if (txt.GetParsedText() == "The Professor")
+        if (txt.GetParsedText() == GameManager.Instance.GetDialogueManager().npcName)
         {
             imgBob.sprite = closed;
             diaBox.sprite = profTalk;
