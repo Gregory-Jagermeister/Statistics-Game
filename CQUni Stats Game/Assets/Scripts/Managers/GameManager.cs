@@ -18,6 +18,7 @@ public class GameManager : Singleton<GameManager>
 
     private QuizManager _quizManager;
     private DialogueManager _dialogueManager;
+    private Statics _statsManager;
 
     public bool isInteracting = false;
     private Movement player;
@@ -47,7 +48,6 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private string BASE_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdKmNRxpf0460uiCSEKMoheZodlUqtHkM8MCAEy4fGS3y_d-A/formResponse";
 
-
     void Awake()
     {     
         //Generate the Instance of the Json Document.
@@ -57,6 +57,7 @@ public class GameManager : Singleton<GameManager>
         _uIManager = this.gameObject.GetComponent<UIManager>();
         _quizManager = this.gameObject.GetComponent<QuizManager>();
         _dialogueManager = this.gameObject.GetComponent<DialogueManager>();
+        _statsManager  = this.gameObject.GetComponent<Statics>();
 
     }
 
@@ -466,14 +467,6 @@ public class GameManager : Singleton<GameManager>
         }
     }
     
-    /*public void SetRoomIndex(int index)
-    {
-        Debug.Log(index);
-        roomIndex = index;
-        Debug.Log(roomIndex);
-
-    }
-    */
 
     public void MovePlayerToRoom(int index)
     {
@@ -527,19 +520,50 @@ public class GameManager : Singleton<GameManager>
         _uIManager.OpenEndGamePanel(); 
     }
       
-    public void reloadGame()
+    public void ReloadGame()
     {
+        
         MovePlayerToRoom(0);
         lvl1QuizPassed = false;
         lvl2QuizPassed = false;
         lvl3QuizPassed = false;
+
+        questCount1 = 0;
+        questCount2 = 0;
+        questCount3 = 0;
+        questCount4 = 0;
+        questCount5 = 0;
+        questCount6 = 0;
+        questCount7 = 0;
+
+        questCorrect1 = 0;
+        questCorrect2 = 0;
+        questCorrect3 = 0;
+        questCorrect4 = 0;
+        questCorrect5 = 0;
+        questCorrect6 = 0;
+        questCorrect7 = 0;
+
+        quiz1Average = 0;
+        quiz1Attempts = 0;
+
+        _statsManager.Reset();
         _uIManager.CloseEndGamePanel();
+        _uIManager.OpenLaunchScreen();
+        
+    }
+    public void CloseLaunch()
+    {
+        
+        _uIManager.CloseLaunchScreen();
         
     }
 
     // Update is called once per frame
     void Update()
     {
+
+    
 
        
         OpenDoors();
