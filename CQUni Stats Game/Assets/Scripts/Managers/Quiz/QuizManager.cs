@@ -27,6 +27,7 @@ public class QuizManager : MonoBehaviour
 
     public GameObject multiChoicePanel;
     public GameObject InputPanel;
+    public string congratsMessage;
 
     private int quizLevel;
     private int arraySize;
@@ -98,9 +99,9 @@ public class QuizManager : MonoBehaviour
     public void QuizOver()
     {
         GameManager.Instance.SetInteractingFalse();
-        quizPanel.gameObject.SetActive(false);
         scorePanel.gameObject.SetActive(true);
-        scoreText.SetText("You achieved a score of " + score + "/" + totalNumQuestions);
+        quizPanel.gameObject.SetActive(false);
+        scoreText.SetText(congratsMessage + " " + score + "/" + totalNumQuestions);
 
         if (quizLevel == 1)
         {
@@ -120,8 +121,7 @@ public class QuizManager : MonoBehaviour
         score = 0;
         questions.Clear();
         numQuestions = totalNumQuestions;
-        backgroundQuizPanel.gameObject.SetActive(false);
-        GameManager.Instance.CloseQuizMenu();
+        //GameManager.Instance.CloseQuizMenu();
     }
 
     void SetAnswers()
