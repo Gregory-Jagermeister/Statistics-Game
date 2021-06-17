@@ -179,5 +179,75 @@ public class Statics : MonoBehaviour
         tempPlay = timer;
         tempCount = Statics.intCount;
         //Statics.timer += Time.deltaTime;
+
+
+
+    }
+
+    public void Reset()
+    {
+        timer = 0.0f;
+        artCount = 0;
+        quizScore = new float[99];
+        quizScore2 = new float[99];
+        quizScore3 = new float[99];
+        quizCount1 = 0;
+        quizCount2 = 0;
+        quizCount3 = 0;
+        score = 0;
+        tempPlay = 0;
+        tempQuiz = 0;
+        intCount = 0; //interactions count
+        tempCount = 0;
+        minutes = 0;
+
+    //quiz scores
+
+        questChosen = new int[99];
+        questCorrect = new int[99];
+
+        questCounter = 0;
+        correctCounter = 0;
+
+    //exhibits
+        ex1Count = 0;
+        ex1Time = 0;
+        ex1TimeStart = false;
+        ex1Min = 0;
+
+        ex2Count = 0;
+        ex2Time = 0;
+        ex2TimeStart = false;
+        ex2Min = 0;
+
+        ex3Count = 0;
+        ex3Time = 0;
+        ex3TimeStart = false;
+        ex3Min = 0;
+
+        ex4Count = 0;
+        ex4Time = 0;
+        ex4TimeStart = false;
+        ex4Min = 0;
+
+        ex5Count = 0;
+        ex5Time = 0;
+        ex5TimeStart = false;
+        ex5Min = 0;
+
+        ex6Count = 0;
+        ex6Time = 0;
+        ex6TimeStart = false;
+        ex6Min = 0;
+
+        score1 = 0;
+        score2 = 0;
+        score3 = 0;
+        score4 = 0;
+        score5 = 0;
+        score6 = 0;
+        score7 = 0;
+
+
     }
 }

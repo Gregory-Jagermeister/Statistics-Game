@@ -36,10 +36,16 @@ public class UIManager : MonoBehaviour
     public GameObject ClosedDoorPanel;
     public GameObject EndGamePanel;
 
+
+    public GameObject launchScreen;
+
+    public GameObject pauseMenu;
+
     private bool isAMenuOpen = false;
 
     void Start()
     {
+        
         //Shortform for the Gamemanger instance making it easier to access, Store the address to this on start of the scene
         json = GameManager.Instance.GetJson();
         //Get all the Exhibit Gameobjects
@@ -54,6 +60,8 @@ public class UIManager : MonoBehaviour
             indicators[count].gameObject.SetActive(false);
             count++;
         }
+        launchScreen.SetActive(true);
+        pauseMenu.SetActive(false);
         ClosedDoorPanel.SetActive(false);
         EndGamePanel.SetActive(false);
 
@@ -103,6 +111,8 @@ public class UIManager : MonoBehaviour
             count++;
         }
 
+
+
         if (isAMenuOpen == true)
         {
             if (Input.GetButtonDown("Cancel"))
@@ -110,6 +120,13 @@ public class UIManager : MonoBehaviour
                 CloseMenu();
             }
 
+        }
+        else if(isAMenuOpen == false && GameManager.Instance.GetInteraction() == false)
+        {
+            if (Input.GetButtonDown("Cancel"))
+            {
+                OpenPauseMenu();
+            }
         }
     }
 
@@ -148,7 +165,7 @@ public class UIManager : MonoBehaviour
 
     public void CloseClosedDoorPanel()
     {
-        isAMenuOpen = true;
+        isAMenuOpen = false;
         ClosedDoorPanel.SetActive(false);
         Time.timeScale = 1;
     }
@@ -161,7 +178,7 @@ public class UIManager : MonoBehaviour
     }
     public void CloseEndGamePanel()
     {
-        isAMenuOpen = true;
+        isAMenuOpen = false;
         ClosedDoorPanel.SetActive(false);
         EndGamePanel.SetActive(false);
         Time.timeScale = 1;
@@ -196,11 +213,45 @@ public class UIManager : MonoBehaviour
     {
         CanvasExtentions.RectTransformPosition(contentBackgrond, 2000, -2000, 2000, -2000);
         player.ClearMedia();
+
+        pauseMenu.SetActive(false);
         ClosedDoorPanel.SetActive(false);
+        EndGamePanel.SetActive(false);
+
         isAMenuOpen = false;
         Time.timeScale = 1;
         GameManager.Instance.SetInteractingFalse();
 
+    }
+
+     public void OpenLaunchScreen()
+    {
+        isAMenuOpen = true;
+        launchScreen.SetActive(true);
+        CloseMenu();
+        Time.timeScale = 0;
+    }
+
+    public void CloseLaunchScreen()
+    {
+        isAMenuOpen = false;
+        launchScreen.SetActive(false);
+        Time.timeScale = 1;
+
+    }
+
+     public void OpenPauseMenu()
+    {
+        isAMenuOpen = true;
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void ClosePauseMenu()
+    {
+        isAMenuOpen = false;
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
     }
 
     /// <summary>
