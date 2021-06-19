@@ -58,8 +58,10 @@ public class GameManager : Singleton<GameManager>
         _quizManager = this.gameObject.GetComponent<QuizManager>();
         _dialogueManager = this.gameObject.GetComponent<DialogueManager>();
         _statsManager  = this.gameObject.GetComponent<Statics>();
+        
 
     }
+  
 
     public void OpenContentMenu(string id)
     {
@@ -465,6 +467,7 @@ public class GameManager : Singleton<GameManager>
         {
             Debug.Log("no player to interact with");
         }
+        _uIManager.OpenLaunchScreen();
     }
     
 

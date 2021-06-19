@@ -117,7 +117,16 @@ public class UIManager : MonoBehaviour
         {
             if (Input.GetButtonDown("Cancel"))
             {
-                CloseMenu();
+                if(videoPlaying)
+                {
+                    CloseVideoPlayer();
+                }
+                else
+                {
+                    CloseMenu();
+                }
+                
+
             }
 
         }
@@ -144,14 +153,17 @@ public class UIManager : MonoBehaviour
         CanvasExtentions.RectTransformPosition(quizUI, 2000, -2000, 2000, -2000);
         Time.timeScale = 1;
     }
+    private bool videoPlaying;
 
     public void OpenVideoPlayer()
     {
+        videoPlaying = true;
         CanvasExtentions.RectTransformPosition(VideoPlayerUI, 0, 0, 0, 0);
     }
 
     public void CloseVideoPlayer()
     {
+        videoPlaying = false;
         CanvasExtentions.RectTransformPosition(VideoPlayerUI, 2000, -2000, 2000, -2000);
         player.ClearMedia();
     }
@@ -195,12 +207,12 @@ public class UIManager : MonoBehaviour
         heading.text = exhibits[3];
         content.text = exhibits[4];
 
-        if (!(exhibits[2].ToLower() == "none"|| exhibits[1] == null))
+        if (!(exhibits[2] == null ||exhibits[2].ToLower() == "none"||  exhibits[2].ToLower() == "" ))
         {
             player.VIDEO_LINK = exhibits[2];
         }
         
-        if (!(exhibits[1].ToLower() == "none" || exhibits[1] == null))
+        if (!(exhibits[1] == null || exhibits[1].ToLower() == "none" ||  exhibits[1].ToLower() == "" ))
         {
             DLImage(exhibits[1], image);
         }
@@ -228,7 +240,14 @@ public class UIManager : MonoBehaviour
     {
         isAMenuOpen = true;
         launchScreen.SetActive(true);
-        CloseMenu();
+
+        pauseMenu.SetActive(false);
+        ClosedDoorPanel.SetActive(false);
+        EndGamePanel.SetActive(false);
+        
+        CanvasExtentions.RectTransformPosition(contentBackgrond, 2000, -2000, 2000, -2000);
+        
+
         Time.timeScale = 0;
     }
 
@@ -305,11 +324,13 @@ public class UIManager : MonoBehaviour
     /// Resizes the image to fit the requires ratio.
     /// </summary>
     /// <param name="i">The Image to Resize as a rawImage</param>
+    public int imageMaxWidth =375;
+    public int imageMaxHeight=375;
     public void ResizeImage(RawImage i)
     {
 
         Debug .Log(i.rectTransform.rect.height);
-        if (i.rectTransform.rect.width> 375 && i.rectTransform.rect.height > 375)
+        if (i.rectTransform.rect.width> imageMaxWidth && i.rectTransform.rect.height > imageMaxHeight)
         {
             i.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,  i.rectTransform.rect.width/2);
             i.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,  i.rectTransform.rect.height/2);

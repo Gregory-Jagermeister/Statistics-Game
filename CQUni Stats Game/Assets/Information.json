@@ -170,6 +170,20 @@
             "correctAnswer": 1,
             "isMultiChoice": false,
             "questionIndex": 5
+        },
+        {
+            "question": "Describe the type of association shown in the following scatterplot:",
+            "answers": [
+                "Positive linear association",
+                "Negative linear association",
+                "Positive curvilinear association",
+                "Negative curvilinear association"
+            ],
+            "correctAnswer": 3,
+            "isMultiChoice": true,
+            "questionIndex": 6,
+            "imgLink": "Assets/Images/Scatter plot.png",
+            "isLocalImg": true
         }
     ],
     "lvl2Quiz": [
