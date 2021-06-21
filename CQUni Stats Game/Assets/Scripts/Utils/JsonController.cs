@@ -45,21 +45,17 @@ public class JsonController : MonoBehaviour
         }
     }
 
-    public string[] getExhibit(string ID)
+    public JsonData getExhibit(string ID)
     {
         bool matchFound = false;
-        string[] exhibits = new string[5];
+        JsonData exhibit = null;
         foreach (JsonData item in loadedData.art)
         {
             if (ID == item.artifactId)
             {
                 matchFound = true;
 
-                exhibits[0] = item.artifactId;
-                exhibits[1] = item.imagePath;
-                exhibits[2] = item.videoUrl;
-                exhibits[3] = item.heading;
-                exhibits[4] = item.content;
+                exhibit = item;
             }
         }
 
@@ -67,7 +63,7 @@ public class JsonController : MonoBehaviour
         {
             Debug.Log("artifact ID not found");
         }
-        return exhibits;
+        return exhibit;
 
     }
 
@@ -158,16 +154,6 @@ public class JsonController : MonoBehaviour
 
     }
 
-
-    [System.Serializable]
-    private class JsonData
-    {
-        public string artifactId;
-        public string imagePath;
-        public string videoUrl;
-        public string heading;
-        public string content;
-    }
 
 }
 

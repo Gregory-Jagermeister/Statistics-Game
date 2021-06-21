@@ -74,6 +74,9 @@ public class QuizManager : MonoBehaviour
         scorePanel.gameObject.SetActive(false);
         quizPanel.gameObject.SetActive(true);
         backgroundQuizPanel.gameObject.SetActive(true);
+        image.SetActive(false);
+
+        GameManager.Instance.isInteracting = true;
         NextQuestion();
 
     }
@@ -101,6 +104,7 @@ public class QuizManager : MonoBehaviour
         GameManager.Instance.SetInteractingFalse();
         scorePanel.gameObject.SetActive(true);
         quizPanel.gameObject.SetActive(false);
+        image.SetActive(false);
         scoreText.SetText(congratsMessage + " " + score + "/" + totalNumQuestions);
 
         if (quizLevel == 1)
@@ -161,7 +165,7 @@ public class QuizManager : MonoBehaviour
         if (questions.Count > 0 && numQuestions != 0)
         {
             currentQuestion = Random.Range(0, questions.Count);
-            if(currentQuestion > questions.Count)
+            if (currentQuestion > questions.Count)
             {
                 Debug.Log("something has gone wrong");
             }
@@ -170,6 +174,23 @@ public class QuizManager : MonoBehaviour
             Statics.questCounter += 1;
             questionText.SetText(questions[currentQuestion].question);
             SetAnswers();
+            if (!(questions[currentQuestion].imgLink == null || questions[currentQuestion].imgLink.ToLower() == "none" || questions[currentQuestion].imgLink.ToLower() == ""))
+            {
+                image.SetActive(true);
+                rawImage = image.gameObject.GetComponent<RawImage>();
+                if (rawImage != null)
+                {
+                    GameManager.Instance.DownloadImage(questions[currentQuestion].imgLink, rawImage, questions[currentQuestion].isLocalImg);
+
+                }
+                else
+                {
+                    image.SetActive(false);
+                    Debug.Log("could not find image component");
+                }
+
+
+            }
 
         }
         else
@@ -208,6 +229,10 @@ public class QuizManager : MonoBehaviour
         input.text = "";
 
     }
+
+    public GameObject image; // need raw image
+    private RawImage rawImage;
+
 }
 
 

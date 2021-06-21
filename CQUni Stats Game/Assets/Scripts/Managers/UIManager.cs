@@ -45,7 +45,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        
+
         //Shortform for the Gamemanger instance making it easier to access, Store the address to this on start of the scene
         json = GameManager.Instance.GetJson();
         //Get all the Exhibit Gameobjects
@@ -115,13 +115,22 @@ public class UIManager : MonoBehaviour
 
         if (isAMenuOpen == true)
         {
-            if (Input.GetButtonDown("Cancel"))
+            if (Input.GetButtonDown("Cancel") && !inQuiz)
             {
-                CloseMenu();
+                if (videoPlaying)
+                {
+                    CloseVideoPlayer();
+                }
+                else
+                {
+                    CloseMenu();
+                }
+
+
             }
 
         }
-        else if(isAMenuOpen == false && GameManager.Instance.GetInteraction() == false)
+        else if (isAMenuOpen == false || GameManager.Instance.isInteracting == false)
         {
             if (Input.GetButtonDown("Cancel"))
             {
@@ -130,9 +139,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private bool inQuiz;
     public void OpenQuizMenu(QuizManager manager, List<Questions> quiz, int level)
     {
         isAMenuOpen = true;
+        inQuiz = true;
         CanvasExtentions.RectTransformPosition(quizUI, 0, 0, 0, 0);
         manager.StartQuiz(quiz, level);
         Time.timeScale = 0;
@@ -141,17 +152,21 @@ public class UIManager : MonoBehaviour
     public void CloseQuizMenu()
     {
         isAMenuOpen = false;
+        inQuiz = false;
         CanvasExtentions.RectTransformPosition(quizUI, 2000, -2000, 2000, -2000);
         Time.timeScale = 1;
     }
+    private bool videoPlaying;
 
     public void OpenVideoPlayer()
     {
+        videoPlaying = true;
         CanvasExtentions.RectTransformPosition(VideoPlayerUI, 0, 0, 0, 0);
     }
 
     public void CloseVideoPlayer()
     {
+        videoPlaying = false;
         CanvasExtentions.RectTransformPosition(VideoPlayerUI, 2000, -2000, 2000, -2000);
         player.ClearMedia();
     }
@@ -188,21 +203,29 @@ public class UIManager : MonoBehaviour
     {
         isAMenuOpen = true;
         howToPanel.gameObject.SetActive(false);
-        string[] exhibits = new string[5];
-        exhibits = json.getExhibit(ID);
-        Debug.Log(exhibits[0]);
+        JsonData exhibit;
+        exhibit = json.getExhibit(ID);
+        Debug.Log(exhibit.artifactId);
         //Set the JSON information to the correct elements.
-        heading.text = exhibits[3];
-        content.text = exhibits[4];
+        heading.text = exhibit.heading;
+        content.text = exhibit.content;
 
-        if (!(exhibits[2].ToLower() == "none"|| exhibits[1] == null))
+        if (!(exhibit.videoUrl == null || exhibit.videoUrl.ToLower() == "none" || exhibit.videoUrl.ToLower() == ""))
         {
-            player.VIDEO_LINK = exhibits[2];
+            player.VIDEO_LINK = exhibit.videoUrl;
         }
-        
-        if (!(exhibits[1].ToLower() == "none" || exhibits[1] == null))
+
+        if (!(exhibit.imagePath == null || exhibit.imagePath.ToLower() == "none" || exhibit.imagePath.ToLower() == ""))
         {
-            DLImage(exhibits[1], image);
+            if (exhibit.isLocalImg == true)
+            {
+                DLImage(exhibit.imagePath, image, true);
+            }
+            else
+            {
+                DLImage(exhibit.imagePath, image, false);
+            }
+
         }
 
         CanvasExtentions.RectTransformPosition(contentBackgrond, 0, 0, 0, 0);
@@ -224,11 +247,18 @@ public class UIManager : MonoBehaviour
 
     }
 
-     public void OpenLaunchScreen()
+    public void OpenLaunchScreen()
     {
         isAMenuOpen = true;
         launchScreen.SetActive(true);
-        CloseMenu();
+
+        pauseMenu.SetActive(false);
+        ClosedDoorPanel.SetActive(false);
+        EndGamePanel.SetActive(false);
+
+        CanvasExtentions.RectTransformPosition(contentBackgrond, 2000, -2000, 2000, -2000);
+
+
         Time.timeScale = 0;
     }
 
@@ -240,9 +270,10 @@ public class UIManager : MonoBehaviour
 
     }
 
-     public void OpenPauseMenu()
+    public void OpenPauseMenu()
     {
         isAMenuOpen = true;
+        GameManager.Instance.isInteracting = true;
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
     }
@@ -250,6 +281,7 @@ public class UIManager : MonoBehaviour
     public void ClosePauseMenu()
     {
         isAMenuOpen = false;
+        GameManager.Instance.isInteracting = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
     }
@@ -260,7 +292,7 @@ public class UIManager : MonoBehaviour
     /// <param name="URL">The URL of the image location</param>
     /// <param name="image">The RawImage Unity Gameobject to set the image to</param>
     /// <returns></returns>
-    private IEnumerator DownloadImage(string URL, RawImage image)
+    private IEnumerator DownloadImage(string URL, RawImage image, bool isLocalImg)
     {
         UnityWebRequest request;
         if (Debug.isDebugBuild)
@@ -269,8 +301,16 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            request = UnityWebRequestTexture.GetTexture("/proxy/" + URL);
+            if (isLocalImg == true)
+            {
+                request = UnityWebRequestTexture.GetTexture(URL);
 
+            }
+            else
+            {
+                request = UnityWebRequestTexture.GetTexture("/proxy/" + URL);
+
+            }
         }
 
         yield return request.SendWebRequest();
@@ -292,12 +332,12 @@ public class UIManager : MonoBehaviour
     /// </summary>
     /// <param name="imagePath"></param>
     /// <param name="imgTexture"></param>
-    public void DLImage(string imagePath, RawImage imgTexture)
+    public void DLImage(string imagePath, RawImage imgTexture, bool isLocal)
     {
-        StartCoroutine(DownloadImage(imagePath, imgTexture));
+        StartCoroutine(DownloadImage(imagePath, imgTexture, isLocal));
         CanvasExtentions.SizeToParent(imgTexture, 100);
         //ResizeImage(imgTexture);
-        
+
 
     }
 
@@ -305,20 +345,22 @@ public class UIManager : MonoBehaviour
     /// Resizes the image to fit the requires ratio.
     /// </summary>
     /// <param name="i">The Image to Resize as a rawImage</param>
+    public int imageMaxWidth = 375;
+    public int imageMaxHeight = 375;
     public void ResizeImage(RawImage i)
     {
 
-        Debug .Log(i.rectTransform.rect.height);
-        if (i.rectTransform.rect.width> 375 && i.rectTransform.rect.height > 375)
+        Debug.Log(i.rectTransform.rect.height);
+        if (i.rectTransform.rect.width > imageMaxWidth && i.rectTransform.rect.height > imageMaxHeight)
         {
-            i.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,  i.rectTransform.rect.width/2);
-            i.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,  i.rectTransform.rect.height/2);
+            i.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, i.rectTransform.rect.width / 2);
+            i.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, i.rectTransform.rect.height / 2);
             ResizeImage(i);
         }
-        else if(i.rectTransform.rect.width< 0 || i.rectTransform.rect.height < 0)
+        else if (i.rectTransform.rect.width < 0 || i.rectTransform.rect.height < 0)
         {
-            i.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,  i.rectTransform.rect.width *-1);
-            i.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,  i.rectTransform.rect.height *-1);
+            i.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, i.rectTransform.rect.width * -1);
+            i.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, i.rectTransform.rect.height * -1);
             ResizeImage(i);
 
         }
@@ -326,7 +368,7 @@ public class UIManager : MonoBehaviour
         {
             return;
         }
-        
+
     }
 
 }

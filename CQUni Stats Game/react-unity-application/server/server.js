@@ -21,7 +21,7 @@ async function findVideo(url) {
     thingo = info;
   } catch (error) {
     console.log(error);
-  } 
+  }
 }
 
 app.use(cors());
@@ -29,8 +29,13 @@ app.use(express.json());
 app.use(express.static("build"));
 
 app.get('/proxy/:proxyUrl*', (req, res) => {
-    req.url = req.url.replace('/proxy/', '/'); // Strip '/proxy' from the front of the URL, else the proxy won't work.
-    proxy.emit('request', req, res);
+  req.url = req.url.replace('/proxy/', '/'); // Strip '/proxy' from the front of the URL, else the proxy won't work.
+  proxy.emit('request', req, res);
+});
+
+app.get('/Images/:imgName', (req, res) => {
+  var __dirname = 'server/Images'
+  res.sendFile(req.params.imgName, { root: __dirname });
 });
 
 app.get('/api/information', (req, res) => {
@@ -53,7 +58,7 @@ app.get("/*", function (req, res) {
     }
   });
 });
- 
+
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

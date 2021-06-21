@@ -4,6 +4,7 @@
             "artifactId": "Exhibit1",
             "heading": "Mali - Kayes",
             "imagePath": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+            "isLocalImg": false,
             "videoUrl": "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
             "content": "MPI stands for Multidimensional Poverty Index, which is where a range of indicators is used to calculate a summary poverty figure for a given population, in which a larger figure indicates a higher level of poverty as noted by  <link=\"https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.\"<color=orange>Multidimensional Poverty Index</color></link>  \n\nThe overall MPI score for Mali is 0.457, but the regional score is 0.485 as noted in the <link=\"https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv\"<color=orange> sub-national database located on kaggle.</color></link> that was last updated 3 years ago.\n\nThe percentage of people listed as poor in this region was found to be 82.8%. Of the surveyed regions it has the 3rd highest Intensity of deprivation in the nation at 58.6"
         },
@@ -11,6 +12,7 @@
             "artifactId": "Exhibit2",
             "heading": "Mali - Koulikoro",
             "imagePath": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+            "isLocalImg": false,
             "videoUrl": "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
             "content": "MPI stands for Multidimensional Poverty Index, which is where a range of indicators is used to calculate a summary poverty figure for a given population, in which a larger figure indicates a higher level of poverty as noted by <link=\"https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.\"<color=orange>Multidimensional Poverty Index.</color></link>' \n\nThe overall MPI score for Mali is 0.457, but the regional score is 0.44 as noted in the <link=\"https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv\"<color=orange> sub-national database located on kaggle.</color></link> that was last updated 3 years ago. \n\nThe percentage of people listed as poor in this region was found to be 75.5%. Of the surveyed regions it has the 3rd lowest Intensity of deprivation in the nation at 58.2"
         },
@@ -18,6 +20,7 @@
             "artifactId": "Exhibit3",
             "heading": "Mali - Sikasso",
             "imagePath": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+            "isLocalImg": false,
             "videoUrl": "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
             "content": "MPI stands for Multidimensional Poverty Index, which is where a range of indicators is used to calculate a summary poverty figure for a given population, in which a larger figure indicates a higher level of poverty as noted by <link=\"https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.\"<color=orange>Multidimensional Poverty Index.</color></link> \n\nThe overall MPI score for Mali is 0.457, but the regional score is 0.484 as noted in the <link=\"https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv\"<color=orange> sub-national database located on kaggle.</color></link> that was last updated 3 years ago. \n\nThe percentage of people listed as poor in this region was found to be 83.8%. Of the surveyed regions it has the 2nd lowest Intensity of deprivation in the nation at 57.8"
         },
@@ -25,6 +28,7 @@
             "artifactId": "Exhibit4",
             "heading": "Mali - Sðgou",
             "imagePath": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+            "isLocalImg": false,
             "videoUrl": "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
             "content": "MPI stands for Multidimensional Poverty Index, which is where a range of indicators is used to calculate a summary poverty figure for a given population, in which a larger figure indicates a higher level of poverty as noted by  <link=\"https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.\"<color=orange>Multidimensional Poverty Index.</color></link> \n\nThe overall MPI score for Mali is 0.457, but the regional score is 0.498 as noted in the <link=\"https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv\"<color=orange> sub-national database located on kaggle.</color></link> that was last updated 3 years ago. \n\nThe percentage of people listed as poor in this region was found to be 83.2%. Of the surveyed regions it has the 2nd highest Intensity of deprivation in the nation at 59.8"
         },
@@ -32,6 +36,7 @@
             "artifactId": "Exhibit5",
             "heading": "Mali - Mopti",
             "imagePath": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+            "isLocalImg": false,
             "videoUrl": "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
             "content": "MPI stands for Multidimensional Poverty Index, which is where a range of indicators is used to calculate a summary poverty figure for a given population, in which a larger figure indicates a higher level of poverty as noted by <link=\"https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.\"<color=orange>Multidimensional Poverty Index.</color></link> \n\nThe overall MPI score for Mali is 0.457, but the regional score is 0.594 as noted in the <link=\"https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv\"<color=orange> sub-national database located on kaggle.</color></link> that was last updated 3 years ago. \n\nThe percentage of people listed as poor in this region was found to be 90.5%. Of the surveyed regions it has the highest Intensity of deprivation in the nation at 65.6"
         },
@@ -39,6 +44,7 @@
             "artifactId": "Exhibit6",
             "heading": "Mali - Bamako",
             "imagePath": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+            "isLocalImg": false,
             "videoUrl": "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
             "content": "MPI stands for Multidimensional Poverty Index, which is where a range of indicators is used to calculate a summary poverty figure for a given population, in which a larger figure indicates a higher level of poverty as noted by <link=\"https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.\"<color=orange>Multidimensional Poverty Index.</color></link> \n\nThe overall MPI score for Mali is 0.457, but the regional score is 0.168 as noted in the <link=\"https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv\"<color=orange> sub-national database located on kaggle.</color></link> that was last updated 3 years ago. \n\nThe percentage of people listed as poor in this region was found to be 37.3%. Of the surveyed regions it has the lowest Intensity of deprivation in the nation at 44.9"
         },
@@ -46,12 +52,14 @@
             "artifactId": "Exhibit7",
             "heading": "Poverty #1",
             "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
+            "isLocalImg": false,
             "videoUrl": "https://www.youtube.com/watch?v=ElG5-nXD0B8",
             "content": "Poverty is bad"
         },
         {
             "artifactId": "Exhibit8",
             "heading": "Poverty #2",
+            "isLocalImg": false,
             "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg. ",
             "videoUrl": "https://www.youtube.com/watch?v=i9aSp9bFmMg",
             "content": "Poverty is not for the faint of heart"
@@ -59,6 +67,7 @@
         {
             "artifactId": "Exhibit9",
             "heading": "Poverty #3",
+            "isLocalImg": false,
             "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
             "videoUrl": "https://www.youtube.com/watch?v=aLwRZibUqL0",
             "content": "Poverty should be fixed give money to all"
@@ -66,6 +75,7 @@
         {
             "artifactId": "Exhibit10",
             "heading": "Poverty #1",
+            "isLocalImg": false,
             "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
             "videoUrl": "https://www.youtube.com/watch?v=ElG5-nXD0B8",
             "content": "Poverty is bad"
@@ -73,6 +83,7 @@
         {
             "artifactId": "Exhibit11",
             "heading": "Poverty #2",
+            "isLocalImg": false,
             "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
             "videoUrl": "https://www.youtube.com/watch?v=i9aSp9bFmMg",
             "content": "Poverty is not for the faint of heart"
@@ -80,6 +91,7 @@
         {
             "artifactId": "Exhibit12",
             "heading": "Poverty #1",
+            "isLocalImg": false,
             "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
             "videoUrl": "https://www.youtube.com/watch?v=ElG5-nXD0B8",
             "content": "Poverty is bad"
@@ -87,6 +99,7 @@
         {
             "artifactId": "Exhibit13",
             "heading": "Poverty #2",
+            "isLocalImg": false,
             "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
             "videoUrl": "https://www.youtube.com/watch?v=i9aSp9bFmMg",
             "content": "Poverty is not for the faint of heart"
@@ -94,6 +107,7 @@
         {
             "artifactId": "Exhibit14",
             "heading": "Poverty #3",
+            "isLocalImg": false,
             "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
             "videoUrl": "https://www.youtube.com/watch?v=aLwRZibUqL0",
             "content": "Poverty should be fixed give money to all"
@@ -101,6 +115,7 @@
         {
             "artifactId": "Exhibit15",
             "heading": "Poverty #1",
+            "isLocalImg": false,
             "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
             "videoUrl": "https://www.youtube.com/watch?v=ElG5-nXD0B8",
             "content": "Poverty is bad"
@@ -108,6 +123,7 @@
         {
             "artifactId": "Exhibit16",
             "heading": "Poverty #2",
+            "isLocalImg": false,
             "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
             "videoUrl": "https://www.youtube.com/watch?v=i9aSp9bFmMg",
             "content": "Poverty is not for the faint of heart"
@@ -170,6 +186,20 @@
             "correctAnswer": 1,
             "isMultiChoice": false,
             "questionIndex": 5
+        },
+        {
+            "question": "Describe the type of association shown in the following scatterplot:",
+            "answers": [
+                "Positive linear association",
+                "Negative linear association",
+                "Positive curvilinear association",
+                "Negative curvilinear association"
+            ],
+            "correctAnswer": 3,
+            "isMultiChoice": true,
+            "questionIndex": 6,
+            "imgLink": "Images/Scatter.png",
+            "isLocalImg": true
         }
     ],
     "lvl2Quiz": [

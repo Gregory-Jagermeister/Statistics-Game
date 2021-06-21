@@ -11,4 +11,6 @@ public class Questions
   public int correctAnswer;
   public bool isMultiChoice;
   public int questionIndex;
+  public string imgLink;
+  public bool isLocalImg;
 }
