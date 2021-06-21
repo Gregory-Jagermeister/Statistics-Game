@@ -75,6 +75,8 @@ public class QuizManager : MonoBehaviour
         quizPanel.gameObject.SetActive(true);
         backgroundQuizPanel.gameObject.SetActive(true);
         image.SetActive(false);
+
+        GameManager.Instance.isInteracting = true;
         NextQuestion();
 
     }
@@ -163,7 +165,7 @@ public class QuizManager : MonoBehaviour
         if (questions.Count > 0 && numQuestions != 0)
         {
             currentQuestion = Random.Range(0, questions.Count);
-            if(currentQuestion > questions.Count)
+            if (currentQuestion > questions.Count)
             {
                 Debug.Log("something has gone wrong");
             }
@@ -172,22 +174,22 @@ public class QuizManager : MonoBehaviour
             Statics.questCounter += 1;
             questionText.SetText(questions[currentQuestion].question);
             SetAnswers();
-            if(!(questions[currentQuestion].imgLink == null || questions[currentQuestion].imgLink.ToLower() == "none" ||  questions[currentQuestion].imgLink.ToLower() == ""))
+            if (!(questions[currentQuestion].imgLink == null || questions[currentQuestion].imgLink.ToLower() == "none" || questions[currentQuestion].imgLink.ToLower() == ""))
             {
-               image.SetActive(true);
-               rawImage = image.gameObject.GetComponent<RawImage>();
-               if(rawImage != null)
-               {
-                    DLImage(questions[currentQuestion].imgLink, rawImage);
+                image.SetActive(true);
+                rawImage = image.gameObject.GetComponent<RawImage>();
+                if (rawImage != null)
+                {
+                    GameManager.Instance.DownloadImage(questions[currentQuestion].imgLink, rawImage, questions[currentQuestion].isLocalImg);
 
-               }
-               else
-               {
-                   image.SetActive(false);
-                   Debug.Log("could not find image component");
-               }
-              
-                
+                }
+                else
+                {
+                    image.SetActive(false);
+                    Debug.Log("could not find image component");
+                }
+
+
             }
 
         }
@@ -231,102 +233,6 @@ public class QuizManager : MonoBehaviour
     public GameObject image; // need raw image
     private RawImage rawImage;
 
-
-    /// <summary>
-    /// Downloads the image by using the "DownloadImage" Coroutine and sets the size of image to fit the parent
-    /// </summary>
-    /// <param name="imagePath"></param>
-    /// <param name="imgTexture"></param>
-    public void DLImage(string imagePath, RawImage imgTexture)
-    {
-        StartCoroutine(DownloadImage(imagePath, imgTexture));
-        CanvasExtentions.SizeToParent(imgTexture, 100);
-    }
-
-    /// <summary>
-    /// The Coroutine that Downloads the image from a URL for use and sets it to a texture
-    /// </summary>
-    /// <param name="URL">The URL of the image location</param>
-    /// <param name="image">The RawImage Unity Gameobject to set the image to</param>
-    /// <returns></returns>
-    private IEnumerator DownloadImage(string URL, RawImage image)
-    {
-        UnityWebRequest request;
-        if (Debug.isDebugBuild)
-        {
-            request = UnityWebRequestTexture.GetTexture(URL);
-        }
-        else
-        {
-            request = UnityWebRequestTexture.GetTexture("/proxy/" + URL);
-
-        }
-
-        yield return request.SendWebRequest();
-        if (request.isNetworkError || request.isHttpError)
-        {
-            Debug.Log(request.error);
-        }
-        else
-        {
-            if( questions[currentQuestion].isLocalImg == true)
-            {
-           
-                string url = "file://" + URL;
-                // Create an empty texture
-                Texture2D newTexture = new Texture2D (512,512,TextureFormat.ARGB32,true);
-                 // loads the image
-
-                
-
-                request = UnityWebRequestTexture.GetTexture(url);
-                yield return request.SendWebRequest();
-                if (request.isNetworkError || request.isHttpError)
-                {
-                    Debug.Log(request.error);
-                } 
-                
-
-            
-            }
-    
-            
-            image.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;       
-            image.SetNativeSize();
-            ResizeImage(image);
-
-        }
-    }
-
-    /// <summary>
-    /// Resizes the image to fit the requires ratio.
-    /// </summary>
-    /// <param name="i">The Image to Resize as a rawImage</param>
-    public int imageMaxWidth =300;
-    public int imageMaxHeight=300;
-    public void ResizeImage(RawImage i)
-    {
-
-        Debug .Log(i.rectTransform.rect.height);
-        if (i.rectTransform.rect.width> imageMaxWidth && i.rectTransform.rect.height > imageMaxHeight)
-        {
-            i.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,  i.rectTransform.rect.width/2);
-            i.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,  i.rectTransform.rect.height/2);
-            ResizeImage(i);
-        }
-        else if(i.rectTransform.rect.width< 0 || i.rectTransform.rect.height < 0)
-        {
-            i.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,  i.rectTransform.rect.width *-1);
-            i.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,  i.rectTransform.rect.height *-1);
-            ResizeImage(i);
-
-        }
-        else
-        {
-            return;
-        }
-        
-    }
 }
 
 
