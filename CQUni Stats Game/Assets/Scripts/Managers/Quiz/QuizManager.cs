@@ -105,6 +105,7 @@ public class QuizManager : MonoBehaviour
         scorePanel.gameObject.SetActive(true);
         quizPanel.gameObject.SetActive(false);
         image.SetActive(false);
+        GameManager.Instance.PlaySound("clapping");
         scoreText.SetText(congratsMessage + " " + score + "/" + totalNumQuestions);
 
         if (quizLevel == 1)
@@ -113,8 +114,12 @@ public class QuizManager : MonoBehaviour
             TestquizScore[Statics.quizCount1] = (100 / totalNumQuestions) * score;
             Statics.quizCount1 += 1;
         }
-        if ((100 / totalNumQuestions) * score == 100)
+
+
+        if (score == totalNumQuestions)
         {
+
+            StartCoroutine(playSoundAfterSeconds(1));
             GameManager.Instance.DidPlayerPassQuiz(true, quizLevel);
             StartCoroutine(GameManager.Instance.CreateAnalyticsData(Statics.timer.ToString(), Statics.artCount.ToString(), Statics.quizScore.ToString()));
         }
@@ -122,10 +127,15 @@ public class QuizManager : MonoBehaviour
         //kickstarts the analytics routine
         Debug.Log("made it to before post");
 
+
         score = 0;
         questions.Clear();
         numQuestions = totalNumQuestions;
-        //GameManager.Instance.CloseQuizMenu();
+    }
+    IEnumerator playSoundAfterSeconds(int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        GameManager.Instance.PlaySound("doorOpening");
     }
 
     void SetAnswers()

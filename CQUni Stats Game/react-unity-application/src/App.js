@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react'
 import Unity, { UnityContent } from "react-unity-webgl";
 
 
@@ -15,10 +16,14 @@ function App() {
     unityContext.setFullscreen(true);
   }
 
+
+
   return (
     <div className="App">
       <header className="App-header">
         <button onClick={handleOnClickFullscreen}>Fullscreen</button>
+
+        unityInstance.SendMessage('MyGameObject', 'MyFunction');
         <Unity unityContent={unityContext}></Unity>
       </header>
     </div>

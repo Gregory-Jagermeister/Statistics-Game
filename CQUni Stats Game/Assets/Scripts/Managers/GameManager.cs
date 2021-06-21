@@ -19,6 +19,7 @@ public class GameManager : Singleton<GameManager>
 
     private QuizManager _quizManager;
     private DialogueManager _dialogueManager;
+    private SoundManager _soundManager;
     private Statics _statsManager;
 
     public bool isInteracting = false;
@@ -58,6 +59,7 @@ public class GameManager : Singleton<GameManager>
         _uIManager = this.gameObject.GetComponent<UIManager>();
         _quizManager = this.gameObject.GetComponent<QuizManager>();
         _dialogueManager = this.gameObject.GetComponent<DialogueManager>();
+        _soundManager = this.gameObject.GetComponent<SoundManager>();
         _statsManager = this.gameObject.GetComponent<Statics>();
 
 
@@ -133,11 +135,14 @@ public class GameManager : Singleton<GameManager>
 
     public void DidPlayerPassQuiz(bool passed, int level)
     {
+        Debug.Log(passed);
         if (passed == true)
         {
             if (level == 1)
             {
+
                 lvl1QuizPassed = true;
+                Debug.Log(lvl1QuizPassed);
 
             }
             else if (level == 2)
@@ -579,8 +584,12 @@ public class GameManager : Singleton<GameManager>
     {
 
 
-
-
         OpenDoors();
+    }
+
+
+    public void PlaySound(string clip)
+    {
+        _soundManager.PlaySound(clip);
     }
 }
