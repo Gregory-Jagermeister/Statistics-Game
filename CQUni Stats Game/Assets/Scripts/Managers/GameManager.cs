@@ -466,6 +466,11 @@ public class GameManager : Singleton<GameManager>
         return _json;
     }
 
+    public void TestReactJS()
+    {
+        Debug.Log("Hello World");
+    }
+
     // Start is called before the first frame update
     void Start()
     {

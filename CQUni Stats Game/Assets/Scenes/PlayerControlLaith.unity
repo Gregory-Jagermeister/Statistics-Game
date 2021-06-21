@@ -754,7 +754,7 @@ GameObject:
   - component: {fileID: 46209177}
   - component: {fileID: 46209178}
   m_Layer: 0
-  m_Name: Game Manager
+  m_Name: GameController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -946,8 +946,6 @@ MonoBehaviour:
   congratsMessage: Well done, you did your best and achived
   input: {fileID: 290578666}
   image: {fileID: 657827487}
-  imageMaxWidth: 300
-  imageMaxHeight: 300
 --- !u!114 &46209176
 MonoBehaviour:
   m_ObjectHideFlags: 0
