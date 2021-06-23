@@ -86,7 +86,7 @@
         },
         {
             "artifactId": "Exhibit7",
-            "heading": "Poverty #2",
+            "heading": "Rwanda - East",
             "sources": [
                 "https://www.mapsland.com/maps/africa/rwanda/detailed-regions-map-of-rwanda.jpg",
                 "https://www.youtube.com/watch?v=JJBpeVDAR5w",
@@ -96,11 +96,11 @@
             "isLocalImg": false,
             "imagePath": "https://www.mapsland.com/maps/africa/rwanda/detailed-regions-map-of-rwanda.jpg",
             "videoUrl": "https://www.youtube.com/watch?v=JJBpeVDAR5w",
-            "content": "Poverty is not for the faint of heart"
+            "content": "MPI stands for Multidimensional Poverty Index, which is where a range of indicators is used to calculate a summary poverty figure for a given population, in which a larger figure indicates a higher level of poverty as noted by  <link=\"https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.\"><color=orange>Multidimensional Poverty Index.</color></link> \n\nThe overall MPI score for Rwanda is 0.259, but the regional score is 0.292 when rounded up as noted in the <link=\"https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv\"><color=orange> sub-national database located on kaggle.</color></link> that was last updated in 2019. \n\nThe percentage of people listed as poor in this region was found to be 59.6%. Of the surveyed regions it has the 2nd highest Intensity of deprivation in the nation at 48.9"
         },
         {
             "artifactId": "Exhibit8",
-            "heading": "Poverty #1",
+            "heading": "Rwanda - Kigali City",
             "sources": [
                 "https://www.mapsland.com/maps/africa/rwanda/detailed-regions-map-of-rwanda.jpg",
                 "https://www.youtube.com/watch?v=JJBpeVDAR5w",
@@ -110,11 +110,11 @@
             "isLocalImg": false,
             "imagePath": "https://www.mapsland.com/maps/africa/rwanda/detailed-regions-map-of-rwanda.jpg",
             "videoUrl": "https://www.youtube.com/watch?v=JJBpeVDAR5w",
-            "content": "Poverty is bad"
+            "content": "MPI stands for Multidimensional Poverty Index, which is where a range of indicators is used to calculate a summary poverty figure for a given population, in which a larger figure indicates a higher level of poverty as noted by  <link=\"https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.\"><color=orange>Multidimensional Poverty Index.</color></link> \n\nThe overall MPI score for Rwanda is 0.259, but the regional score is 0.118 when rounded up as noted in the <link=\"https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv\"><color=orange> sub-national database located on kaggle.</color></link> that was last updated in 2019. \n\nThe percentage of people listed as poor in this region was found to be 26.3%. Of the surveyed regions it has the lowest Intensity of deprivation in the nation at 44.8"
         },
         {
             "artifactId": "Exhibit9",
-            "heading": "Poverty #2",
+            "heading": "Rwanda - North",
             "sources": [
                 "https://www.mapsland.com/maps/africa/rwanda/detailed-regions-map-of-rwanda.jpg",
                 "https://www.youtube.com/watch?v=JJBpeVDAR5w",
@@ -124,11 +124,11 @@
             "isLocalImg": false,
             "imagePath": "https://www.mapsland.com/maps/africa/rwanda/detailed-regions-map-of-rwanda.jpg",
             "videoUrl": "https://www.youtube.com/watch?v=JJBpeVDAR5w",
-            "content": "Poverty is not for the faint of heart"
+            "content": "MPI stands for Multidimensional Poverty Index, which is where a range of indicators is used to calculate a summary poverty figure for a given population, in which a larger figure indicates a higher level of poverty as noted by  <link=\"https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.\"><color=orange>Multidimensional Poverty Index.</color></link> \n\nThe overall MPI score for Rwanda is 0.259, but the regional score is 0.243 when rounded up as noted in the <link=\"https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv\"><color=orange> sub-national database located on kaggle.</color></link> that was last updated in 2019. \n\nThe percentage of people listed as poor in this region was found to be 51.9%. Of the surveyed regions it has the 2nd lowest Intensity of deprivation in the nation at 46.8"
         },
         {
             "artifactId": "Exhibit10",
-            "heading": "Poverty #3",
+            "heading": "Rwanda - South",
             "sources": [
                 "https://www.mapsland.com/maps/africa/rwanda/detailed-regions-map-of-rwanda.jpg",
                 "https://www.youtube.com/watch?v=JJBpeVDAR5w",
@@ -138,11 +138,11 @@
             "isLocalImg": false,
             "imagePath": "https://www.mapsland.com/maps/africa/rwanda/detailed-regions-map-of-rwanda.jpg",
             "videoUrl": "https://www.youtube.com/watch?v=JJBpeVDAR5w",
-            "content": "Poverty should be fixed give money to all"
+            "content": "MPI stands for Multidimensional Poverty Index, which is where a range of indicators is used to calculate a summary poverty figure for a given population, in which a larger figure indicates a higher level of poverty as noted by  <link=\"https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.\"><color=orange>Multidimensional Poverty Index.</color></link> \n\nThe overall MPI score for Rwanda is 0.259, but the regional score is 0.295 when rounded up as noted in the <link=\"https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv\"><color=orange> sub-national database located on kaggle.</color></link> that was last updated in 2019. \n\nThe percentage of people listed as poor in this region was found to be 59.9%. Of the surveyed regions it has the highest Intensity of deprivation in the nation at 49.3"
         },
         {
             "artifactId": "Exhibit11",
-            "heading": "Poverty #1",
+            "heading": "Rwanda - West ",
             "sources": [
                 "https://www.mapsland.com/maps/africa/rwanda/detailed-regions-map-of-rwanda.jpg",
                 "https://www.youtube.com/watch?v=JJBpeVDAR5w",
@@ -152,7 +152,7 @@
             "isLocalImg": false,
             "imagePath": "https://www.mapsland.com/maps/africa/rwanda/detailed-regions-map-of-rwanda.jpg",
             "videoUrl": "https://www.youtube.com/watch?v=JJBpeVDAR5w",
-            "content": "Poverty is bad"
+            "content": "MPI stands for Multidimensional Poverty Index, which is where a range of indicators is used to calculate a summary poverty figure for a given population, in which a larger figure indicates a higher level of poverty as noted by  <link=\"https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.\"><color=orange>Multidimensional Poverty Index.</color></link> \n\nThe overall MPI score for Rwanda is 0.259, but the regional score is 0.266 when rounded up as noted in the <link=\"https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv\"><color=orange> sub-national database located on kaggle.</color></link> that was last updated in 2019. \n\nThe percentage of people listed as poor in this region was found to be 56.0%. Of the surveyed regions it has the 3rd highest Intensity of deprivation in the nation at 47.4"
         },
         {
             "artifactId": "Exhibit12",
@@ -214,103 +214,93 @@
             "artifactId": "Linear Regression",
             "heading": "Linear Regression",
             "sources": [
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
-                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
-                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
-                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+                "https://www.youtube.com/watch?v=JvS2triCgOY",
+                "https://www.youtube.com/watch?v=zPG4NjIkCjc",
+                "https://miro.medium.com/max/1920/1*GSAcN9G7stUJQbuOhu0HEg.png",
+                "https://online.stat.psu.edu/stat462/node/91/"
             ],
             "isLocalImg": false,
-            "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
-            "videoUrl": "https://www.youtube.com/watch?v=ElG5-nXD0B8",
-            "content": "Poverty is bad"
+            "imagePath": "https://miro.medium.com/max/1920/1*GSAcN9G7stUJQbuOhu0HEg.png",
+            "videoUrl": "https://www.youtube.com/watch?v=zPG4NjIkCjc",
+            "content": "Simple linear regression is a statistical method that allows us to summarize and study relationships between two continuous (quantitative) variables. To learn how to calculate the linear regression  <link=\"https://www.youtube.com/watch?v=JvS2triCgOY.\"><color=orange>watch this video.</color></link> "
         },
         {
             "artifactId": "Mean",
             "heading": "Mean",
-            "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
+            "imagePath": "https://i.ytimg.com/vi/POwyzIGHH_Y/hqdefault.jpg",
             "isLocalImg": false,
             "sources": [
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
-                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
-                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
-                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+                "https://i.ytimg.com/vi/POwyzIGHH_Y/hqdefault.jpg",
+                "https://www.youtube.com/watch?v=h8EYEJ32oQ8"
             ],
-            "videoUrl": "https://www.youtube.com/watch?v=ElG5-nXD0B8",
-            "content": "Poverty is bad"
+            "videoUrl": "https://www.youtube.com/watch?v=h8EYEJ32oQ8",
+            "content": "the mean is the numerical result of the sum of all the numbers in a given set divided by the total amount of terms. A tool that can be used is <link=\"https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.\"><color=orange>is the mean calculator.</color></link>"
         },
         {
             "artifactId": "Mode",
             "heading": "Mode",
             "isLocalImg": false,
+            "imagePath": "http://msgilbart.weebly.com/uploads/2/5/8/5/25857368/3531344_orig.png",
             "sources": [
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
-                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
-                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
-                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+                "http://msgilbart.weebly.com/uploads/2/5/8/5/25857368/3531344_orig.png",
+                "https://www.youtube.com/watch?v=h8EYEJ32oQ8"
             ],
-            "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg. ",
-            "videoUrl": "https://www.youtube.com/watch?v=i9aSp9bFmMg",
-            "content": "Poverty is not for the faint of heart"
+            "videoUrl": "https://www.youtube.com/watch?v=h8EYEJ32oQ8",
+            "content": "The mode is the most common number within the range provided in the dataset"
         },
         {
             "artifactId": "Median",
             "heading": "Median",
             "sources": [
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
-                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
-                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
-                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Finding_the_median.png/1200px-Finding_the_median.png",
+                "https://www.youtube.com/watch?v=h8EYEJ32oQ8"
             ],
+            "videoUrl": "https://www.youtube.com/watch?v=h8EYEJ32oQ8",
             "isLocalImg": false,
-            "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
-            "videoUrl": "https://www.youtube.com/watch?v=aLwRZibUqL0",
-            "content": "Poverty should be fixed give money to all"
+            "imagePath": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Finding_the_median.png/1200px-Finding_the_median.png",
+            "content": "the median is the data value separating the upper half of a data set from the lower half. It is recommended to first sort the dataset before attempting to find the median"
         },
         {
             "artifactId": "Standard Deviation",
             "heading": "Standard Deviation",
             "sources": [
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
-                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
-                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
-                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+                "https://www.thoughtco.com/thmb/GVy7U2pn2FP2Tut4MG53ZiCgOCQ=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/calculate-a-sample-standard-deviation-3126345-v4-CS-01-5b76f58f46e0fb0050bb4ab2.png",
+                "https://www.youtube.com/watch?v=WVx3MYd-Q9w",
+                "https://www.calculator.net/standard-deviation-calculator.html"
             ],
+            "videoUrl": "https://www.youtube.com/watch?v=WVx3MYd-Q9w",
             "isLocalImg": false,
-            "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
-            "videoUrl": "https://www.youtube.com/watch?v=ElG5-nXD0B8",
-            "content": "Poverty is bad"
+            "imagePath": "https://www.thoughtco.com/thmb/GVy7U2pn2FP2Tut4MG53ZiCgOCQ=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/calculate-a-sample-standard-deviation-3126345-v4-CS-01-5b76f58f46e0fb0050bb4ab2.png",
+            "content": "the standard deviation is the the measure of the spread of the values in a dataset and is found by finding the mean, then for each data point we find the square of the distance between the mean and the data point and add these values, we then divide by the total number of data points and take the square root as the answer. <link=\"https://www.calculator.net/standard-deviation-calculator.html\"><color=orange> This is a link to a standard deviation calculating tool.</color></link>"
         },
         {
             "artifactId": "Sampling",
             "heading": "Sampling",
             "sources": [
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
-                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
-                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
-                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+                "https://cdn.scribbr.com/wp-content/uploads//2019/09/probability-sampling.png",
+                "https://www.youtube.com/watch?v=be9e-Q-jC-0"
             ],
-            "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
+            "imagePath": "https://cdn.scribbr.com/wp-content/uploads//2019/09/probability-sampling.png",
             "isLocalImg": false,
-            "videoUrl": "https://www.youtube.com/watch?v=ElG5-nXD0B8",
-            "content": "Poverty is bad"
+            "videoUrl": "https://www.youtube.com/watch?v=be9e-Q-jC-0",
+            "content": "This is the process of using a smaller cluster of data to represent a larger dataset. There is the possibility for sample error as samples can be biased or unrepresentative of the whole population. There are many types of sampling such as : simple Random, systematic, cluster, stratified and convenience "
         },
         {
             "artifactId": "Two Sample T-Test",
             "heading": "Two Sample T-Test",
             "isLocalImg": false,
             "sources": [
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
-                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
-                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
-                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+                "https://www.jmp.com/en_au/statistics-knowledge-portal/t-test/two-sample-t-test.html",
+                "https://youtu.be/NkGvw18zlGQ",
+                "https://i.stack.imgur.com/t6PSm.jpg"
             ],
-            "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg. ",
-            "videoUrl": "https://www.youtube.com/watch?v=i9aSp9bFmMg",
-            "content": "Poverty is not for the faint of heart"
+            "imagePath": "https://i.stack.imgur.com/t6PSm.jpg ",
+            "videoUrl": "https://youtu.be/NkGvw18zlGQ",
+            "content": "The two-sample t-test (also known as the independent samples t-test) is a method used to test whether the unknown population means of two groups are equal or not. and is used when the data values are independent, random sampled from two normal populations and the two independent groups have equal variances. <link=\"https://www.calculator.net/standard-deviation-calculator.html\"><color=orange> For more information click this link.</color></link> "
         },
         {
             "artifactId": "one sided two Sample T-Test",
-            "heading": "Median",
+            "heading": "one sided two Sample T-Test",
             "sources": [
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
                 "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
@@ -324,17 +314,16 @@
         },
         {
             "artifactId": "Paired T- Test",
-            "heading": "Standard deviation",
+            "heading": "Paired T- Test",
             "sources": [
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
-                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
-                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
-                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+                "https://calcworkshop.com/wp-content/uploads/matched-pairs-t-test-formula.png",
+                "https://www.youtube.com/watch?v=Ko_WlL1oF1o",
+                "https://www.statisticssolutions.com/free-resources/directory-of-statistical-analyses/paired-sample-t-test/?__cf_chl_jschl_tk__=8e2c5903e81c3e6457f5106238928b7e1ae3583f-1624459658-0-AS9k2xavJjlQrkhWSx04qyb35Ez6-n8AOA802DSsjEzy4uTtGzcvs9gu1eQ2ybHwGjJrET1kZ7Gq2Qe6jXinawoZhL9nDc9ZLgB9F4se3zOrU9rIOCwsP1BxXxwygXo87huow-yf9SeJLMUmvDvxiTYINdAiLVAw8jrOcyAoNwL8BjtOKc5gUtDqSCNeCcGxyv1-LLDCuWp_LlopQyrKC7QhZbbhYrPd_dtSb4IyYaQyDkwz-E9C1ZFqfVwpgT-AxLcg-qo4ZHbS-Eb1L7S9Ze-X1JbF5LdVn4PrVnbQ3MozsKVWXqkVL6dnG6rS-cdsAXWRfIbnysq2Xg-oknTuCzk6m-y6jzFbumXWUSzepCKzbH9PetnxUesJnFXp34aMmUVT3s63pMkDp3ec6-BhVGJ-0EDGbOW9JWEjvRnlpwnZS6eCjLCP-nbf3G2wPA_m2U1QkaQUtMT9whdjxmrKa_MC2Nncv4QPgrr6p2YqntdX"
             ],
             "isLocalImg": false,
-            "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
-            "videoUrl": "https://www.youtube.com/watch?v=ElG5-nXD0B8",
-            "content": " "
+            "imagePath": "https://calcworkshop.com/wp-content/uploads/matched-pairs-t-test-formula.png",
+            "videoUrl": "https://www.youtube.com/watch?v=Ko_WlL1oF1o",
+            "content": "The paired sample t-test, sometimes called the dependent sample t-test, is a statistical procedure used to determine whether the mean difference between two sets of observations is zero. "
         }
     ],
     "lvl1Quiz": [
@@ -675,7 +664,7 @@
                 "No"
             ],
             "npcResponse": [
-                "Well then let me explain, the standard deviation is the rhe measure of the spread of the values in a dataset and is found by finding the mean, then for each data point we find the square of the distance between the mean and the data point and add these values, we then divide by the total number of data points and take the square root as the answer"
+                "Well then let me explain, the standard deviation is the the measure of the spread of the values in a dataset and is found by finding the mean, then for each data point we find the square of the distance between the mean and the data point and add these values, we then divide by the total number of data points and take the square root as the answer"
             ],
             "npcPose": 2
         },
