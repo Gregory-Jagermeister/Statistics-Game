@@ -335,7 +335,9 @@
                 "Joe who- wait... why are you laughing?",
                 "Just Ben? ...Well, my actual name is Hugh Jass. You can see why I use my title instead..."
             ],
-            "npcPose": 0
+            "npcPose": 0,
+            "imgLink": "none",
+            "isLocalImg": false
         },
         {
             "statement": "Are you sure that is your name?",
@@ -347,7 +349,9 @@
                 "My apologies, Always good to double check.",
                 "Hey Joe M. Ama! Wait..."
             ],
-            "npcPose": 1
+            "npcPose": 1,
+            "imgLink": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
+            "isLocalImg": false
         },
         {
             "statement": "Moving on then. Are you aware that you will be undergoing a statistics quiz and that you must get all the answers right to proceed to the next level? ",
@@ -359,7 +363,9 @@
                 "Very good!",
                 "Pigs certanly can not fly, however you will need to pass the quiz to progress to the next floor. You see we here at Lig Museum modeled our stairway doors after sphinxes in mythology"
             ],
-            "npcPose": 2
+            "npcPose": 2,
+            "imgLink": "",
+            "isLocalImg": false
         },
         {
             "statement": "Regardless, Do you know what the mean of a dataset is?",
@@ -371,7 +377,9 @@
                 "Well then let me explain, the mean is the numerical result of the sum of all the numbers in a given set divided by the total amount of terms",
                 "why yes, the mean is the numerical result of the sum of all the numbers in a given set divided by the total amount of terms"
             ],
-            "npcPose": 2
+            "npcPose": 2,
+            "imgLink": "",
+            "isLocalImg": false
         },
         {
             "statement": "Now, Do you know what the mode of a dataset is?",
@@ -383,7 +391,9 @@
                 "The mode is the most common number within the range provided in the dataset",
                 "I suppose not, the mode is the most common number within the range provided in the dataset"
             ],
-            "npcPose": 2
+            "npcPose": 2,
+            "imgLink": "",
+            "isLocalImg": false
         },
         {
             "statement": "ok perhaps you know what the median of a dataset is?",
@@ -395,7 +405,9 @@
                 "Ok then, well the median is the data value separating the upper half of a data set from the lower half.",
                 "oh I enjoy a good joke, please tell me one later on. But on to more pressing matters, the median is the data value separating the upper half of a data set from the lower half."
             ],
-            "npcPose": 2
+            "npcPose": 2,
+            "imgLink": "",
+            "isLocalImg": false
         },
         {
             "statement": "finally are you aware of how to obtain the standard deviation of a dataset?",
@@ -405,7 +417,9 @@
             "npcResponse": [
                 "Well then let me explain, the standard deviation is the rhe measure of the spread of the values in a dataset and is found by finding the mean, then for each data point we find the square of the distance between the mean and the data point and add these values, we then divide by the total number of data points and take the square root as the answer"
             ],
-            "npcPose": 2
+            "npcPose": 2,
+            "imgLink": "",
+            "isLocalImg": false
         },
         {
             "statement": "did you understand all that?",
@@ -417,13 +431,17 @@
                 "Well don't worry, you can always talk to me again, before or after the quiz",
                 "Ah I have been told by my wife that I am a master at understanding and picking up sarcasm so you should do well. If not don't be afraid to come talk to me again"
             ],
-            "npcPose": 2
+            "npcPose": 2,
+            "imgLink": "",
+            "isLocalImg": false
         },
         {
             "statement": "Good Luck!",
             "pcResponse": [],
             "npcResponse": [],
-            "npcPose": 3
+            "npcPose": 3,
+            "imgLink": "",
+            "isLocalImg": false
         }
     ],
     "lvl2Dialogue": [

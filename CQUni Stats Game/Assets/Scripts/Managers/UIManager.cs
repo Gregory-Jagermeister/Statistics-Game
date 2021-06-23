@@ -40,6 +40,8 @@ public class UIManager : MonoBehaviour
     public GameObject launchScreen;
 
     public GameObject pauseMenu;
+    public GameObject exhibitPanel;
+
 
     public TextMeshProUGUI resourcesText;
 
@@ -246,7 +248,7 @@ public class UIManager : MonoBehaviour
             resourcesText.text = "this artifact has no sources that require attributions";
 
         }
-
+        exhibitPanel.SetActive(true);
         CanvasExtentions.RectTransformPosition(contentBackgrond, 0, 0, 0, 0);
         Time.timeScale = 0;
     }
@@ -255,7 +257,7 @@ public class UIManager : MonoBehaviour
     {
         CanvasExtentions.RectTransformPosition(contentBackgrond, 2000, -2000, 2000, -2000);
         player.ClearMedia();
-
+        exhibitPanel.SetActive(false);
         pauseMenu.SetActive(false);
         ClosedDoorPanel.SetActive(false);
         EndGamePanel.SetActive(false);
@@ -344,6 +346,11 @@ public class UIManager : MonoBehaviour
             ResizeImage(image);
 
         }
+    }
+
+    public void OpenDialogueFilePopUp(string imagePath, RawImage imgTexture, bool isLocal)
+    {
+
     }
 
     /// <summary>

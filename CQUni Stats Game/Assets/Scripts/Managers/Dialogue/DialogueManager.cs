@@ -95,18 +95,18 @@ public class DialogueManager : MonoBehaviour
     public void ChooseOption1Dialogue()
     {
 
-       ChooseOptionDialogue(0);
+        ChooseOptionDialogue(0);
     }
 
     public void ChooseOption2Dialogue()
     {
-       ChooseOptionDialogue(1);
+        ChooseOptionDialogue(1);
 
     }
 
     public void ChooseOption3Dialogue()
     {
-       ChooseOptionDialogue(2);
+        ChooseOptionDialogue(2);
 
     }
 
@@ -124,7 +124,7 @@ public class DialogueManager : MonoBehaviour
         // update text to show the normal dialogue
         //update the next statement
 
-        if (aSegment.npcResponse != null && aSegment.npcResponse.Length >= (choiceIndex+1))
+        if (aSegment.npcResponse != null && aSegment.npcResponse.Length >= (choiceIndex + 1))
         {
             npcResponseFound = true;
             nextStatement = aSegment.npcResponse[choiceIndex];
@@ -218,6 +218,20 @@ public class DialogueManager : MonoBehaviour
             npcResponseFound = false;
 
         }
+        Debug.Log(aSegment.imgLink);
+        Debug.Log(aSegment.imgLink.ToLower());
+        if (aSegment.imgLink == null || aSegment.imgLink.ToLower() == "none" || aSegment.imgLink.ToLower() == "")
+        {
+
+            openFileButton.SetActive(false);
+        }
+        else
+        {
+            openFileButton.SetActive(true);
+        }
+
+
+
 
 
     }
@@ -245,6 +259,65 @@ public class DialogueManager : MonoBehaviour
         }
 
     }
+
+
+    public GameObject openFileButton;
+
+    public GameObject dialogueFilePopUp;
+    public RawImage rawImage;
+
+    public void OpenDialogueFilePopUp()
+    {
+        Dialogue aSegment = dialogue[dialogueIndex];
+
+        //if there is an image link provided and function called
+        //open the panel and load the image there
+
+        if (!(aSegment.imgLink == null || aSegment.imgLink.ToLower() == "none" || aSegment.imgLink.ToLower() == ""))
+        {
+
+            if (rawImage != null)
+            {
+                dialogueFilePopUp.SetActive(true);
+
+                dialogueChoicesPanel.SetActive(false);
+                dialogueChoices[0].SetActive(false);
+                dialogueChoices[1].SetActive(false);
+                dialogueChoices[2].SetActive(false);
+                nextButton.SetActive(false);
+
+                GameManager.Instance.DownloadImage(aSegment.imgLink, rawImage, aSegment.isLocalImg);
+
+            }
+            else
+            {
+                Next();
+                openFileButton.SetActive(false);
+                dialogueFilePopUp.SetActive(false);
+                Debug.Log("could not find image component");
+            }
+
+        }
+        else
+        {
+            Next();
+            dialogueChoicesPanel.SetActive(true);
+            openFileButton.SetActive(false);
+            dialogueFilePopUp.SetActive(false);
+
+        }
+        Time.timeScale = 0;
+    }
+
+    public void closeDialogueFilePopUp()
+    {
+        dialogueFilePopUp.SetActive(false);
+        Next();
+        Time.timeScale = 1;
+
+    }
+
+
     public void Next()
     {
         if (dialogueIndex < dialogue.Count)
@@ -266,12 +339,12 @@ public class DialogueManager : MonoBehaviour
 
     public void NextSegment()
     {
-        
+
         dialogueIndex++;
         Next();
     }
 
-     
+
 
 
 
