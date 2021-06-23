@@ -12,4 +12,5 @@ public class JsonData
     public string heading;
     public string content;
     public bool isLocalImg;
+    public string[] sources;
 }
