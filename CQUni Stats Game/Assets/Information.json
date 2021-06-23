@@ -414,7 +414,7 @@
                 "There is no mode"
             ],
             "correctAnswer": 4,
-            "isMultiChoice": false,
+            "isMultiChoice": true,
             "questionIndex": 8
         }
     ],
@@ -592,9 +592,7 @@
                 "Joe who- wait... why are you laughing?",
                 "Just Ben? ...Well, my actual name is Hugh Jass. You can see why I use my title instead..."
             ],
-            "npcPose": 0,
-            "imgLink": "",
-            "isLocalImg": false
+            "npcPose": 0
         },
         {
             "statement": "Are you sure that is your name?",
@@ -606,9 +604,7 @@
                 "My apologies, Always good to double check.",
                 "Hey Joe M. Ama! Wait..."
             ],
-            "npcPose": 1,
-            "imgLink": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
-            "isLocalImg": false
+            "npcPose": 1
         },
         {
             "statement": "Moving on then. Are you aware that you will be undergoing a statistics quiz and that you must get all the answers right to proceed to the next level? ",
@@ -689,32 +685,68 @@
     ],
     "lvl2Dialogue": [
         {
-            "statement": "Hello! I am 'The Handsome Professor'! What is your name?",
+            "statement": "Hello again, I see you made it past the first floor",
             "pcResponse": [
-                "My name is Ben.",
-                "It's Joe.",
-                "It's Ben. Is 'The Professor' your actual name, or just a title?"
+                "Yes, I did. I had to pass a quiz to open the door to this level.",
+                "No really, I can see why they call you a professor."
             ],
             "npcResponse": [
-                "Hello Ben! Welcome to the Museum!",
-                "Joe who- wait... why are you laughing?",
-                "Just Ben? ...Well, my actual name is Hugh Jass. You can see why I use my title instead..."
+                "Ah, thats the sphinx system put in place by the creator of the museum. They wanted to ensure that vistors would be able to learn key concepts before leaving this place.",
+                "Thank you. Yes the creator of this museum was very fond of the idea of using a sphinx like model to really get the brain pumping and have the vistors truly embrace all this place has to offer. "
+            ],
+            "npcPose": 0
+        },
+        {
+            "statement": "I am sure you noticed the goblets that looked like wine and the books on pedestals on the first floor.",
+            "pcResponse": [
+                "Yes",
+                "Nope I must have missed them, you guys were very subtle about it"
+            ],
+            "npcResponse": [
+                "Good, you will have noticed that if you interacted with the wine goblets you will be given a vision of a region in a country where you can learn about their population and how poverty impacts the population in that region. In the book pedestals the information you need to pass the levels are freely provided.",
+                "The creator did their best to make it so. unfortunately that must mean you missed out on some things. You see if you interact with the wine goblets you will be given a vision of a region in a country where you can learn about their population and how poverty impacts the population in that region. In the book pedestals the information you need to pass the levels are freely provided. "
+            ],
+            "npcPose": 0
+        },
+        {
+            "statement": "I was instructed to not provide any assistance for this level and the one after, any questions not related to the quiz?",
+            "pcResponse": [
+                "Yes, how did you beat me here. I didn't see you walk over and I entered the room before you did"
+            ],
+            "npcResponse": [
+                "I will explain if you pass this quiz and find me on the next floor"
             ],
             "npcPose": 0
         }
     ],
     "lvl3Dialogue": [
         {
-            "statement": "Hello! I am 'The Even More Handsome Professor'! What is your name?",
+            "statement": "Welcome! Ben",
             "pcResponse": [
-                "My name is Ben.",
-                "It's Joe.",
-                "It's Ben. Is 'The Professor' your actual name, or just a title?"
+                "I think i deserve some answers now."
             ],
             "npcResponse": [
-                "Hello Ben! Welcome to the Museum!",
-                "Joe who- wait... why are you laughing?",
-                "Just Ben? ...Well, my actual name is Hugh Jass. You can see why I use my title instead..."
+                "Indeed, I am an artificial intelligent assistant, one that has existed for many centuries."
+            ],
+            "npcPose": 0
+        },
+        {
+            "statement": "I function as a way to provide conversation and companionship to all vistors",
+            "pcResponse": [
+                "How many vistors do you get, you talk like there is so many, But I am the only person here"
+            ],
+            "npcResponse": [
+                "Well for the past couple of years we have only had one vistor in this establishment. Curiously they keep forgetting that they have ever stepped foot in the place"
+            ],
+            "npcPose": 0
+        },
+        {
+            "statement": "I am of course talking about you Ben",
+            "pcResponse": [
+                "No, NO, NOO, your lying"
+            ],
+            "npcResponse": [
+                "Lets test that theory, pass the quiz and walk through the final door. I'll see you again, after all you have kept returning every day for the past 10 years"
             ],
             "npcPose": 0
         }
