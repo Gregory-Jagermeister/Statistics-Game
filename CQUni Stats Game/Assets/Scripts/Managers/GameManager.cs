@@ -584,6 +584,18 @@ public class GameManager : Singleton<GameManager>
 
     }
 
+    public void SetupDialogueChoices(Dialogue aSegment)
+    {
+
+        _uIManager.SetupChoices(aSegment);
+
+    }
+
+
+    public bool GetnpcResponseFound()
+    {
+        return _uIManager.GetnpcResponseFound();
+    }
     // Update is called once per frame
     void Update()
     {

@@ -55,7 +55,8 @@ public class DialogueManager : MonoBehaviour
         quizLevel = level;
         dialogueIndex = 0;
         Dialogue aSegment = dialogue[dialogueIndex];
-        SetupChoices(aSegment);
+        GameManager.Instance.SetupDialogueChoices(aSegment);
+        npcResponseFound = GameManager.Instance.GetnpcResponseFound();
         SetupPose(aSegment.npcPose);
         dialogueText.SetText(aSegment.statement);
         dialogueOpen = true;
@@ -158,84 +159,6 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-    public Vector3 offsetDialogue1Pos = new Vector3(300, 0, 0);
-    public Vector3 normalDialogue1Pos = new Vector3(100, 0, 0);
-
-    public void SetupChoices(Dialogue aSegment)
-    {
-
-        if (aSegment.pcResponse != null && aSegment.pcResponse.Length == 0)
-        {
-            dialogueChoicesPanel.SetActive(false);
-            dialogueChoices[0].SetActive(false);
-            dialogueChoices[1].SetActive(false);
-            dialogueChoices[2].SetActive(false);
-            nextButton.SetActive(true);
-
-            npcResponseFound = false;
-
-        }
-        else if (aSegment.pcResponse != null && aSegment.pcResponse.Length == 1)
-        {
-            dialogueChoicesPanel.SetActive(true);
-            dialogueChoices[0].SetActive(true);
-            //dialogueChoices[0].transform.position = offsetDialogue1Pos;
-            dialogueChoices[1].SetActive(false);
-            dialogueChoices[2].SetActive(false);
-            nextButton.SetActive(false);
-
-        }
-        else if (aSegment.pcResponse != null && aSegment.pcResponse.Length == 2)
-        {
-            dialogueChoicesPanel.SetActive(true);
-            dialogueChoices[0].SetActive(true);
-            // dialogueChoices[0].transform.position = normalDialogue1Pos;
-            dialogueChoices[1].SetActive(true);
-            dialogueChoices[2].SetActive(false);
-            nextButton.SetActive(false);
-
-        }
-        else if (aSegment.pcResponse != null && aSegment.pcResponse.Length >= 3)
-        {
-            dialogueChoicesPanel.SetActive(true);
-            dialogueChoices[0].SetActive(true);
-            //dialogueChoices[0].transform.position = normalDialogue1Pos;
-            dialogueChoices[1].SetActive(true);
-            dialogueChoices[2].SetActive(true);
-
-
-            nextButton.SetActive(false);
-
-        }
-        else
-        {
-            dialogueChoicesPanel.SetActive(false);
-            dialogueChoices[0].SetActive(false);
-            dialogueChoices[1].SetActive(false);
-            dialogueChoices[2].SetActive(false);
-            nextButton.SetActive(true);
-
-            npcResponseFound = false;
-
-        }
-        Debug.Log(aSegment.imgLink);
-        Debug.Log(aSegment.imgLink.ToLower());
-        if (aSegment.imgLink == null || aSegment.imgLink.ToLower() == "none" || aSegment.imgLink.ToLower() == "")
-        {
-
-            openFileButton.SetActive(false);
-        }
-        else
-        {
-            openFileButton.SetActive(true);
-        }
-
-
-
-
-
-    }
-
     public void SetupPose(int poseIndex)
     {
 
@@ -264,58 +187,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject openFileButton;
 
     public GameObject dialogueFilePopUp;
-    public RawImage rawImage;
-
-    public void OpenDialogueFilePopUp()
-    {
-        Dialogue aSegment = dialogue[dialogueIndex];
-
-        //if there is an image link provided and function called
-        //open the panel and load the image there
-
-        if (!(aSegment.imgLink == null || aSegment.imgLink.ToLower() == "none" || aSegment.imgLink.ToLower() == ""))
-        {
-
-            if (rawImage != null)
-            {
-                dialogueFilePopUp.SetActive(true);
-
-                dialogueChoicesPanel.SetActive(false);
-                dialogueChoices[0].SetActive(false);
-                dialogueChoices[1].SetActive(false);
-                dialogueChoices[2].SetActive(false);
-                nextButton.SetActive(false);
-
-                GameManager.Instance.DownloadImage(aSegment.imgLink, rawImage, aSegment.isLocalImg);
-
-            }
-            else
-            {
-                Next();
-                openFileButton.SetActive(false);
-                dialogueFilePopUp.SetActive(false);
-                Debug.Log("could not find image component");
-            }
-
-        }
-        else
-        {
-            Next();
-            dialogueChoicesPanel.SetActive(true);
-            openFileButton.SetActive(false);
-            dialogueFilePopUp.SetActive(false);
-
-        }
-        Time.timeScale = 0;
-    }
-
-    public void closeDialogueFilePopUp()
-    {
-        dialogueFilePopUp.SetActive(false);
-        Next();
-        Time.timeScale = 1;
-
-    }
+    public RawImage rawDialogueFileImage;
 
 
     public void Next()
@@ -324,9 +196,11 @@ public class DialogueManager : MonoBehaviour
         {
 
             aNPCName.SetText(npcName);
+
             Dialogue aSegment;
             aSegment = dialogue[dialogueIndex];
-            SetupChoices(aSegment);
+            GameManager.Instance.SetupDialogueChoices(aSegment);
+            npcResponseFound = GameManager.Instance.GetnpcResponseFound();
             SetupPose(aSegment.npcPose);
             dialogueText.SetText(aSegment.statement);
         }

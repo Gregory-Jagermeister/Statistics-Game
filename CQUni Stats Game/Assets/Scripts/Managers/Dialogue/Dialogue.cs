@@ -10,8 +10,7 @@ public class Dialogue
     public string[] pcResponse;
     public string[] npcResponse;
     public int npcPose;
-    public string imgLink;
-    public bool isLocalImg;
+
 
 
 

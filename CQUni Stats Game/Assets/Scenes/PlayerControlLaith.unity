@@ -1116,6 +1116,15 @@ MonoBehaviour:
   resourcesText: {fileID: 1222648155}
   imageMaxWidth: 375
   imageMaxHeight: 375
+  dialogueChoicesPanel: {fileID: 957544028}
+  dialogueChoices:
+  - {fileID: 81214447}
+  - {fileID: 353227818}
+  - {fileID: 859708569}
+  nextButton: {fileID: 1584876893}
+  openFileButton: {fileID: 1439270179}
+  dialogueFilePopUp: {fileID: 523776790}
+  rawDialogueFileImage: {fileID: 2040239444}
 --- !u!114 &46209177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1146,11 +1155,9 @@ MonoBehaviour:
   npcName: 
   pcName: Ben
   dialogueOpen: 0
-  offsetDialogue1Pos: {x: 300, y: 0, z: 0}
-  normalDialogue1Pos: {x: 100, y: 0, z: 0}
   openFileButton: {fileID: 1439270179}
   dialogueFilePopUp: {fileID: 523776790}
-  rawImage: {fileID: 2040239444}
+  rawDialogueFileImage: {fileID: 0}
 --- !u!114 &46209178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2251,7 +2258,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -208.95, y: -29.099976}
+  m_AnchoredPosition: {x: -208.94995, y: -29.100098}
   m_SizeDelta: {x: -1512.0981, y: -704.77026}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &148954973
@@ -4075,6 +4082,7 @@ RectTransform:
   - {fileID: 694596876}
   - {fileID: 489205931}
   - {fileID: 1976650240}
+  - {fileID: 523776791}
   - {fileID: 957544031}
   m_Father: {fileID: 44747837}
   m_RootOrder: 1
@@ -4362,7 +4370,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 503391180}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 46209177}
+        m_MethodName: closeDialogueFilePopUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &503391180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4509,13 +4528,13 @@ RectTransform:
   m_Children:
   - {fileID: 2040239443}
   - {fileID: 503391178}
-  m_Father: {fileID: 1976650240}
-  m_RootOrder: 8
+  m_Father: {fileID: 477048568}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 9.639984, y: 9.900009}
-  m_SizeDelta: {x: 798.40314, y: 438.8876}
+  m_AnchoredPosition: {x: 1.7192, y: -232.44}
+  m_SizeDelta: {x: 796.5616, y: 464.88113}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &523776792
 MonoBehaviour:
@@ -5166,8 +5185,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 628577321}
   m_HandleRect: {fileID: 628577320}
   m_Direction: 2
-  m_Value: 0.9997925
-  m_Size: 0.1790501
+  m_Value: 0.9997933
+  m_Size: 0.17905013
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6539,7 +6558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &957544029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6592,7 +6611,7 @@ RectTransform:
   - {fileID: 353227819}
   - {fileID: 81214448}
   m_Father: {fileID: 477048568}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8299,8 +8318,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 197.08, y: -457.3}
-  m_SizeDelta: {x: 394.20392, y: 914.6321}
+  m_AnchoredPosition: {x: 197.08, y: -795.28735}
+  m_SizeDelta: {x: 394.20087, y: 1590.575}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1254511513
 CanvasRenderer:
@@ -22863,7 +22882,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -18.703613, y: 0}
+  m_AnchoredPosition: {x: -18.703735, y: 0}
   m_SizeDelta: {x: -962.5928, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1578968244
@@ -25041,7 +25060,6 @@ RectTransform:
   - {fileID: 632294445}
   - {fileID: 806092000}
   - {fileID: 1439270180}
-  - {fileID: 523776791}
   m_Father: {fileID: 477048568}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -25326,7 +25344,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 9ae2efd7968a90845821600a102f164b, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -25428,8 +25446,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 365672673}
   m_HandleRect: {fileID: 365672672}
   m_Direction: 2
-  m_Value: 0.99997
-  m_Size: 0.41075063
+  m_Value: 0.99999976
+  m_Size: 0.23619491
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
