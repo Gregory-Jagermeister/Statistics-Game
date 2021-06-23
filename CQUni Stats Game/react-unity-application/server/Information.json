@@ -224,18 +224,13 @@
             "questionIndex": 5
         },
         {
-            "question": "Describe the type of association shown in the following scatterplot:",
+            "question": " In a study done by the Oxford Poverty and Human development Initiative as of 2018 it was discovered that Intensity of deprivation on a subnational scale for Mali included the following data points for each of its regions. {58.6, 58.2, 57.8, 59.8, 65.6, 44.9}. What is the standard deviation of the Intensity of deprivation for Mali based on this information to 2 decimal places.",
             "answers": [
-                "Positive linear association",
-                "Negative linear association",
-                "Positive curvilinear association",
-                "Negative curvilinear association"
+                "6.80"
             ],
-            "correctAnswer": 3,
-            "isMultiChoice": true,
-            "questionIndex": 6,
-            "imgLink": "Images/Scatter.png",
-            "isLocalImg": true
+            "correctAnswer": 1,
+            "isMultiChoice": false,
+            "questionIndex": 6
         }
     ],
     "lvl2Quiz": [

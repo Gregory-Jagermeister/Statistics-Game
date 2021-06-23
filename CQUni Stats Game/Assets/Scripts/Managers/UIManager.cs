@@ -378,7 +378,6 @@ public class UIManager : MonoBehaviour
     public void ResizeImage(RawImage i)
     {
 
-        Debug.Log(i.rectTransform.rect.height);
         if (i.rectTransform.rect.width > imageMaxWidth && i.rectTransform.rect.height > imageMaxHeight)
         {
             i.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, i.rectTransform.rect.width / 2);
@@ -403,10 +402,6 @@ public class UIManager : MonoBehaviour
     public GameObject[] dialogueChoices;
     public GameObject nextButton;
 
-    public GameObject openFileButton;
-
-    public GameObject dialogueFilePopUp;
-    public RawImage rawDialogueFileImage;
 
 
     //setup dialogue chocies
