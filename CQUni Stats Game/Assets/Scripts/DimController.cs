@@ -56,7 +56,7 @@ public class DimController : MonoBehaviour
         if (txt.GetParsedText() == GameManager.Instance.GetDialogueManager().pcName)
         {
             imgBob.sprite = open;
-            diaBox.sprite = bobTalk;
+           //diaBox.sprite = bobTalk;
             imgBob.color = full;
             imgProf.color = c;
             // Bob Size Control (Make Big)
@@ -77,7 +77,7 @@ public class DimController : MonoBehaviour
         if (txt.GetParsedText() == GameManager.Instance.GetDialogueManager().npcName)
         {
             imgBob.sprite = closed;
-            diaBox.sprite = profTalk;
+            //diaBox.sprite = profTalk;
             imgBob.color = c;
             imgProf.color = full;
             // Bob Size Control (Make Small)

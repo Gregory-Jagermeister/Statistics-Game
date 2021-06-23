@@ -55,7 +55,8 @@ public class DialogueManager : MonoBehaviour
         quizLevel = level;
         dialogueIndex = 0;
         Dialogue aSegment = dialogue[dialogueIndex];
-        SetupChoices(aSegment);
+        GameManager.Instance.SetupDialogueChoices(aSegment);
+        npcResponseFound = GameManager.Instance.GetnpcResponseFound();
         SetupPose(aSegment.npcPose);
         dialogueText.SetText(aSegment.statement);
         dialogueOpen = true;
@@ -95,18 +96,18 @@ public class DialogueManager : MonoBehaviour
     public void ChooseOption1Dialogue()
     {
 
-       ChooseOptionDialogue(0);
+        ChooseOptionDialogue(0);
     }
 
     public void ChooseOption2Dialogue()
     {
-       ChooseOptionDialogue(1);
+        ChooseOptionDialogue(1);
 
     }
 
     public void ChooseOption3Dialogue()
     {
-       ChooseOptionDialogue(2);
+        ChooseOptionDialogue(2);
 
     }
 
@@ -124,7 +125,7 @@ public class DialogueManager : MonoBehaviour
         // update text to show the normal dialogue
         //update the next statement
 
-        if (aSegment.npcResponse != null && aSegment.npcResponse.Length >= (choiceIndex+1))
+        if (aSegment.npcResponse != null && aSegment.npcResponse.Length >= (choiceIndex + 1))
         {
             npcResponseFound = true;
             nextStatement = aSegment.npcResponse[choiceIndex];
@@ -158,70 +159,6 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-    public Vector3 offsetDialogue1Pos = new Vector3(300, 0, 0);
-    public Vector3 normalDialogue1Pos = new Vector3(100, 0, 0);
-
-    public void SetupChoices(Dialogue aSegment)
-    {
-
-        if (aSegment.pcResponse != null && aSegment.pcResponse.Length == 0)
-        {
-            dialogueChoicesPanel.SetActive(false);
-            dialogueChoices[0].SetActive(false);
-            dialogueChoices[1].SetActive(false);
-            dialogueChoices[2].SetActive(false);
-            nextButton.SetActive(true);
-
-            npcResponseFound = false;
-
-        }
-        else if (aSegment.pcResponse != null && aSegment.pcResponse.Length == 1)
-        {
-            dialogueChoicesPanel.SetActive(true);
-            dialogueChoices[0].SetActive(true);
-            //dialogueChoices[0].transform.position = offsetDialogue1Pos;
-            dialogueChoices[1].SetActive(false);
-            dialogueChoices[2].SetActive(false);
-            nextButton.SetActive(false);
-
-        }
-        else if (aSegment.pcResponse != null && aSegment.pcResponse.Length == 2)
-        {
-            dialogueChoicesPanel.SetActive(true);
-            dialogueChoices[0].SetActive(true);
-            // dialogueChoices[0].transform.position = normalDialogue1Pos;
-            dialogueChoices[1].SetActive(true);
-            dialogueChoices[2].SetActive(false);
-            nextButton.SetActive(false);
-
-        }
-        else if (aSegment.pcResponse != null && aSegment.pcResponse.Length >= 3)
-        {
-            dialogueChoicesPanel.SetActive(true);
-            dialogueChoices[0].SetActive(true);
-            //dialogueChoices[0].transform.position = normalDialogue1Pos;
-            dialogueChoices[1].SetActive(true);
-            dialogueChoices[2].SetActive(true);
-
-
-            nextButton.SetActive(false);
-
-        }
-        else
-        {
-            dialogueChoicesPanel.SetActive(false);
-            dialogueChoices[0].SetActive(false);
-            dialogueChoices[1].SetActive(false);
-            dialogueChoices[2].SetActive(false);
-            nextButton.SetActive(true);
-
-            npcResponseFound = false;
-
-        }
-
-
-    }
-
     public void SetupPose(int poseIndex)
     {
 
@@ -245,15 +182,18 @@ public class DialogueManager : MonoBehaviour
         }
 
     }
+
     public void Next()
     {
         if (dialogueIndex < dialogue.Count)
         {
 
             aNPCName.SetText(npcName);
+
             Dialogue aSegment;
             aSegment = dialogue[dialogueIndex];
-            SetupChoices(aSegment);
+            GameManager.Instance.SetupDialogueChoices(aSegment);
+            npcResponseFound = GameManager.Instance.GetnpcResponseFound();
             SetupPose(aSegment.npcPose);
             dialogueText.SetText(aSegment.statement);
         }
@@ -266,12 +206,12 @@ public class DialogueManager : MonoBehaviour
 
     public void NextSegment()
     {
-        
+
         dialogueIndex++;
         Next();
     }
 
-     
+
 
 
 

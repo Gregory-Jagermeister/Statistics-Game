@@ -40,6 +40,8 @@ public class UIManager : MonoBehaviour
     public GameObject launchScreen;
 
     public GameObject pauseMenu;
+    public GameObject exhibitPanel;
+
 
     public TextMeshProUGUI resourcesText;
 
@@ -196,6 +198,7 @@ public class UIManager : MonoBehaviour
     public void CloseEndGamePanel()
     {
         isAMenuOpen = false;
+        GameManager.Instance.isInteracting = false;
         ClosedDoorPanel.SetActive(false);
         EndGamePanel.SetActive(false);
         Time.timeScale = 1;
@@ -213,7 +216,7 @@ public class UIManager : MonoBehaviour
         //Set the JSON information to the correct elements.
         heading.text = exhibit.heading;
         content.text = exhibit.content;
-        
+
         if (!(exhibit.videoUrl == null || exhibit.videoUrl.ToLower() == "none" || exhibit.videoUrl.ToLower() == ""))
         {
             player.VIDEO_LINK = exhibit.videoUrl;
@@ -231,12 +234,12 @@ public class UIManager : MonoBehaviour
             }
 
         }
-        if(exhibit.sources != null)
+        if (exhibit.sources != null)
         {
             string resources = "this artifact used the following resources: \n ";
             foreach (string item in exhibit.sources)
             {
-                
+
                 resources = resources + item + "\n\n";
             }
             resourcesText.text = resources;
@@ -246,7 +249,7 @@ public class UIManager : MonoBehaviour
             resourcesText.text = "this artifact has no sources that require attributions";
 
         }
-
+        exhibitPanel.SetActive(true);
         CanvasExtentions.RectTransformPosition(contentBackgrond, 0, 0, 0, 0);
         Time.timeScale = 0;
     }
@@ -255,7 +258,7 @@ public class UIManager : MonoBehaviour
     {
         CanvasExtentions.RectTransformPosition(contentBackgrond, 2000, -2000, 2000, -2000);
         player.ClearMedia();
-
+        exhibitPanel.SetActive(false);
         pauseMenu.SetActive(false);
         ClosedDoorPanel.SetActive(false);
         EndGamePanel.SetActive(false);
@@ -284,6 +287,7 @@ public class UIManager : MonoBehaviour
     public void CloseLaunchScreen()
     {
         isAMenuOpen = false;
+        GameManager.Instance.isInteracting = false;
         launchScreen.SetActive(false);
         Time.timeScale = 1;
 
@@ -346,6 +350,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void OpenDialogueFilePopUp(string imagePath, RawImage imgTexture, bool isLocal)
+    {
+
+    }
+
     /// <summary>
     /// Downloads the image by using the "DownloadImage" Coroutine and sets the size of image to fit the parent
     /// </summary>
@@ -369,7 +378,6 @@ public class UIManager : MonoBehaviour
     public void ResizeImage(RawImage i)
     {
 
-        Debug.Log(i.rectTransform.rect.height);
         if (i.rectTransform.rect.width > imageMaxWidth && i.rectTransform.rect.height > imageMaxHeight)
         {
             i.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, i.rectTransform.rect.width / 2);
@@ -386,6 +394,80 @@ public class UIManager : MonoBehaviour
         else
         {
             return;
+        }
+
+    }
+
+    public GameObject dialogueChoicesPanel;
+    public GameObject[] dialogueChoices;
+    public GameObject nextButton;
+
+
+
+    //setup dialogue chocies
+    private bool npcResponseFound = true;
+
+    public bool GetnpcResponseFound()
+    {
+        return npcResponseFound;
+    }
+
+    public void SetupChoices(Dialogue aSegment)
+    {
+
+        if (aSegment.pcResponse != null && aSegment.pcResponse.Length == 0)
+        {
+            dialogueChoicesPanel.SetActive(false);
+            dialogueChoices[0].SetActive(false);
+            dialogueChoices[1].SetActive(false);
+            dialogueChoices[2].SetActive(false);
+            nextButton.SetActive(true);
+
+            npcResponseFound = false;
+
+        }
+        else if (aSegment.pcResponse != null && aSegment.pcResponse.Length == 1)
+        {
+            dialogueChoicesPanel.SetActive(true);
+            dialogueChoices[0].SetActive(true);
+            //dialogueChoices[0].transform.position = offsetDialogue1Pos;
+            dialogueChoices[1].SetActive(false);
+            dialogueChoices[2].SetActive(false);
+            nextButton.SetActive(false);
+
+        }
+        else if (aSegment.pcResponse != null && aSegment.pcResponse.Length == 2)
+        {
+            dialogueChoicesPanel.SetActive(true);
+            dialogueChoices[0].SetActive(true);
+            // dialogueChoices[0].transform.position = normalDialogue1Pos;
+            dialogueChoices[1].SetActive(true);
+            dialogueChoices[2].SetActive(false);
+            nextButton.SetActive(false);
+
+        }
+        else if (aSegment.pcResponse != null && aSegment.pcResponse.Length >= 3)
+        {
+            dialogueChoicesPanel.SetActive(true);
+            dialogueChoices[0].SetActive(true);
+            //dialogueChoices[0].transform.position = normalDialogue1Pos;
+            dialogueChoices[1].SetActive(true);
+            dialogueChoices[2].SetActive(true);
+
+
+            nextButton.SetActive(false);
+
+        }
+        else
+        {
+            dialogueChoicesPanel.SetActive(false);
+            dialogueChoices[0].SetActive(false);
+            dialogueChoices[1].SetActive(false);
+            dialogueChoices[2].SetActive(false);
+            nextButton.SetActive(true);
+
+            npcResponseFound = false;
+
         }
 
     }
