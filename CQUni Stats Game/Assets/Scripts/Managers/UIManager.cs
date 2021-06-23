@@ -41,6 +41,8 @@ public class UIManager : MonoBehaviour
 
     public GameObject pauseMenu;
 
+    public TextMeshProUGUI resourcesText;
+
     private bool isAMenuOpen = false;
 
     void Start()
@@ -199,6 +201,8 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
+
+    // how to display the content for an exhibit
     public void OpenContentMenu(string ID)
     {
         isAMenuOpen = true;
@@ -209,12 +213,12 @@ public class UIManager : MonoBehaviour
         //Set the JSON information to the correct elements.
         heading.text = exhibit.heading;
         content.text = exhibit.content;
-
+        
         if (!(exhibit.videoUrl == null || exhibit.videoUrl.ToLower() == "none" || exhibit.videoUrl.ToLower() == ""))
         {
             player.VIDEO_LINK = exhibit.videoUrl;
         }
-
+        //if imagePath exists attempt to download the image
         if (!(exhibit.imagePath == null || exhibit.imagePath.ToLower() == "none" || exhibit.imagePath.ToLower() == ""))
         {
             if (exhibit.isLocalImg == true)
@@ -225,6 +229,21 @@ public class UIManager : MonoBehaviour
             {
                 DLImage(exhibit.imagePath, image, false);
             }
+
+        }
+        if(exhibit.sources != null)
+        {
+            string resources = "this artifact used the following resources: \n ";
+            foreach (string item in exhibit.sources)
+            {
+                
+                resources = resources + item + "\n\n";
+            }
+            resourcesText.text = resources;
+        }
+        else
+        {
+            resourcesText.text = "this artifact has no sources that require attributions";
 
         }
 
