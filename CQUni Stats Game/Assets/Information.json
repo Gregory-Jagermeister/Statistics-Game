@@ -89,6 +89,12 @@
             "heading": "Mean",
             "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
             "isLocalImg": false,
+            "sources": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
+                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
+                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+            ],
             "videoUrl": "https://www.youtube.com/watch?v=ElG5-nXD0B8",
             "content": "Poverty is bad"
         },
@@ -96,6 +102,12 @@
             "artifactId": "Mode",
             "heading": "Mode",
             "isLocalImg": false,
+            "sources": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
+                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
+                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+            ],
             "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg. ",
             "videoUrl": "https://www.youtube.com/watch?v=i9aSp9bFmMg",
             "content": "Poverty is not for the faint of heart"
@@ -103,6 +115,12 @@
         {
             "artifactId": "Median",
             "heading": "Median",
+            "sources": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
+                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
+                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+            ],
             "isLocalImg": false,
             "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
             "videoUrl": "https://www.youtube.com/watch?v=aLwRZibUqL0",
@@ -111,6 +129,12 @@
         {
             "artifactId": "Standard deviation",
             "heading": "Standard deviation",
+            "sources": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
+                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
+                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+            ],
             "isLocalImg": false,
             "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
             "videoUrl": "https://www.youtube.com/watch?v=ElG5-nXD0B8",
@@ -119,6 +143,12 @@
         {
             "artifactId": "Exhibit7",
             "heading": "Poverty #2",
+            "sources": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
+                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
+                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+            ],
             "isLocalImg": false,
             "imagePath": "https://www.mapsland.com/maps/africa/rwanda/detailed-regions-map-of-rwanda.jpg",
             "videoUrl": "https://www.youtube.com/watch?v=i9aSp9bFmMg",
@@ -127,6 +157,12 @@
         {
             "artifactId": "Exhibit8",
             "heading": "Poverty #1",
+            "sources": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
+                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
+                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+            ],
             "isLocalImg": false,
             "imagePath": "https://www.mapsland.com/maps/africa/rwanda/detailed-regions-map-of-rwanda.jpg",
             "videoUrl": "https://www.youtube.com/watch?v=ElG5-nXD0B8",
@@ -135,6 +171,12 @@
         {
             "artifactId": "Exhibit9",
             "heading": "Poverty #2",
+            "sources": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
+                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
+                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+            ],
             "isLocalImg": false,
             "imagePath": "https://www.mapsland.com/maps/africa/rwanda/detailed-regions-map-of-rwanda.jpg",
             "videoUrl": "https://www.youtube.com/watch?v=i9aSp9bFmMg",
@@ -143,6 +185,12 @@
         {
             "artifactId": "Exhibit10",
             "heading": "Poverty #3",
+            "sources": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
+                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
+                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+            ],
             "isLocalImg": false,
             "imagePath": "https://www.mapsland.com/maps/africa/rwanda/detailed-regions-map-of-rwanda.jpg",
             "videoUrl": "https://www.youtube.com/watch?v=aLwRZibUqL0",
@@ -151,18 +199,142 @@
         {
             "artifactId": "Exhibit11",
             "heading": "Poverty #1",
+            "sources": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
+                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
+                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+            ],
             "isLocalImg": false,
             "imagePath": "https://www.mapsland.com/maps/africa/rwanda/detailed-regions-map-of-rwanda.jpg",
             "videoUrl": "https://www.youtube.com/watch?v=ElG5-nXD0B8",
             "content": "Poverty is bad"
         },
         {
-            "artifactId": "Exhibit16",
-            "heading": "Poverty #2",
+            "artifactId": "Sampling",
+            "heading": "Sampling",
+            "sources": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
+                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
+                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+            ],
+            "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
             "isLocalImg": false,
-            "imagePath": "https://geology.com/world/eswatini-map.gif",
+            "videoUrl": "https://www.youtube.com/watch?v=ElG5-nXD0B8",
+            "content": "Poverty is bad"
+        },
+        {
+            "artifactId": "Two Sample T-Test",
+            "heading": "Two Sample T-Test",
+            "isLocalImg": false,
+            "sources": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
+                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
+                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+            ],
+            "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg. ",
             "videoUrl": "https://www.youtube.com/watch?v=i9aSp9bFmMg",
             "content": "Poverty is not for the faint of heart"
+        },
+        {
+            "artifactId": "one sided two Sample T-Test",
+            "heading": "Median",
+            "sources": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
+                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
+                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+            ],
+            "isLocalImg": false,
+            "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
+            "videoUrl": "https://www.youtube.com/watch?v=aLwRZibUqL0",
+            "content": "Poverty should be fixed give money to all"
+        },
+        {
+            "artifactId": "Paired T- Test",
+            "heading": "Standard deviation",
+            "sources": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
+                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
+                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+            ],
+            "isLocalImg": false,
+            "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
+            "videoUrl": "https://www.youtube.com/watch?v=ElG5-nXD0B8",
+            "content": "Poverty is bad"
+        },
+        {
+            "artifactId": "Exhibit12",
+            "heading": "Poverty #2",
+            "sources": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
+                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
+                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+            ],
+            "isLocalImg": false,
+            "imagePath": "https://www.mapsofworld.com/swaziland/maps/swaziland-political-map.jpg",
+            "videoUrl": "https://www.mapsofworld.com/swaziland/maps/swaziland-political-map.jpg",
+            "content": "Poverty is not for the faint of heart"
+        },
+        {
+            "artifactId": "Exhibit13",
+            "heading": "Poverty #2",
+            "sources": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
+                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
+                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+            ],
+            "isLocalImg": false,
+            "imagePath": "https://www.mapsofworld.com/swaziland/maps/swaziland-political-map.jpg",
+            "videoUrl": "https://www.mapsofworld.com/swaziland/maps/swaziland-political-map.jpg",
+            "content": "Poverty is not for the faint of heart"
+        },
+        {
+            "artifactId": "Exhibit14",
+            "heading": "Poverty #2",
+            "sources": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
+                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
+                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+            ],
+            "isLocalImg": false,
+            "imagePath": "https://www.mapsofworld.com/swaziland/maps/swaziland-political-map.jpg",
+            "videoUrl": "https://www.mapsofworld.com/swaziland/maps/swaziland-political-map.jpg",
+            "content": "Poverty is not for the faint of heart"
+        },
+        {
+            "artifactId": "Exhibit15",
+            "heading": "Poverty #2",
+            "sources": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
+                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
+                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+            ],
+            "isLocalImg": false,
+            "imagePath": "https://www.mapsofworld.com/swaziland/maps/swaziland-political-map.jpg",
+            "videoUrl": "https://www.mapsofworld.com/swaziland/maps/swaziland-political-map.jpg",
+            "content": "Poverty is not for the faint of heart"
+        },
+        {
+            "artifactId": "Linear Regression",
+            "heading": "Linear Regression",
+            "sources": [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
+                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
+                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
+                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
+            ],
+            "isLocalImg": false,
+            "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
+            "videoUrl": "https://www.youtube.com/watch?v=ElG5-nXD0B8",
+            "content": "Poverty is bad"
         }
     ],
     "lvl1Quiz": [

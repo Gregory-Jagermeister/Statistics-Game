@@ -183,13 +183,6 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-
-    public GameObject openFileButton;
-
-    public GameObject dialogueFilePopUp;
-    public RawImage rawDialogueFileImage;
-
-
     public void Next()
     {
         if (dialogueIndex < dialogue.Count)
