@@ -1892,7 +1892,7 @@ SpriteRenderer:
   m_SortingLayerID: 490665771
   m_SortingLayer: -2
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: a7d10e921a33295489ee775374596e61, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5481b3562fc26b145ab4160ee0802706, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3043,7 +3043,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &376786525
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4123,7 +4123,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 60}
+  m_AnchoredPosition: {x: 831, y: 64}
   m_SizeDelta: {x: 200, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &555074614
@@ -4199,8 +4199,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: a18419c801595e246b501ae9815433b0, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4699,8 +4699,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 628577321}
   m_HandleRect: {fileID: 628577320}
   m_Direction: 2
-  m_Value: 0.9996991
-  m_Size: 0.24653934
+  m_Value: 0.99969864
+  m_Size: 0.24653922
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5978,7 +5978,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920.0001, y: 1079.4847}
+  m_SizeDelta: {x: 1920.0001, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &895520305
 MonoBehaviour:
@@ -5999,7 +5999,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9ae2efd7968a90845821600a102f164b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 84b4202f184096e4fb5b9a130c0a1ec3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6343,7 +6343,7 @@ SpriteRenderer:
   m_SortingLayerID: 490665771
   m_SortingLayer: -2
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: a7d10e921a33295489ee775374596e61, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5481b3562fc26b145ab4160ee0802706, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7076,15 +7076,15 @@ MonoBehaviour:
     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
     mollit anim id est laborum."
 
-    
 
-    Section 1.10.32 of "de Finibus Bonorum
-    et Malorum", written by Cicero in 45 BC
 
-    "Sed ut perspiciatis unde omnis
-    iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-    aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae
-    vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur
+    Section 1.10.32 of "de Finibus Bonorum et
+    Malorum", written by Cicero in 45 BC
+
+    "Sed ut perspiciatis unde omnis iste
+    natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
+    eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+    dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur
     aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
     sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
     consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt
@@ -7094,7 +7094,7 @@ MonoBehaviour:
     velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat
     quo voluptas nulla pariatur?"
 
-    
+
 
     1914 translation by H. Rackham
 
@@ -7113,16 +7113,16 @@ MonoBehaviour:
     no annoying consequences, or one who avoids a pain that produces no resultant
     pleasure?"
 
-    
+
 
     Section 1.10.33 of "de Finibus Bonorum et Malorum", written
     by Cicero in 45 BC
 
-    "At vero eos et accusamus et iusto odio dignissimos
-    ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
-    et quas molestias excepturi sint occaecati cupiditate non provident, similique
-    sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum
-    fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore,
+    "At vero eos et accusamus et iusto odio dignissimos ducimus
+    qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et
+    quas molestias excepturi sint occaecati cupiditate non provident, similique sunt
+    in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+    Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore,
     cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime
     placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
     Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
@@ -7130,7 +7130,7 @@ MonoBehaviour:
     earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores
     alias consequatur aut perferendis doloribus asperiores repellat."
 
-    
+
 
     1914
     translation by H. Rackham
@@ -7830,7 +7830,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 191.6, y: -297.26474}
+  m_AnchoredPosition: {x: 191.6, y: -297.26364}
   m_SizeDelta: {x: 383.25006, y: 594.5271}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1254511513
@@ -8420,7 +8420,7 @@ SpriteRenderer:
   m_SortingLayerID: 490665771
   m_SortingLayer: -2
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: a7d10e921a33295489ee775374596e61, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5481b3562fc26b145ab4160ee0802706, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9333,7 +9333,7 @@ SpriteRenderer:
   m_SortingLayerID: 490665771
   m_SortingLayer: -2
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: a7d10e921a33295489ee775374596e61, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5481b3562fc26b145ab4160ee0802706, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -23341,12 +23341,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 62.65
+  m_fontSize: 35
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 35
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -24754,8 +24754,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 365672673}
   m_HandleRect: {fileID: 365672672}
   m_Direction: 2
-  m_Value: 1.000004
-  m_Size: 0.6319067
+  m_Value: 1.0000002
+  m_Size: 0.63190675
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -24856,7 +24856,7 @@ SpriteRenderer:
   m_SortingLayerID: 490665771
   m_SortingLayer: -2
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: a7d10e921a33295489ee775374596e61, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5481b3562fc26b145ab4160ee0802706, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
