@@ -60,6 +60,11 @@ public class Statics : MonoBehaviour
     public static bool ex6TimeStart = false;
     public static int ex6Min = 0;
 
+    public static int[] exCount = new int[30];
+    public static float[] exTime = new float[30];
+    public static bool[] exTimeStart = new bool[30];
+    public static int[] exMin = new int[30];
+
     public static float score1;
     public static float score2;
     public static float score3;
@@ -67,6 +72,8 @@ public class Statics : MonoBehaviour
     public static float score5;
     public static float score6;
     public static float score7;
+
+    public static float[] scores = new float[45];
 
     //used for timer
     public System.DateTime prev = System.DateTime.Now;
@@ -95,6 +102,18 @@ public class Statics : MonoBehaviour
         }
         prev = System.DateTime.Now;
 
+        for (int x = 1; x < exTimeStart.Length; x++)
+        {
+            if (exTimeStart[x] == true)
+            {
+                Statics.exTime[x] += (float)diff.TotalSeconds;
+                if (exTime[x] >= 60)
+                {
+                    exMin[x] += 1;
+                    exTime[x] -= 60;
+                }
+            }
+        }
 
         //exhibit timers
         if (ex1TimeStart == true)
@@ -169,7 +188,10 @@ public class Statics : MonoBehaviour
         }
 
 
-
+        for (int x = 1; x < exTimeStart.Length; x++)
+        {
+            exTimeStart[x] = false;
+        }
 
 
 

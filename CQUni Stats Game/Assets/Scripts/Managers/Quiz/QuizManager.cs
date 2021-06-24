@@ -84,7 +84,8 @@ public class QuizManager : MonoBehaviour
 
     public void Correct()
     {
-        Statics.questCorrect[Statics.correctCounter] += 1;
+        Statics.questCorrect[Statics.questCounter] += 1;
+        
         Statics.correctCounter += 1;
         score = score + 1;
         numQuestions = numQuestions - 1;
@@ -114,6 +115,18 @@ public class QuizManager : MonoBehaviour
             TestquizScore[Statics.quizCount1] = (100 / totalNumQuestions) * score;
             Statics.quizCount1 += 1;
         }
+        if (quizLevel == 2)
+        {
+            Statics.quizScore2[Statics.quizCount2] = (100 / totalNumQuestions) * score;
+            TestquizScore[Statics.quizCount2] = (100 / totalNumQuestions) * score;
+            Statics.quizCount2 += 1;
+        }
+        if (quizLevel == 3)
+        {
+            Statics.quizScore3[Statics.quizCount3] = (100 / totalNumQuestions) * score;
+            TestquizScore[Statics.quizCount3] = (100 / totalNumQuestions) * score;
+            Statics.quizCount3 += 1;
+        }
 
 
         if (score == totalNumQuestions)
@@ -121,7 +134,7 @@ public class QuizManager : MonoBehaviour
 
             StartCoroutine(playSoundAfterSeconds(1));
             GameManager.Instance.DidPlayerPassQuiz(true, quizLevel);
-            StartCoroutine(GameManager.Instance.CreateAnalyticsData(Statics.timer.ToString(), Statics.artCount.ToString(), Statics.quizScore.ToString()));
+            //StartCoroutine(GameManager.Instance.CreateAnalyticsData(Statics.timer.ToString(), Statics.artCount.ToString(), Statics.quizScore.ToString()));
         }
         //Statics.timer = Statics.timer / 60;
         //kickstarts the analytics routine
