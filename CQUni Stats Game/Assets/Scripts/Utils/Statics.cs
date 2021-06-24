@@ -122,9 +122,34 @@ public class Statics : MonoBehaviour
         questCounter = 0;
         correctCounter = 0;
 
+        for (int x = 0; x < quizScore.Length; x++)
+        {
+            quizScore[x] = 0;
+            quizScore2[x] = 0;
+            quizScore3[x] = 0; 
+        }
+
+        for (int x = 0; x < exCount.Length; x++)
+        {
+            exCount[x] = 0;
+            exTime[x] = 0;
+            exTimeStart[x] = false;
+            exMin[x] = 0;
+        }
+
+        for(int x = 0; x < questChosen.Length; x ++)
+        {
+            questChosen[x] = 0;
+            questCorrect[x] = 0;
+        }
+
+        for(int x = 0; x < scores.Length; x ++)
+        {
+            scores[x] = 0;
+        }
     //exhibits
-       
 
 
-    }
+
+}
 }
