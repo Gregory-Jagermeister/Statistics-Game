@@ -40,7 +40,6 @@ function App() {
 
   function handleOnClickFullscreen() {
     unityContext.setFullscreen(true);
-    unityContext.send("GameController", "TestReactJS");
   }
 
   return (
