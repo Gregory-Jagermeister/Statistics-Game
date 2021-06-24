@@ -132,7 +132,7 @@ public class QuizManager : MonoBehaviour
         }
         
 
-        if (score <= totalNumQuestions)
+        if (score == totalNumQuestions)
         {
             Debug.Log("thingo");
             Statics.analyticsTrue = true;
