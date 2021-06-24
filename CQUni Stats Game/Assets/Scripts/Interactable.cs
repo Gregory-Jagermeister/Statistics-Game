@@ -66,14 +66,14 @@ public class Interactable : MonoBehaviour
                     else if (isDoor)
                     {
                         
-                        //door leads to level 1 from level 2
+                        //door leads to level 2 from level 1
                         if(isLVL2To1Door == true)
                         {
                             GameManager.Instance.MovePlayerToRoom(1);
                             
                         }
 
-                        //door leads to level 2 from level 1
+                        //door leads to level 1 from level 2
                         else if(isLVL1To2Door == true && GameManager.Instance.GetPlayersQuizResultsLVL1() == true)
                         {
                             GameManager.Instance.MovePlayerToRoom(2);

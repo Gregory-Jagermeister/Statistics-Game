@@ -1216,7 +1216,6 @@ MonoBehaviour:
   scoreText: {fileID: 58052084}
   score: 0
   numQuestions: 10
-  totalNumQuestions: 0
   multiChoicePanel: {fileID: 1324741293}
   InputPanel: {fileID: 1525658950}
   congratsMessage: 'Well done, you did your best and achived '
@@ -2691,7 +2690,7 @@ RectTransform:
   - {fileID: 1843286449}
   - {fileID: 1868773673}
   m_Father: {fileID: 998382932}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7245,8 +7244,8 @@ RectTransform:
   - {fileID: 1538258898}
   - {fileID: 461368529}
   - {fileID: 241398680}
-  - {fileID: 230163754}
   - {fileID: 1851425298}
+  - {fileID: 230163754}
   m_Father: {fileID: 44747837}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22887,7 +22886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.7058824}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -23024,7 +23023,7 @@ RectTransform:
   m_Children:
   - {fileID: 91822155}
   m_Father: {fileID: 998382932}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
