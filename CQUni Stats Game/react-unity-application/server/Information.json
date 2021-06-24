@@ -234,7 +234,7 @@
                 "https://www.youtube.com/watch?v=h8EYEJ32oQ8"
             ],
             "videoUrl": "https://www.youtube.com/watch?v=h8EYEJ32oQ8",
-            "content": "the mean is the numerical result of the sum of all the numbers in a given set divided by the total amount of terms. A tool that can be used is <link=\"https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.\"><color=orange>is the mean calculator.</color></link>"
+            "content": "The mean is the numerical result of the sum of all the numbers in a given set divided by the total amount of terms. A tool that can be used is <link=\"https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.\"><color=orange>is the mean calculator.</color></link>"
         },
         {
             "artifactId": "Mode",
@@ -246,7 +246,7 @@
                 "https://www.youtube.com/watch?v=h8EYEJ32oQ8"
             ],
             "videoUrl": "https://www.youtube.com/watch?v=h8EYEJ32oQ8",
-            "content": "The mode is the most common number within the range provided in the dataset"
+            "content": "The mode is the most common number within the range provided in the dataset."
         },
         {
             "artifactId": "Median",
@@ -258,7 +258,7 @@
             "videoUrl": "https://www.youtube.com/watch?v=h8EYEJ32oQ8",
             "isLocalImg": false,
             "imagePath": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Finding_the_median.png/1200px-Finding_the_median.png",
-            "content": "the median is the data value separating the upper half of a data set from the lower half. It is recommended to first sort the dataset before attempting to find the median"
+            "content": "The median is the data value separating the upper half of a data set from the lower half. It is recommended to first sort the dataset before attempting to find the median."
         },
         {
             "artifactId": "Standard Deviation",
@@ -271,7 +271,7 @@
             "videoUrl": "https://www.youtube.com/watch?v=WVx3MYd-Q9w",
             "isLocalImg": false,
             "imagePath": "https://www.thoughtco.com/thmb/GVy7U2pn2FP2Tut4MG53ZiCgOCQ=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/calculate-a-sample-standard-deviation-3126345-v4-CS-01-5b76f58f46e0fb0050bb4ab2.png",
-            "content": "the standard deviation is the the measure of the spread of the values in a dataset and is found by finding the mean, then for each data point we find the square of the distance between the mean and the data point and add these values, we then divide by the total number of data points and take the square root as the answer. <link=\"https://www.calculator.net/standard-deviation-calculator.html\"><color=orange> This is a link to a standard deviation calculating tool.</color></link>"
+            "content": "The standard deviation is the the measure of the spread of the values in a dataset and is found by finding the mean, then for each data point we find the square of the distance between the mean and the data point and add these values, we then divide by the total number of data points and take the square root as the answer. <link=\"https://www.calculator.net/standard-deviation-calculator.html\"><color=orange> This is a link to a standard deviation calculating tool.</color></link>"
         },
         {
             "artifactId": "Sampling",
@@ -283,7 +283,7 @@
             "imagePath": "https://cdn.scribbr.com/wp-content/uploads//2019/09/probability-sampling.png",
             "isLocalImg": false,
             "videoUrl": "https://www.youtube.com/watch?v=be9e-Q-jC-0",
-            "content": "This is the process of using a smaller cluster of data to represent a larger dataset. There is the possibility for sample error as samples can be biased or unrepresentative of the whole population. There are many types of sampling such as : simple Random, systematic, cluster, stratified and convenience "
+            "content": "This is the process of using a smaller cluster of data to represent a larger dataset. There is the possibility for sample error as samples can be biased or unrepresentative of the whole population. There are many types of sampling such as : simple Random, systematic, cluster, stratified and convenience. "
         },
         {
             "artifactId": "Two Sample T-Test",
@@ -319,7 +319,7 @@
                 "The numerical result of the sum of all the numbers divided by the total amount of terms",
                 "The most common number within the range provided in the dataset",
                 "The vibe of a number",
-                "The center point of a range of values provided when the dataset is sorted in either ascending or descending order"
+                "The center point of a range of values provided when the dataset is sorted in either ascending or descending order."
             ],
             "correctAnswer": 2,
             "isMultiChoice": true,
@@ -480,12 +480,12 @@
             "questionIndex": 13
         },
         {
-            "question": "Correlation and regression are concerned with ",
+            "question": "Correlation and regression are concerned with: ",
             "answers": [
-                "the relationship between two categorical variables.",
-                "the relationship between two quantitative variables.",
-                "the relationship between a quantitative predictor variable and a categorical response variable.",
-                "the relationship between a categorical predictor variable and a quantitative response variable."
+                "The relationship between two categorical variables.",
+                "The relationship between two quantitative variables.",
+                "The relationship between a quantitative predictor variable and a categorical response variable.",
+                "The relationship between a categorical predictor variable and a quantitative response variable."
             ],
             "correctAnswer": 2,
             "isMultiChoice": true,
@@ -571,7 +571,7 @@
             "pcResponse": [
                 "My name is Ben.",
                 "It's Joe.",
-                "It's Bob. Is 'The Professor' your actual name, or just a title?"
+                "It's Ben. Is 'The Professor' your actual name, or just a title?"
             ],
             "npcResponse": [
                 "Hello Ben! Welcome to the Museum!",
@@ -596,69 +596,69 @@
             "statement": "Moving on then. Are you aware that you will be undergoing a statistics quiz and that you must get all the answers right to proceed to the next level? ",
             "pcResponse": [
                 "Yes.",
-                "Right and next you'll say that pigs fly"
+                "Right and next you'll say that pigs fly!"
             ],
             "npcResponse": [
                 "Very good!",
-                "Pigs certanly can not fly, however you will need to pass the quiz to progress to the next floor. You see we here at Lig Museum modeled our stairway doors after sphinxes in mythology"
+                "Pigs certanly can not fly, however you will need to pass the quiz to progress to the next floor. You see we here at Lig Museum modeled our stairway doors after sphinxes in mythology."
             ],
             "npcPose": 2
         },
         {
             "statement": "Regardless, Do you know what the mean of a dataset is?",
             "pcResponse": [
-                "No",
+                "No.",
                 "of course I do, do you?"
             ],
             "npcResponse": [
-                "Well then let me explain, the mean is the numerical result of the sum of all the numbers in a given set divided by the total amount of terms",
-                "why yes, the mean is the numerical result of the sum of all the numbers in a given set divided by the total amount of terms"
+                "Well then let me explain, the mean is the numerical result of the sum of all the numbers in a given set divided by the total amount of terms.",
+                "Why yes, the mean is the numerical result of the sum of all the numbers in a given set divided by the total amount of terms."
             ],
             "npcPose": 2
         },
         {
             "statement": "Now, Do you know what the mode of a dataset is?",
             "pcResponse": [
-                "No",
+                "No.",
                 "Does it matter if your just going to tell me anyway?"
             ],
             "npcResponse": [
-                "The mode is the most common number within the range provided in the dataset",
-                "I suppose not, the mode is the most common number within the range provided in the dataset"
+                "The mode is the most common number within the range provided in the dataset.",
+                "I suppose not, the mode is the most common number within the range provided in the dataset."
             ],
             "npcPose": 2
         },
         {
-            "statement": "ok perhaps you know what the median of a dataset is?",
+            "statement": "Ok perhaps you know what the median of a dataset is?",
             "pcResponse": [
-                "No",
+                "No.",
                 "Is there any point in me joking around?"
             ],
             "npcResponse": [
                 "Ok then, well the median is the data value separating the upper half of a data set from the lower half.",
-                "oh I enjoy a good joke, please tell me one later on. But on to more pressing matters, the median is the data value separating the upper half of a data set from the lower half."
+                "Oh I enjoy a good joke, please tell me one later on. But on to more pressing matters, the median is the data value separating the upper half of a data set from the lower half."
             ],
             "npcPose": 2
         },
         {
-            "statement": "finally are you aware of how to obtain the standard deviation of a dataset?",
+            "statement": "Finally are you aware of how to obtain the standard deviation of a dataset?",
             "pcResponse": [
-                "No"
+                "No."
             ],
             "npcResponse": [
-                "Well then let me explain, the standard deviation is the the measure of the spread of the values in a dataset and is found by finding the mean, then for each data point we find the square of the distance between the mean and the data point and add these values, we then divide by the total number of data points and take the square root as the answer"
+                "Well then let me explain, the standard deviation is the the measure of the spread of the values in a dataset and is found by finding the mean, then for each data point we find the square of the distance between the mean and the data point and add these values, we then divide by the total number of data points and take the square root as the answer."
             ],
             "npcPose": 2
         },
         {
-            "statement": "did you understand all that?",
+            "statement": "Did you understand all that?",
             "pcResponse": [
-                "No",
-                "About as well as you understand sarcasm it seems"
+                "No.",
+                "About as well as you understand sarcasm it seems..."
             ],
             "npcResponse": [
-                "Well don't worry, you can always talk to me again, before or after the quiz",
-                "Ah I have been told by my wife that I am a master at understanding and picking up sarcasm so you should do well. If not don't be afraid to come talk to me again"
+                "Well don't worry, you can always talk to me again, before or after the quiz.",
+                "Ah I have been told by my wife that I am a master at understanding and picking up sarcasm, so you should do well. If not don't be afraid to come talk to me again."
             ],
             "npcPose": 2
         },
@@ -671,7 +671,7 @@
     ],
     "lvl2Dialogue": [
         {
-            "statement": "Hello again, I see you made it past the first floor",
+            "statement": "Hello again, I see you made it past the first floor!",
             "pcResponse": [
                 "Yes, I did. I had to pass a quiz to open the door to this level.",
                 "No really, I can see why they call you a professor."
@@ -685,8 +685,8 @@
         {
             "statement": "I am sure you noticed the goblets that looked like wine and the books on pedestals on the first floor.",
             "pcResponse": [
-                "Yes",
-                "Nope I must have missed them, you guys were very subtle about it"
+                "Yes.",
+                "Nope I must have missed them, you guys were very subtle about it."
             ],
             "npcResponse": [
                 "Good, you will have noticed that if you interacted with the wine goblets you will be given a vision of a region in a country where you can learn about their population and how poverty impacts the population in that region. In the book pedestals the information you need to pass the levels are freely provided.",
@@ -697,19 +697,19 @@
         {
             "statement": "I was instructed to not provide any assistance for this level and the one after, any questions not related to the quiz?",
             "pcResponse": [
-                "Yes, how did you beat me here. I didn't see you walk over and I entered the room before you did"
+                "Yeah - how did you beat me here? I didn't see you walk over and I entered the room before you did."
             ],
             "npcResponse": [
-                "I will explain if you pass this quiz and find me on the next floor"
+                "I will explain if you pass this quiz and find me on the next floor!"
             ],
             "npcPose": 0
         }
     ],
     "lvl3Dialogue": [
         {
-            "statement": "Welcome! Ben",
+            "statement": "Welcome Ben!",
             "pcResponse": [
-                "I think i deserve some answers now."
+                "I think I deserve some answers now."
             ],
             "npcResponse": [
                 "Indeed, I am an artificial intelligent assistant, one that has existed for many centuries."
@@ -717,22 +717,22 @@
             "npcPose": 0
         },
         {
-            "statement": "I function as a way to provide conversation and companionship to all vistors",
+            "statement": "I function as a way to provide conversation and companionship to all vistors.",
             "pcResponse": [
-                "How many vistors do you get, you talk like there is so many, But I am the only person here"
+                "How many vistors do you get? You talk like there is so many but I am the only person here."
             ],
             "npcResponse": [
-                "Well for the past couple of years we have only had one vistor in this establishment. Curiously they keep forgetting that they have ever stepped foot in the place"
+                "Well for the past couple of years we have only had one vistor in this establishment. Curiously they keep forgetting that they have ever stepped foot in the place..."
             ],
             "npcPose": 0
         },
         {
-            "statement": "I am of course talking about you Ben",
+            "statement": "I am of course talking about you Ben.",
             "pcResponse": [
-                "No, NO, NOO, your lying"
+                "No... NO... NOO! You're lying!"
             ],
             "npcResponse": [
-                "Lets test that theory, pass the quiz and walk through the final door. I'll see you again, after all you have kept returning every day for the past 10 years"
+                "Let's test that theory! Pass the quiz and walk through the final door. I'll see you again. After all; you kept returning every day for the past 10 years."
             ],
             "npcPose": 0
         }
