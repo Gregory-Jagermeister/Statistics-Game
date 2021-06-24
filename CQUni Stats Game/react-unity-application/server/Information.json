@@ -299,20 +299,6 @@
             "content": "The two-sample t-test (also known as the independent samples t-test) is a method used to test whether the unknown population means of two groups are equal or not. and is used when the data values are independent, random sampled from two normal populations and the two independent groups have equal variances. <link=\"https://www.calculator.net/standard-deviation-calculator.html\"><color=orange> For more information click this link.</color></link> "
         },
         {
-            "artifactId": "one sided two Sample T-Test",
-            "heading": "one sided two Sample T-Test",
-            "sources": [
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mali_Regions.png/360px-Mali_Regions.png",
-                "https://www.youtube.com/watch?v=Yt0_sa_wr_U",
-                "https://en.wikipedia.org/wiki/Multidimensional_Poverty_Index.",
-                "https://www.kaggle.com/ophi/mpi?select=MPI_subnational.csv"
-            ],
-            "isLocalImg": false,
-            "imagePath": "https://www.savethechildren.org/content/dam/usa/images/usp/us-education/us-west-virginia-esss-ch1426637-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg",
-            "videoUrl": "https://www.youtube.com/watch?v=aLwRZibUqL0",
-            "content": "Poverty should be fixed give money to all"
-        },
-        {
             "artifactId": "Paired T- Test",
             "heading": "Paired T- Test",
             "sources": [

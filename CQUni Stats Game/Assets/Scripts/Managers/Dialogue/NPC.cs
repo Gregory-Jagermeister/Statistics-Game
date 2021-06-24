@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
-    
-    public string  npcName;
-    public List<Dialogue> convo; 
-    public List<Questions> quiz; 
+
+    public string npcName;
+    private List<Dialogue> convo;
+    private List<Questions> quiz;
     public int level;
 
-    
+
     void Start()
     {
-        switch(level)
+        switch (level)
         {
             case 1:
                 quiz = GameManager.Instance.GetJson().getQuizArray(1);
@@ -34,13 +34,13 @@ public class NPC : MonoBehaviour
                 break;
 
         }
-            
+
 
     }
 
 
     public void triggerDialogue()
     {
-        GameManager.Instance.OpenDialogue(npcName,convo,quiz,level);
-    } 
+        GameManager.Instance.OpenDialogue(npcName, convo, quiz, level);
+    }
 }
