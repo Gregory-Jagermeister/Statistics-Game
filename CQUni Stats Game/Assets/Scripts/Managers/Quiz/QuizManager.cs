@@ -13,7 +13,7 @@ public class QuizManager : MonoBehaviour
     public GameObject[] choices;
     private int currentQuestion;
     public TextMeshProUGUI questionText;
-
+    public GameManager _gameManager;
     public float[] TestquizScore = new float[99];
 
     public GameObject backgroundQuizPanel;
@@ -21,9 +21,9 @@ public class QuizManager : MonoBehaviour
     public GameObject quizPanel;
     public TextMeshProUGUI scoreText;
     private int totalQuestions;
-    private int score;
+    public int score;
     public int numQuestions = 2;
-    private int totalNumQuestions;
+    public int totalNumQuestions;
 
     public GameObject multiChoicePanel;
     public GameObject InputPanel;
@@ -102,6 +102,7 @@ public class QuizManager : MonoBehaviour
 
     public void QuizOver()
     {
+        
         GameManager.Instance.SetInteractingFalse();
         scorePanel.gameObject.SetActive(true);
         quizPanel.gameObject.SetActive(false);
@@ -127,14 +128,16 @@ public class QuizManager : MonoBehaviour
             TestquizScore[Statics.quizCount3] = (100 / totalNumQuestions) * score;
             Statics.quizCount3 += 1;
         }
+        
 
-
-        if (score == totalNumQuestions)
+        if (score <= totalNumQuestions)
         {
-
+            Debug.Log("thingo");
+            Statics.analyticsTrue = true;
+            //_gameManager.
             StartCoroutine(playSoundAfterSeconds(1));
             GameManager.Instance.DidPlayerPassQuiz(true, quizLevel);
-            //StartCoroutine(GameManager.Instance.CreateAnalyticsData(Statics.timer.ToString(), Statics.artCount.ToString(), Statics.quizScore.ToString()));
+            StartCoroutine(GameManager.Instance.CreateAnalyticsData(Statics.timer.ToString(), Statics.artCount.ToString(), Statics.quizScore.ToString()));
         }
         //Statics.timer = Statics.timer / 60;
         //kickstarts the analytics routine

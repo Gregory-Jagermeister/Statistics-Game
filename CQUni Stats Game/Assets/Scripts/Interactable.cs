@@ -113,36 +113,7 @@ public class Interactable : MonoBehaviour
                         GameManager.Instance.SetInteractingTrue();
 
                         //starts timer and counter for appropriate exhibit
-                        switch (this.gameObject.name)
-                        {
-                            case "Exhibit1":
-                                Statics.ex1TimeStart = true;
-                                Statics.ex1Count += 1;
-                                break;
-                            case "Exhibit2":
-                                Statics.ex2TimeStart = true;
-                                Statics.ex2Count += 1;
-                                break;
-                            case "Exhibit3":
-                                Statics.ex3TimeStart = true;
-                                Statics.ex3Count += 1;
-                                break;
-                            case "Exhibit4":
-                                Statics.ex4TimeStart = true;
-                                Statics.ex4Count += 1;
-                                break;
-                            case "Exhibit5":
-                                Statics.ex5TimeStart = true;
-                                Statics.ex5Count += 1;
-                                break;
-                            case "Exhibit6":
-                                Statics.ex6TimeStart = true;
-                                Statics.ex6Count += 1;
-                                break;
-                            default:
-                                
-                                break;
-                        }
+                        
                     }
 
                 }
