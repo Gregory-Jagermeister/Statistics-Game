@@ -24,6 +24,7 @@ public class QuizManager : MonoBehaviour
     private int score;
     public int numQuestions = 2;
     private int totalNumQuestions;
+    private int initalNumQuestions;
 
     public GameObject multiChoicePanel;
     public GameObject InputPanel;
@@ -57,6 +58,7 @@ public class QuizManager : MonoBehaviour
         {
             questions.Add(item);
         }
+        initalNumQuestions = numQuestions;
 
         arraySize = quiz.Count;
         if (numQuestions > arraySize)
@@ -85,7 +87,7 @@ public class QuizManager : MonoBehaviour
     public void Correct()
     {
         Statics.questCorrect[Statics.questCounter] += 1;
-        
+
         Statics.correctCounter += 1;
         score = score + 1;
         numQuestions = numQuestions - 1;
@@ -143,7 +145,8 @@ public class QuizManager : MonoBehaviour
 
         score = 0;
         questions.Clear();
-        numQuestions = totalNumQuestions;
+        numQuestions = initalNumQuestions;
+
     }
     IEnumerator playSoundAfterSeconds(int seconds)
     {
@@ -197,6 +200,7 @@ public class QuizManager : MonoBehaviour
             Statics.questCounter += 1;
             questionText.SetText(questions[currentQuestion].question);
             SetAnswers();
+            image.SetActive(false);
             if (!(questions[currentQuestion].imgLink == null || questions[currentQuestion].imgLink.ToLower() == "none" || questions[currentQuestion].imgLink.ToLower() == ""))
             {
                 image.SetActive(true);
@@ -219,7 +223,6 @@ public class QuizManager : MonoBehaviour
         else
         {
             Debug.Log("out of questions");
-
             QuizOver();
         }
 
