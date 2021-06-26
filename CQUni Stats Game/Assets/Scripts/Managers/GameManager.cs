@@ -70,6 +70,7 @@ public class GameManager : Singleton<GameManager>
         _dialogueManager = this.gameObject.GetComponent<DialogueManager>();
         _soundManager = this.gameObject.GetComponent<SoundManager>();
         _statsManager = this.gameObject.GetComponent<Statics>();
+
     }
 
 
