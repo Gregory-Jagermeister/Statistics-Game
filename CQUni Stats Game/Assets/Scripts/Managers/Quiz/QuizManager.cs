@@ -13,7 +13,7 @@ public class QuizManager : MonoBehaviour
     public GameObject[] choices;
     private int currentQuestion;
     public TextMeshProUGUI questionText;
-
+    public GameManager _gameManager;
     public float[] TestquizScore = new float[99];
 
     public GameObject backgroundQuizPanel;
@@ -21,9 +21,10 @@ public class QuizManager : MonoBehaviour
     public GameObject quizPanel;
     public TextMeshProUGUI scoreText;
     private int totalQuestions;
-    private int score;
+    public int score;
     public int numQuestions = 2;
     private int totalNumQuestions;
+    private int initalNumQuestions;
 
     public GameObject multiChoicePanel;
     public GameObject InputPanel;
@@ -57,6 +58,7 @@ public class QuizManager : MonoBehaviour
         {
             questions.Add(item);
         }
+        initalNumQuestions = numQuestions;
 
         arraySize = quiz.Count;
         if (numQuestions > arraySize)
@@ -85,7 +87,7 @@ public class QuizManager : MonoBehaviour
     public void Correct()
     {
         Statics.questCorrect[Statics.questCounter] += 1;
-        
+
         Statics.correctCounter += 1;
         score = score + 1;
         numQuestions = numQuestions - 1;
@@ -102,6 +104,7 @@ public class QuizManager : MonoBehaviour
 
     public void QuizOver()
     {
+        
         GameManager.Instance.SetInteractingFalse();
         scorePanel.gameObject.SetActive(true);
         quizPanel.gameObject.SetActive(false);
@@ -127,14 +130,16 @@ public class QuizManager : MonoBehaviour
             TestquizScore[Statics.quizCount3] = (100 / totalNumQuestions) * score;
             Statics.quizCount3 += 1;
         }
+        
 
-
-        if (score == totalNumQuestions)
+        if (score <= totalNumQuestions)
         {
-
+            Debug.Log("thingo");
+            Statics.analyticsTrue = true;
+            //_gameManager.
             StartCoroutine(playSoundAfterSeconds(1));
             GameManager.Instance.DidPlayerPassQuiz(true, quizLevel);
-            //StartCoroutine(GameManager.Instance.CreateAnalyticsData(Statics.timer.ToString(), Statics.artCount.ToString(), Statics.quizScore.ToString()));
+            StartCoroutine(GameManager.Instance.CreateAnalyticsData(Statics.timer.ToString(), Statics.artCount.ToString(), Statics.quizScore.ToString()));
         }
         //Statics.timer = Statics.timer / 60;
         //kickstarts the analytics routine
@@ -143,7 +148,8 @@ public class QuizManager : MonoBehaviour
 
         score = 0;
         questions.Clear();
-        numQuestions = totalNumQuestions;
+        numQuestions = initalNumQuestions;
+
     }
     IEnumerator playSoundAfterSeconds(int seconds)
     {
@@ -197,6 +203,7 @@ public class QuizManager : MonoBehaviour
             Statics.questCounter += 1;
             questionText.SetText(questions[currentQuestion].question);
             SetAnswers();
+            image.SetActive(false);
             if (!(questions[currentQuestion].imgLink == null || questions[currentQuestion].imgLink.ToLower() == "none" || questions[currentQuestion].imgLink.ToLower() == ""))
             {
                 image.SetActive(true);
@@ -219,7 +226,6 @@ public class QuizManager : MonoBehaviour
         else
         {
             Debug.Log("out of questions");
-
             QuizOver();
         }
 

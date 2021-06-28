@@ -164,7 +164,9 @@ public class UIManager : MonoBehaviour
 
     public void OpenVideoPlayer()
     {
+
         videoPlaying = true;
+
         CanvasExtentions.RectTransformPosition(VideoPlayerUI, 0, 0, 0, 0);
     }
 
