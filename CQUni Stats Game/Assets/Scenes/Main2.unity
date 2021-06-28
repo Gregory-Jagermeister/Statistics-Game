@@ -1002,8 +1002,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 916486875}
   m_HandleRect: {fileID: 916486874}
   m_Direction: 2
-  m_Value: 0.9999997
-  m_Size: 0.63190687
+  m_Value: 1.0000002
+  m_Size: 0.6319068
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10311,8 +10311,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 323845912}
   m_HandleRect: {fileID: 323845911}
   m_Direction: 2
-  m_Value: 0.9996993
-  m_Size: 0.24653913
+  m_Value: 0.9996981
+  m_Size: 0.24653918
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -12334,7 +12334,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &295582565
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22858,6 +22858,7 @@ MonoBehaviour:
   - {fileID: 1737424827}
   - {fileID: 1737424825}
   questionText: {fileID: 1737424841}
+  _gameManager: {fileID: 0}
   TestquizScore:
   - 0
   - 0
@@ -22962,6 +22963,7 @@ MonoBehaviour:
   scorePanel: {fileID: 1737424817}
   quizPanel: {fileID: 1737424835}
   scoreText: {fileID: 1737424837}
+  score: 0
   numQuestions: 10
   multiChoicePanel: {fileID: 1737424823}
   InputPanel: {fileID: 1737424834}
