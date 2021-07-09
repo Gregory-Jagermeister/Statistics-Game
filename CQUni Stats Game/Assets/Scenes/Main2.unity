@@ -1002,7 +1002,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 916486875}
   m_HandleRect: {fileID: 916486874}
   m_Direction: 2
-  m_Value: 1.0000002
+  m_Value: 1
   m_Size: 0.6319068
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -10311,8 +10311,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 323845912}
   m_HandleRect: {fileID: 323845911}
   m_Direction: 2
-  m_Value: 0.9996981
-  m_Size: 0.24653918
+  m_Value: 0.99970025
+  m_Size: 0.2465392
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -19281,7 +19281,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1099046085}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1650324, y: -0.13668251, z: 0}
+  m_LocalPosition: {x: -1.1550322, y: -0.31968212, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1265400741}
@@ -22858,7 +22858,7 @@ MonoBehaviour:
   - {fileID: 1737424827}
   - {fileID: 1737424825}
   questionText: {fileID: 1737424841}
-  _gameManager: {fileID: 0}
+  _gameManager: {fileID: 1560076571}
   TestquizScore:
   - 0
   - 0

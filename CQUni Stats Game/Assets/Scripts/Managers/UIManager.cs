@@ -322,25 +322,45 @@ public class UIManager : MonoBehaviour
         UnityWebRequest request;
         if (Debug.isDebugBuild)
         {
-            request = UnityWebRequestTexture.GetTexture(URL);
+            if (isLocalImg == true)
+            {
+                Debug.Log("it is a local image");
+                Debug.Log(URL);
+                request = UnityWebRequestTexture.GetTexture("http://localhost:3001/" + URL);
+
+            }
+            else
+            {
+                Debug.Log("it is not a local image");
+                Debug.Log(URL);
+                request = UnityWebRequestTexture.GetTexture("http://localhost:3001/proxy/" + URL);
+
+            }
         }
         else
         {
             if (isLocalImg == true)
             {
+                Debug.Log("it is a local image");
+                Debug.Log(URL);
                 request = UnityWebRequestTexture.GetTexture(URL);
 
             }
             else
             {
+                Debug.Log("it is not a local image");
+                Debug.Log(URL);
                 request = UnityWebRequestTexture.GetTexture("/proxy/" + URL);
 
             }
         }
 
+
         yield return request.SendWebRequest();
         if (request.isNetworkError || request.isHttpError)
         {
+            Debug.Log(isLocalImg);
+            Debug.Log(URL);
             Debug.Log(request.error);
         }
         else
